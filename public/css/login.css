@@ -1,0 +1,89 @@
+main {
+  background-color: #fafaf8;
+  padding: 60px 0px; }
+  main .container {
+    background-color: #fff;
+    display: flex;
+    margin: 0px 60px;
+    height: 450px; }
+    main .container .image {
+      width: 60%;
+      overflow: hidden; }
+    main .container .form {
+      width: 40%;
+      padding: 10px; }
+      main .container .form .credentials_form {
+        padding: 35px; }
+        main .container .form .credentials_form .credentials {
+          display: flex;
+          flex-direction: column; }
+          main .container .form .credentials_form .credentials * {
+            margin-bottom: 15px;
+            padding: 10px 25px;
+            border-radius: 25px;
+            outline: none; }
+          main .container .form .credentials_form .credentials input {
+            border-width: 1px; }
+          main .container .form .credentials_form .credentials button {
+            border-width: 0px;
+            background-color: #fa5a4c;
+            color: #fff; }
+          main .container .form .credentials_form .credentials .disabled {
+            color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(250, 90, 76, 0.5);
+            pointer-events: none; }
+        main .container .form .credentials_form .forgot_password {
+          height: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-bottom: 1px solid #afafaf; }
+          main .container .form .credentials_form .forgot_password a {
+            color: #fa5a4c; }
+            main .container .form .credentials_form .forgot_password a:hover {
+              border-bottom: 1px solid #fa5a4c; }
+      main .container .form .code_form {
+        margin: 35px;
+        border-bottom: 1px solid #afafaf; }
+        main .container .form .code_form .title {
+          width: 75%;
+          text-align: center;
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 1.25rem; }
+        main .container .form .code_form .return_login {
+          padding: 15px;
+          text-align: center;
+          color: #fa5a4c; }
+          main .container .form .code_form .return_login span {
+            cursor: pointer; }
+            main .container .form .code_form .return_login span:hover {
+              border-bottom: 1px solid #fa5a4c; }
+        main .container .form .code_form .code_input,
+        main .container .form .code_form .verify {
+          width: 100%;
+          margin-bottom: 15px;
+          padding: 10px 25px;
+          border-radius: 25px;
+          outline: none;
+          border-width: 1px; }
+        main .container .form .code_form .verify {
+          border: 0px;
+          background-color: #fa5a4c;
+          color: #fff; }
+        main .container .form .code_form .time {
+          margin-bottom: 40px;
+          text-align: center; }
+
+@media only screen and (max-width: 768px) {
+  main {
+    padding: 0px; }
+    main .container {
+      flex-direction: column;
+      margin: 0; }
+      main .container .image {
+        overflow: unset;
+        width: 100%; }
+      main .container .form {
+        width: 100%; } }

@@ -37,5 +37,14 @@ Route::prefix("universidades")->group(function () {
 
 /* Login */
 Route::prefix("login")->group(function () {
-  Route::get("/", "UsuariosController@login");
+  Route::get("/", "UsuariosController@login")
+    ->name("login");
+  Route::post("/validar", "UsuariosController@validar")
+    ->name("validar");
+  Route::get("/codigo", "UsuariosController@codigo")
+    ->name("login_code");
+  Route::post("/comprobar_codigo", "UsuariosController@comprobarCodigo")
+    ->name("comprobar_codigo");
 });
+
+Route::get("/logout", "UsuariosController@logout");

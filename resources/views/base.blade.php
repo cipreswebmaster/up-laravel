@@ -1,3 +1,7 @@
+@php
+  if (session_status() == 1)
+    session_start();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>

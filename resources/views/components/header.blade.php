@@ -37,13 +37,23 @@
     @endforeach
   </nav>
   <div class="session">
-    {{-- <div class="planes-btn">
-      <a href="/plans">Conoce nuestros planes</a>
-    </div>
-    <div class="ref login link">
-      <x-loggin-out />
-    </div>
-    <x-register-btn /> --}}
+    @if (isset($_SESSION["logged"]))  
+        <div class="ref login link">
+          <a href="{{ url("logout") }}" class="logginout">
+            Cerrar Sesión
+          </a>
+        </div>
+      @else
+        <div class="planes-btn">
+          <a href="/plans">Conoce nuestros planes</a>
+        </div>
+        <div class="ref login link">
+          <a href="{{ url("login") }}" class="logginout">
+            Iniciar Sesión
+          </a>
+        </div>
+        <x-register-btn />
+      @endif
   </div>
   {{-- <div class="responsive_btn" onClick={handleMenuOpen}>
     <img src={menu} alt="" />

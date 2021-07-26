@@ -1,0 +1,140 @@
+main {
+    background-color: rgb(250, 250, 248);
+    padding: 60px 0px;
+
+    .container {
+        background-color: #fff;
+        display: flex;
+        margin: 0px 60px;
+        height: 450px;
+
+        .image {
+            width: 60%;
+            overflow: hidden;
+        }
+
+        .form {
+            width: 40%;
+            padding: 10px;
+
+            .credentials_form {
+                padding: 35px;
+
+                .credentials {
+                    display: flex;
+                    flex-direction: column;
+
+                    * {
+                        margin-bottom: 15px;
+                        padding: 10px 25px;
+                        border-radius: 25px;
+                        outline: none;
+                    }
+
+                    input {
+                        border-width: 1px;
+                    }
+
+                    button {
+                        border-width: 0px;
+                        background-color: rgb(250, 90, 76);
+                        color: #fff;
+                    }
+
+                    .disabled {
+                        color: rgba(255, 255, 255, 0.5);
+                        background-color: rgba(250, 90, 76, 0.5);
+                        pointer-events: none;
+                    }
+                }
+
+                .forgot_password {
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-bottom: 1px solid rgb(175, 175, 175);
+
+                    a {
+                        color: rgb(250, 90, 76);
+
+                        &:hover {
+                            border-bottom: 1px solid rgb(250, 90, 76);
+                        }
+                    }
+                }
+            }
+
+            .code_form {
+                $base-color: #fa5a4c;
+
+                margin: 35px;
+                border-bottom: 1px solid rgb(175, 175, 175);
+
+                .title {
+                    width: 75%;
+                    text-align: center;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 1.25rem;
+                }
+
+                .return_login {
+                    padding: 15px;
+                    text-align: center;
+                    color: $base-color;
+
+                    span {
+                        cursor: pointer;
+
+                        &:hover {
+                            border-bottom: 1px solid $base-color;
+                        }
+                    }
+                }
+
+                .code_input,
+                .verify {
+                    width: 100%;
+                    margin-bottom: 15px;
+                    padding: 10px 25px;
+                    border-radius: 25px;
+                    outline: none;
+                    border-width: 1px;
+                }
+
+                .verify {
+                    border: 0px;
+                    background-color: $base-color;
+                    color: #fff;
+                }
+
+                .time {
+                    margin-bottom: 40px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        padding: 0px;
+
+        .container {
+            flex-direction: column;
+            margin: 0;
+
+            .image {
+                overflow: unset;
+                width: 100%;
+            }
+
+            .form {
+                width: 100%;
+            }
+        }
+    }
+}
