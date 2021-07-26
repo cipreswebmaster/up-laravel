@@ -1,0 +1,79 @@
+main {
+  background-color: #f3f3f3;
+  padding: 60px; }
+  main .r-container {
+    background-color: #fff;
+    padding: 50px 250px; }
+    main .r-container .text {
+      padding: 5px 25px;
+      outline: none;
+      border-width: 1px;
+      border-radius: 25px;
+      width: calc((100% / 2) - 10px); }
+    main .r-container .select {
+      padding: 5px 25px;
+      outline: none;
+      border-width: 1px;
+      border-radius: 25px;
+      width: calc((100% / 2) - 10px); }
+    main .r-container .r-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px; }
+    main .r-container .born_date {
+      margin-bottom: 15px; }
+      main .r-container .born_date .title {
+        font-size: 0.8rem;
+        padding-left: 15px; }
+      main .r-container .born_date .form {
+        display: flex;
+        justify-content: space-between; }
+        main .r-container .born_date .form select {
+          width: calc((100% / 3) - 15px);
+          padding: 10px 25px;
+          border-radius: 50px;
+          outline: none; }
+        main .r-container .born_date .form .error_select {
+          border-color: red; }
+      main .r-container .born_date .error_msg {
+        color: red;
+        padding: 0px 10px;
+        font-size: 0.75rem; }
+    main .r-container .terms_conditions {
+      font-size: 0.75rem;
+      padding: 15px 0px;
+      margin-bottom: 15px; }
+    main .r-container .submitBtn {
+      width: 100%;
+      background-color: #ff5a4a;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px;
+      outline: none;
+      text-align: center; }
+  main .p-container {
+    margin-bottom: 15px; }
+    main .p-container .inputs {
+      display: flex;
+      justify-content: space-between; }
+    main .p-container .pass_error {
+      color: red;
+      font-size: 0.75rem; }
+
+@media only screen and (max-width: 768px) {
+  main {
+    padding: 30px; }
+    main .r-container {
+      padding: 30px; }
+      main .r-container .text {
+        width: 100% !important;
+        margin-bottom: 15px; }
+      main .r-container .select {
+        width: 100% !important;
+        margin-bottom: 15px; }
+      main .r-container .r-row {
+        flex-direction: column;
+        margin-bottom: 0px; }
+    main .inputs {
+      flex-direction: column; } }

@@ -48,3 +48,5 @@ Route::prefix("login")->group(function () {
 });
 
 Route::get("/logout", "UsuariosController@logout");
+Route::get("/registrate", "UsuariosController@registrate")->name("registrate");
+Route::post("/registrar", "UsuariosController@registrar")->name("registrar");

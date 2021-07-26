@@ -1,6 +1,6 @@
 <div class="reg-container">
   <div class="start_now">
-    <a href="/register">
+    <a href="{{ route("registrate") }}">
       Regístrate
     </a>
   </div>

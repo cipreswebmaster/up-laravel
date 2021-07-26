@@ -72,6 +72,45 @@ class UsuariosController extends Controller
     return redirect("/");
   }
 
+  public function registrate() {
+    session_start();
+    if (isset($_SESSION["logged"]))
+      return redirect("perfil");
+    return view("registrate");
+  }
+
+  public function registrar(Request $request) {
+    $email = $request->email;
+    $document = $request->documento;
+    $userAlreadyExists = User::where("email", "=", $email)
+                              ->orWhere("document", "=", $document)->get();
+
+    if ($userAlreadyExists != null) {
+      return redirect()->route("registrate", ["user_exists" => true]);
+    }
+
+    $user = new User();
+    $user->names = $request->nombres;
+    $user->last_names = $request->apellidos;
+    $user->id_gender = $request->gender;
+    $user->phone_number = $request->tel;
+    $user->email = $request->email;
+    $user->document = $request->documento;
+    $user->password = password_hash($request->password, PASSWORD_DEFAULT);
+    $user->state = 1;
+
+    $dia = intval($request->day);
+    $mes = intval($request->month);
+    $anio = intval($request->year);
+    $user->birthday = "$dia/$mes/$anio";
+
+    $user->session_token = md5(time() + random_int(100, 1000000));
+
+    $user->save();
+
+    return redirect()->route("login");
+  }
+
   /**
    * Genera una cadena de caracteres aleatorio que será usado como código de login
    * 
