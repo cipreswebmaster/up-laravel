@@ -1,0 +1,131 @@
+main {
+    margin: 100px;
+    margin-top: 150px;
+    display: flex;
+
+    .loading_user {
+        margin: 35px;
+    }
+
+    .left {
+        width: 25%;
+
+        .profile_pic {
+            display: flex;
+
+            .pic {
+                border-radius: 100%;
+                overflow: hidden;
+                width: 35%;
+            }
+
+            .name {
+                font-weight: bold;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 25px;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .right {
+        width: 75%;
+        $info_container_width: 75%;
+
+        .fields {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: $info_container_width;
+            margin-bottom: 25px;
+
+            & > * {
+                width: calc(50% - 30px);
+            }
+
+            .field {
+                margin-top: 25px;
+
+                .title {
+                    color: gray;
+                }
+
+                .field_input {
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    outline: none;
+                    padding-top: 10px;
+                    padding-bottom: 15px;
+                    font-size: 1.2rem;
+                    width: 100%;
+                }
+            }
+        }
+
+        .buttons {
+            width: $info_container_width;
+            display: flex;
+            justify-content: space-between;
+
+            & > * {
+                width: calc(50% - 10px);
+            }
+
+            .button {
+                border: none;
+                background-color: #ff5a4a;
+                color: white;
+                font-weight: bold;
+                padding: 5px 25px;
+                border-radius: 50px;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &.disabled {
+                    background-color: rgba(255, 90, 74, 0.7);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        margin: 150px 15px 0px 15px;
+
+        .right {
+            width: 100% !important;
+
+            & > h1 {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            .fields {
+                flex-direction: column;
+                flex-wrap: nowrap;
+                width: 100%;
+
+                .field {
+                    width: 100% !important;
+
+                    & * {
+                        font-size: 0.85rem !important;
+                    }
+                }
+            }
+
+            .buttons {
+                width: 100%;
+
+                button {
+                    width: 50% !important;
+                }
+            }
+        }
+    }
+}

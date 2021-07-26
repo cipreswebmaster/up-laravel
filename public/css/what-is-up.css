@@ -14,11 +14,12 @@
         color: #ff5a4a;
         font-family: Poppins-SemiBold; }
     .what-is-up .description p {
-      font-size: 25px;
+      font-size: 20px;
       padding-right: 35px;
       line-height: 35px; }
   .what-is-up .contact-form {
     width: 50%;
+    padding: 75px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -38,7 +39,7 @@
     .what-is-up .contact-form .form button {
       background-color: #ff5a4a;
       width: 35%;
-      font-size: 25px;
+      font-size: 20px;
       color: #fff;
       border: 0px;
       border-radius: 15px;

@@ -1,6 +1,6 @@
 @php
     $instructions = [
-      ["title" => "Registrate",
+      ["title" => "Regístrate",
         "content" => "Si tienes el código de tu colegio, ponlo para poder iniciar el test, si no lo tienes, pídele ayuda a tus papás para poder realizar el pago y empezar a disfrutar de UP."],
       ["title" => "Realiza el test",
         "content" => "Responde las preguntas con la mayor sinceridad para que los resultados sean lo más certeros posible."],

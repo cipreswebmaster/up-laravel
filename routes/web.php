@@ -47,6 +47,10 @@ Route::prefix("login")->group(function () {
     ->name("comprobar_codigo");
 });
 
-Route::get("/logout", "UsuariosController@logout");
+Route::get("/logout", "UsuariosController@logout")->name("logout");
 Route::get("/registrate", "UsuariosController@registrate")->name("registrate");
 Route::post("/registrar", "UsuariosController@registrar")->name("registrar");
+
+Route::get("/perfil", "PerfilController@index")->name("perfil");
+
+Route::view('/membresias', 'membresias');

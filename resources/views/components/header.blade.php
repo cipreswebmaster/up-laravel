@@ -52,8 +52,8 @@
             Iniciar Sesión
           </a>
         </div>
-        <x-register-btn />
       @endif
+      <x-register-btn />
   </div>
   {{-- <div class="responsive_btn" onClick={handleMenuOpen}>
     <img src={menu} alt="" />

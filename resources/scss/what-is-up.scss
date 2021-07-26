@@ -20,7 +20,7 @@
         }
 
         p {
-            font-size: 25px;
+            font-size: 20px;
             padding-right: 35px;
             line-height: 35px;
         }
@@ -28,6 +28,7 @@
 
     .contact-form {
         width: 50%;
+        padding: 75px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -55,7 +56,7 @@
             button {
                 background-color: rgb(255, 90, 74);
                 width: 35%;
-                font-size: 25px;
+                font-size: 20px;
                 color: #fff;
                 border: 0px;
                 border-radius: 15px;

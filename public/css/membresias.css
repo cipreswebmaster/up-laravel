@@ -1,0 +1,178 @@
+.memberships {
+  padding: 150px 100px; }
+  .memberships .title {
+    font-size: 3rem;
+    font-family: Poppins-ExtraBold;
+    text-align: center;
+    margin-bottom: 75px; }
+  .memberships .premium_mem {
+    display: flex;
+    justify-content: space-between; }
+    .memberships .premium_mem .mem {
+      width: calc(100% / 3);
+      position: relative;
+      border: 1px solid #000;
+      margin: 0px 25px; }
+      .memberships .premium_mem .mem.rounded {
+        border: 2px solid #ff2e2e;
+        border-radius: 5px; }
+        .memberships .premium_mem .mem.rounded .time {
+          color: #ff2e2e; }
+      .memberships .premium_mem .mem .offer_img {
+        width: 30%;
+        position: absolute;
+        top: -100px;
+        right: 50px;
+        z-index: -50; }
+      .memberships .premium_mem .mem .time {
+        font-size: 2.75rem;
+        font-family: Poppins-ExtraBold;
+        text-align: center;
+        color: #001c72; }
+      .memberships .premium_mem .mem .cobro {
+        margin-bottom: 15px;
+        text-align: center;
+        color: red;
+        font-weight: bold; }
+      .memberships .premium_mem .mem .price {
+        display: flex;
+        justify-content: center;
+        position: relative; }
+        .memberships .premium_mem .mem .price.offer_active .money_sign {
+          font-size: 0.8rem; }
+        .memberships .premium_mem .mem .price.offer_active .money {
+          font-size: 2.3rem; }
+        .memberships .premium_mem .mem .price.offer_active .interval {
+          font-size: 0.8rem; }
+        .memberships .premium_mem .mem .price .money_sign {
+          font-size: 1.5rem;
+          padding-top: 10px; }
+        .memberships .premium_mem .mem .price .money {
+          font-size: 3rem;
+          font-family: Poppins-ExtraBold; }
+        .memberships .premium_mem .mem .price .interval {
+          display: flex;
+          align-items: center;
+          padding-left: 10px; }
+        .memberships .premium_mem .mem .price .iva {
+          display: flex;
+          align-items: center; }
+        .memberships .premium_mem .mem .price .offer_line {
+          width: 60%;
+          height: 5px;
+          background-color: red;
+          position: absolute;
+          top: 50%;
+          border-radius: 25px;
+          transform: translateY(-50%); }
+      .memberships .premium_mem .mem .mem_desc {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 0px 50px;
+        line-height: 25px;
+        margin-bottom: 15px; }
+      .memberships .premium_mem .mem .mem_list .item {
+        display: flex;
+        margin-bottom: 25px; }
+        .memberships .premium_mem .mem .mem_list .item .list_indicator {
+          width: 15%;
+          text-align: end;
+          padding-right: 15px; }
+          .memberships .premium_mem .mem .mem_list .item .list_indicator img {
+            width: 40%; }
+        .memberships .premium_mem .mem .mem_list .item .text {
+          width: 85%;
+          font-family: Poppins-SemiBold; }
+      .memberships .premium_mem .mem .start_now {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px; }
+        .memberships .premium_mem .mem .start_now .btn {
+          background-color: #ff5a4a;
+          width: 80%;
+          text-align: center;
+          padding: 10px;
+          border-radius: 7.5px;
+          margin-bottom: 15px; }
+          .memberships .premium_mem .mem .start_now .btn a {
+            color: #fff;
+            font-weight: bold;
+            display: block; }
+        .memberships .premium_mem .mem .start_now .small_letters {
+          font-size: 0.7rem;
+          color: gray; }
+
+.intro {
+  position: relative;
+  margin-bottom: 200px; }
+  .intro .back {
+    height: 730px;
+    overflow: hidden; }
+  .intro .content {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    background-color: rgba(87, 22, 125, 0.7); }
+    .intro .content > div {
+      width: 50%; }
+    .intro .content .text {
+      padding: 30px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .intro .content .text p {
+        font-family: Poppins-ExtraBold;
+        font-size: 3.25rem;
+        line-height: 50px; }
+      .intro .content .text .low_letter {
+        font-size: 1.5rem; }
+      .intro .content .text a {
+        width: 30%; }
+
+@media only screen and (max-width: 768px) {
+  .memberships {
+    padding: 0;
+    padding-top: 250px;
+    width: 100vw; }
+    .memberships .title {
+      font-size: 1.5rem;
+      width: 100% !important;
+      margin-bottom: 50px; }
+    .memberships .premium_mem {
+      flex-direction: column; }
+      .memberships .premium_mem .mem {
+        width: 90% !important;
+        margin-left: 5%; }
+  .intro {
+    width: 100vw; }
+    .intro > div {
+      height: 475px !important;
+      overflow: hidden; }
+    .intro .back {
+      width: 100%; }
+      .intro .back img {
+        height: 100%;
+        width: auto; }
+    .intro .content {
+      flex-direction: column; }
+      .intro .content > div {
+        width: 100%; }
+      .intro .content .text p {
+        font-size: 1.5rem;
+        line-height: 25px; }
+      .intro .content .text .low_letter {
+        font-size: 0.8rem; }
+      .intro .content .text a {
+        width: 100% !important;
+        text-align: center;
+        font-size: 1rem; }
+    .intro .carreras_min {
+      position: absolute;
+      display: block;
+      top: 325px;
+      left: 50px;
+      width: calc(100vw - 100px); } }

@@ -18,15 +18,29 @@
     .tests .test-container .t-content {
       border: 2px solid gray;
       border-radius: 15px;
-      padding: 25px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center; }
-      .tests .test-container .t-content p {
-        width: 75%; }
+      .tests .test-container .t-content div {
+        width: 75%;
+        display: flex;
+        margin-bottom: 10px; }
+        .tests .test-container .t-content div .img {
+          width: 4%;
+          height: 15px;
+          margin-top: 5px;
+          margin-right: 5px; }
+        .tests .test-container .t-content div span {
+          width: 96%; }
       .tests .test-container .t-content .t-iniciar {
         background-color: #cdf546;
-        font-family: "Poppins-ExtraBold";
         text-align: center;
         width: 50%;
         padding: 10px 0px; }
+        .tests .test-container .t-content .t-iniciar a {
+          width: 100%;
+          height: 100%;
+          font-family: "Poppins-ExtraBold";
+          font-size: 20px;
+          text-align: center; }

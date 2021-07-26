@@ -1,8 +1,14 @@
 <div class="reg-container">
   <div class="start_now">
-    <a href="{{ route("registrate") }}">
-      Regístrate
-    </a>
+    @if (isset($_SESSION["logged"]))
+      <a href="{{ route("perfil") }}">
+        Perfil
+      </a>
+    @else
+      <a href="{{ route("registrate") }}">
+        Regístrate
+      </a>
+    @endif
   </div>
 </div>
 

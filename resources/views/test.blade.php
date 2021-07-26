@@ -14,17 +14,80 @@
     :fromTop="true" />
   <x-preview-video
     videoId="IKeT_aP5fUg"
-    text="Estos son algunos aspectos que podrás encontrar para hacer una selección de carrera según tu test UP"
+    text="Estos son algunos aspectos que podrás encontrar para hacer una selección de carrera según tu test premium de UP"
     example="test" />
-  <div class="tests">
+  <div class="tests" style="display: flex">
     <div class="test-container">
       <div class="t-title">TEST GRATUITO</div>
       <div class="t-content">
-        <p>
-          Podrás realizar un test gratuito creado por un tercero
-        </p>
+        <div>
+          <div class="img">
+            <img src="{{ asset("images/test/vin.png") }}" alt="">
+          </div>
+          <span>Podrás realizar un test gratuito creado por un tercero</span>
+        </div>
         <div class="t-iniciar">
           <a href="http://" target="_blank" rel="noopener noreferrer">INICIAR TESTS</a>
+        </div>
+      </div>
+    </div>
+    <div class="test-container">
+      <div class="t-title">TEST PREMIUM</div>
+      <div class="t-content">
+        <div>
+          <div class="img">
+            <img src="{{ asset("images/test/vin.png") }}" alt="">
+          </div>
+          <span>
+            Podrás realizar un test muy avanzado
+            donde conocerás tus fortalezas, el
+            lado menos eficiente, el desarrollo de
+            competencias, tu personalidad,
+            motivaciones
+          </span>
+        </div>
+        <div>
+          <div class="img">
+            <img src="{{ asset("images/test/vin.png") }}" alt="">
+          </div>
+          <span>
+          Descubrirás las carreras que se ajustan a tu perfil
+          </span>
+        </div>
+        <div>
+          <div class="img">
+            <img src="{{ asset("images/test/vin.png") }}" alt="">
+          </div>
+          <span>
+          Tendrás un porcentaje de afinidad nulo, bajo, alto y muy alto con las carreras seleccionadas
+          </span>
+        </div>
+        <div>
+          <div class="img">
+            <img src="{{ asset("images/test/vin.png") }}" alt="">
+          </div>
+          <span>
+          Podrás comparar y alinear tu perfil a más de 100 carreras
+          </span>
+        </div>
+        <div>
+          <div class="img">
+            <img src="{{ asset("images/test/vin.png") }}" alt="">
+          </div>
+          <span>
+          Obtendrás los resultados de tu test en PDF
+          </span>
+        </div>
+        <div>
+          <div class="img">
+            <img src="{{ asset("images/test/vin.png") }}" alt="">
+          </div>
+          <span>
+          Precio muy económico con grandes beneficos
+          </span>
+        </div>
+        <div class="t-iniciar">
+          <a href="{{ url("/membresias") }}">VER PLANES</a>
         </div>
       </div>
     </div>

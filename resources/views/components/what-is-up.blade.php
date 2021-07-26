@@ -18,7 +18,7 @@
       <button type="submit">Empieza ahora</button>
     </form>
     <div class="login">
-      ¿Ya tienes cuenta? <a href="/login">Inicia sesión</a>
+      ¿Ya tienes cuenta? <a href="/login" style="color: #fff">Inicia sesión</a>
     </div>
   </div>
 </div>

@@ -1,0 +1,81 @@
+main {
+  margin: 100px;
+  margin-top: 150px;
+  display: flex; }
+  main .loading_user {
+    margin: 35px; }
+  main .left {
+    width: 25%; }
+    main .left .profile_pic {
+      display: flex; }
+      main .left .profile_pic .pic {
+        border-radius: 100%;
+        overflow: hidden;
+        width: 35%; }
+      main .left .profile_pic .name {
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 25px;
+        font-size: 1.2rem; }
+  main .right {
+    width: 75%; }
+    main .right .fields {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 75%;
+      margin-bottom: 25px; }
+      main .right .fields > * {
+        width: calc(50% - 30px); }
+      main .right .fields .field {
+        margin-top: 25px; }
+        main .right .fields .field .title {
+          color: gray; }
+        main .right .fields .field .field_input {
+          border: none;
+          border-bottom: 1px solid gray;
+          outline: none;
+          padding-top: 10px;
+          padding-bottom: 15px;
+          font-size: 1.2rem;
+          width: 100%; }
+    main .right .buttons {
+      width: 75%;
+      display: flex;
+      justify-content: space-between; }
+      main .right .buttons > * {
+        width: calc(50% - 10px); }
+      main .right .buttons .button {
+        border: none;
+        background-color: #ff5a4a;
+        color: white;
+        font-weight: bold;
+        padding: 5px 25px;
+        border-radius: 50px; }
+        main .right .buttons .button:focus {
+          outline: none; }
+        main .right .buttons .button.disabled {
+          background-color: rgba(255, 90, 74, 0.7); }
+
+@media only screen and (max-width: 768px) {
+  main {
+    margin: 150px 15px 0px 15px; }
+    main .right {
+      width: 100% !important; }
+      main .right > h1 {
+        font-size: 1.5rem;
+        font-weight: bold; }
+      main .right .fields {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%; }
+        main .right .fields .field {
+          width: 100% !important; }
+          main .right .fields .field * {
+            font-size: 0.85rem !important; }
+      main .right .buttons {
+        width: 100%; }
+        main .right .buttons button {
+          width: 50% !important; } }
