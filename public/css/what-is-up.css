@@ -1,0 +1,51 @@
+.what-is-up {
+  background-color: #252048;
+  color: #fff;
+  display: flex; }
+  .what-is-up .description {
+    margin-left: 125px;
+    margin-top: 25px;
+    width: 50%; }
+    .what-is-up .description .title {
+      font-size: 4rem;
+      margin-bottom: 30px;
+      font-style: italic; }
+      .what-is-up .description .title .up-target {
+        color: #ff5a4a;
+        font-family: Poppins-SemiBold; }
+    .what-is-up .description p {
+      font-size: 25px;
+      padding-right: 35px;
+      line-height: 35px; }
+  .what-is-up .contact-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center; }
+    .what-is-up .contact-form > * {
+      text-align: center; }
+    .what-is-up .contact-form .title {
+      font-family: Poppins-ExtraBold;
+      font-size: 35px; }
+    .what-is-up .contact-form .form input {
+      margin-bottom: 35px;
+      outline: none;
+      width: 75%;
+      border: 0px;
+      border-radius: 15px;
+      padding: 15px; }
+    .what-is-up .contact-form .form button {
+      background-color: #ff5a4a;
+      width: 35%;
+      font-size: 25px;
+      color: #fff;
+      border: 0px;
+      border-radius: 15px;
+      padding: 10px; }
+    .what-is-up .contact-form .login {
+      font-size: 20px; }
+      .what-is-up .contact-form .login a {
+        border-bottom: 2px solid #fff; }
+        .what-is-up .contact-form .login a:hover {
+          color: #fff; }

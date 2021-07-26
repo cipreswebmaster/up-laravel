@@ -1,0 +1,220 @@
+.u {
+  padding: 50px 55px; }
+  .u .column-container {
+    display: flex;
+    justify-content: space-between; }
+    .u .column-container .column {
+      display: inline-block;
+      position: relative; }
+      .u .column-container .column:first-child {
+        width: calc(30% - 7.5px); }
+      .u .column-container .column:last-child {
+        width: calc(70% - 7.5px); }
+  .u .career-info {
+    margin-bottom: 35px; }
+    .u .career-info .presentation-card {
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 15px; }
+      .u .career-info .presentation-card .uni-img {
+        height: 225px; }
+        .u .career-info .presentation-card .uni-img img {
+          width: 100%;
+          height: 100%; }
+      .u .career-info .presentation-card .uni-cover-img {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -100px);
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        overflow: hidden;
+        border: 3px solid #fff; }
+        .u .career-info .presentation-card .uni-cover-img img {
+          border-radius: 100%; }
+      .u .career-info .presentation-card .uni-info {
+        text-align: center;
+        background-color: #252146;
+        color: #fff;
+        padding: 50px 15px 10px; }
+        .u .career-info .presentation-card .uni-info > div {
+          padding: 5px 0px; }
+        .u .career-info .presentation-card .uni-info > div:not(:last-child) {
+          border-bottom: 1px solid #fff; }
+        .u .career-info .presentation-card .uni-info .uni-name {
+          font-size: 1.5rem;
+          line-height: 1;
+          font-family: Poppins-SemiBold; }
+        .u .career-info .presentation-card .uni-info .uni-city {
+          font-size: 1.3rem;
+          font-size: 1rem; }
+        .u .career-info .presentation-card .uni-info .uni-desc {
+          font-size: 0.8rem;
+          line-height: 16px;
+          margin-top: 10px;
+          text-align: left; }
+      .u .career-info .presentation-card .ver-carreras {
+        background-color: #e5e5e5;
+        border-radius: 0px 0px 15px 15px;
+        border: 3px solid #28244a;
+        text-align: center;
+        padding: 15px 0px;
+        cursor: pointer; }
+        .u .career-info .presentation-card .ver-carreras a {
+          font-family: Poppins-SemiBold;
+          font-size: 25px; }
+    .u .career-info .general-info {
+      margin-top: 35px;
+      border-radius: 7px;
+      overflow: hidden; }
+      .u .career-info .general-info .item {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 15px;
+        font-family: Poppins-ExtraBold; }
+        .u .career-info .general-info .item:last-child {
+          background-color: #e5e5e5;
+          font-size: 30px; }
+    .u .career-info .lateral-info.fixed {
+      display: block;
+      position: sticky;
+      top: 125px; }
+    .u .career-info .lateral-info.end {
+      position: relative; }
+    .u .career-info .carreer-pre .videos {
+      display: flex;
+      justify-content: space-between; }
+      .u .career-info .carreer-pre .videos .video {
+        width: calc(50% - 10px); }
+        .u .career-info .carreer-pre .videos .video .frame {
+          width: 100%;
+          border-radius: 10px; }
+    .u .career-info .acreditaciones .accs-title {
+      color: #606060;
+      font-weight: bold;
+      font-size: 1.25rem; }
+    .u .career-info .acreditaciones .accs-logos {
+      display: flex;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      margin-bottom: 15px; }
+      .u .career-info .acreditaciones .accs-logos::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #f5f5f5; }
+      .u .career-info .acreditaciones .accs-logos::-webkit-scrollbar {
+        width: 12px;
+        background-color: #f5f5f5; }
+      .u .career-info .acreditaciones .accs-logos::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #252146; }
+      .u .career-info .acreditaciones .accs-logos img {
+        width: 150px;
+        height: 150px;
+        margin-right: 25px;
+        margin-bottom: 15px; }
+    .u .career-info .inicio_infocard {
+      font-size: 1.2rem;
+      font-weight: bold; }
+  .u .buttons {
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 25px 0px; }
+    .u .buttons .btn {
+      background-color: #ff5a4a;
+      color: #fff;
+      font-size: 1.2rem;
+      margin-left: 25px;
+      font-weight: bold; }
+      .u .buttons .btn .btn_link {
+        color: #fff;
+        border: 2px solid #fff;
+        display: block;
+        padding: 5px 15px;
+        border-radius: 5px; }
+
+.btn {
+  background-color: #ececf5;
+  color: #292d92;
+  display: block;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer; }
+  .btn span:first-child {
+    font-family: Poppins-ExtraBold;
+    font-size: 1.2rem; }
+  .btn img {
+    width: 10px;
+    margin-left: 5px; }
+
+.pensum {
+  margin-bottom: 35px;
+  border-radius: 10px;
+  overflow: hidden; }
+  .pensum .h {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px 30px; }
+    .pensum .h .download {
+      display: flex;
+      align-items: center;
+      cursor: pointer; }
+      .pensum .h .download img {
+        margin-left: 15px;
+        width: 25px; }
+  .pensum .pen img {
+    border-radius: 0px 0px 10px 10px; }
+
+.section {
+  padding: 20px 30px; }
+  .section .section-title {
+    border-bottom: 1px solid gray;
+    font-family: Poppins-ExtraBold;
+    font-size: 2rem; }
+  .section .section-content {
+    padding: 15px; }
+
+@media only screen and (max-width: 768px) {
+  .presentation-card {
+    flex-direction: column;
+    width: 95%; }
+    .presentation-card .uni-cover-img {
+      transform: translate(-50%, -70px); }
+  .videos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+    width: 95% !important;
+    padding: 10px; }
+    .videos .video {
+      width: 100% !important; }
+    .videos .frame {
+      width: 100%; }
+  .u {
+    padding: 20px 25px; }
+    .u .column-container {
+      flex-direction: column; }
+      .u .column-container .column {
+        width: 100% !important; }
+        .u .column-container .column .lateral-info {
+          width: 100% !important; }
+    .u .buttons {
+      flex-direction: column;
+      align-items: center; }
+      .u .buttons .btn {
+        width: 90%;
+        margin: 0;
+        margin-bottom: 5px;
+        font-size: 0.8rem; } }

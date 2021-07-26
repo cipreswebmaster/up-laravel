@@ -1,0 +1,48 @@
+.actualidad-universitaria {
+  margin: 0 75px; }
+  .actualidad-universitaria .au-title {
+    font-family: Poppins-SemiBold;
+    font-size: 20px; }
+  .actualidad-universitaria .au-noticias {
+    margin: 15px 25px;
+    display: flex; }
+    .actualidad-universitaria .au-noticias > div {
+      width: 50%; }
+    .actualidad-universitaria .au-noticias .noticia-principal {
+      position: relative; }
+      .actualidad-universitaria .au-noticias .noticia-principal .np-title {
+        position: absolute;
+        color: #fff;
+        font-size: 25px;
+        bottom: 15px;
+        left: 15px;
+        font-family: poppins-SemiBold; }
+    .actualidad-universitaria .au-noticias .noticias-secundarias {
+      padding-left: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      .actualidad-universitaria .au-noticias .noticias-secundarias .noticia {
+        display: flex; }
+        .actualidad-universitaria .au-noticias .noticias-secundarias .noticia:first-child {
+          margin-bottom: 25px; }
+        .actualidad-universitaria .au-noticias .noticias-secundarias .noticia .n-information {
+          width: 75%;
+          padding-right: 35px; }
+          .actualidad-universitaria .au-noticias .noticias-secundarias .noticia .n-information .n-title {
+            font-size: 18px;
+            font-family: Poppins-SemiBold; }
+          .actualidad-universitaria .au-noticias .noticias-secundarias .noticia .n-information .n-entradilla {
+            font-style: italic; }
+          .actualidad-universitaria .au-noticias .noticias-secundarias .noticia .n-information .n-fecha {
+            color: #a7adc7; }
+        .actualidad-universitaria .au-noticias .noticias-secundarias .noticia .n-img {
+          width: 25%; }
+      .actualidad-universitaria .au-noticias .noticias-secundarias .ver-mas {
+        background-color: #d6d6d6;
+        width: 150px;
+        padding: 5px 10px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 25px; }

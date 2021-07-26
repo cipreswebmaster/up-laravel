@@ -1,0 +1,19 @@
+.horizontal-ad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 75px;
+
+    .ad-title {
+        letter-spacing: 3px;
+        font-size: 10px;
+        margin-bottom: 5px;
+        font-family: Poppins-SemiBold;
+        font-weight: bold;
+    }
+
+    .ad-content {
+        cursor: pointer;
+    }
+}

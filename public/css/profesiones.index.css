@@ -1,0 +1,131 @@
+.select-area {
+  display: flex;
+  flex-wrap: wrap; }
+  .select-area .areas-container {
+    display: flex;
+    flex-wrap: wrap; }
+    .select-area .areas-container .area,
+    .select-area .areas-container .no-real-area {
+      position: relative;
+      background-color: #f3f3f3;
+      color: #000;
+      width: calc((100% / 4) - 15px);
+      margin-bottom: 15px;
+      margin-right: 15px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      height: 75px;
+      -webkit-transition: all 0.1s ease;
+      -moz-transition: all 0.1s ease;
+      -ms-transition: all 0.1s ease;
+      -o-transition: all 0.1s ease;
+      transition: all 0.1s ease; }
+      .select-area .areas-container .area:hover,
+      .select-area .areas-container .no-real-area:hover {
+        transform: scale(1.05); }
+      .select-area .areas-container .area:first-child,
+      .select-area .areas-container .no-real-area:first-child {
+        background-color: #fff;
+        cursor: default; }
+      .select-area .areas-container .area .text,
+      .select-area .areas-container .no-real-area .text {
+        z-index: 5;
+        color: #fff;
+        font-family: "Poppins-ExtraBold";
+        font-size: 1.1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        border-radius: 10px; }
+      .select-area .areas-container .area .img,
+      .select-area .areas-container .no-real-area .img {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 10px; }
+        .select-area .areas-container .area .img img,
+        .select-area .areas-container .no-real-area .img img {
+          width: 100%; }
+      .select-area .areas-container .area .arrow,
+      .select-area .areas-container .no-real-area .arrow {
+        position: absolute;
+        top: -10px;
+        right: -5px;
+        width: 20px;
+        z-index: 6; }
+
+@media only screen and (max-width: 768px) {
+  .select-area .areas-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll; }
+  .select-area .no-real-area.only-mobile {
+    width: 100% !important; }
+  .select-area .area {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 2) !important;
+    height: unset !important;
+    background-color: unset !important;
+    border: none !important;
+    padding-top: 10px; }
+    .select-area .area .text {
+      height: unset !important;
+      font-size: 0.65rem !important;
+      background-color: unset !important;
+      color: #000 !important;
+      font-family: "Poppins-SemiBold" !important;
+      padding: 0 !important;
+      justify-content: center;
+      margin-top: 10px; }
+      .select-area .area .text.low {
+        font-size: 0.5rem !important; }
+    .select-area .area .img {
+      position: relative !important;
+      width: 150px !important;
+      height: 150px !important;
+      -webkit-box-shadow: 3px 3px 7px 3px #707070;
+      box-shadow: 3px 3px 7px 3px #707070; }
+      .select-area .area .img img {
+        width: 150px !important;
+        height: 150px;
+        object-fit: cover; }
+      .select-area .area .img:active {
+        -webkit-box-shadow: 0px 0px 7px 0px #707070;
+        box-shadow: 0px 0px 0px 0px #707070; }
+    .select-area .area .arrow {
+      top: 10px !important;
+      left: 0 !important;
+      width: 150px !important;
+      height: 150px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px; }
+      .select-area .area .arrow img {
+        position: absolute;
+        top: 50% !important;
+        left: 50% !important;
+        width: 75px !important;
+        transform: translate(-50%, -50%); }
+  .select-area .responsive_show_all {
+    display: inline-block;
+    background-color: #f65a4d;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px 25px;
+    margin-top: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 3px 3px 7px 3px #a63d34;
+    box-shadow: 3px 3px 7px 3px #a63d34; }
+    .select-area .responsive_show_all:active {
+      -webkit-box-shadow: 0px 0px 7px 0px #707070;
+      box-shadow: 0px 0px 0px 0px #707070; } }

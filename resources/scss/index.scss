@@ -1,0 +1,14 @@
+.responsive-nav {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        min-width: unset;
+    }
+
+    .carousel {
+        width: 100vw;
+        max-width: 768px;
+    }
+}

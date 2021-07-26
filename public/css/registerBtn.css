@@ -1,0 +1,33 @@
+.reg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .reg-container .start_now {
+    display: inline-flex;
+    position: relative;
+    padding: 0px 25px;
+    border-radius: 25px;
+    height: 44px;
+    background-color: #ffefee;
+    cursor: pointer; }
+    .reg-container .start_now a,
+    .reg-container .start_now .text {
+      color: #ff5a4a !important;
+      font-weight: bold;
+      height: 100%;
+      display: flex;
+      align-items: center; }
+
+@media only screen and (max-width: 768px) {
+  .container.mobile {
+    width: 100% !important;
+    margin-bottom: 25px; }
+    .container.mobile .start_now {
+      background-color: #ff5a4a;
+      width: 90%;
+      border-radius: 5px; }
+      .container.mobile .start_now a,
+      .container.mobile .start_now .text {
+        width: 100%;
+        text-align: center;
+        color: #000 !important; } }

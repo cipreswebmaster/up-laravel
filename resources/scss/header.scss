@@ -1,0 +1,215 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    padding: 40px 50px 25px 50px;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    height: 125px;
+
+    > * {
+        display: flex;
+        align-items: center;
+        padding-top: 7.5px;
+        font-size: 1rem;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    .link {
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        -ms-transition: all 0.1s ease;
+        -o-transition: all 0.1s ease;
+        transition: all 0.1s ease;
+    }
+
+    .link:hover {
+        transform: scale(1.1);
+    }
+
+    .ref {
+        cursor: pointer;
+    }
+
+    .logo {
+        width: 17%;
+        padding-top: 0px;
+        margin-right: 3%;
+    }
+
+    .tabvar {
+        width: 50%;
+
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        .tab:not(:last-child) {
+            margin-right: 25px;
+        }
+    }
+
+    .session {
+        width: 30%;
+        font-weight: bold;
+    }
+
+    .planes-btn {
+        font-size: 0.8rem;
+        margin-right: 15px;
+        background-color: #e3f5ff;
+        padding: 5px 15px;
+        text-align: center;
+        border-radius: 25px;
+        color: #000;
+    }
+
+    .session .login {
+        margin-right: 10px;
+        font-size: 0.8rem;
+    }
+
+    .responsive_btn,
+    .responsive_btn_close {
+        display: none;
+    }
+
+    .reg-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .start_now {
+            $btn-bg-color: #ffefee;
+            $btn-let-color: #ff5a4a;
+            $btn-size: 15px;
+
+            display: inline-flex;
+            position: relative;
+            padding: 0px 25px;
+            border-radius: 25px;
+            height: 44px;
+            background-color: $btn-bg-color;
+
+            cursor: pointer;
+
+            a,
+            .text {
+                color: $btn-let-color !important;
+                font-weight: bold;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .reg-container.mobile {
+        width: 100% !important;
+        margin-bottom: 25px;
+
+        .start_now {
+            background-color: #ff5a4a;
+            width: 90%;
+            border-radius: 5px;
+
+            a,
+            .text {
+                width: 100%;
+                text-align: center;
+                color: #000 !important;
+            }
+        }
+    }
+
+    .header {
+        max-width: 768px;
+        justify-content: space-between !important;
+        width: 100vw !important;
+
+        .logo {
+            width: 75% !important;
+        }
+    }
+
+    .tabvar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100vw !important;
+        height: 100vh !important;
+        background-color: #000;
+        z-index: 50;
+        display: flex !important;
+        flex-direction: column;
+
+        &.x {
+            right: -100%;
+        }
+
+        .tab {
+            width: 90%;
+            margin: 0px 5px !important;
+            padding: 10px;
+            border-bottom: 1px solid gray !important;
+        }
+    }
+
+    .responsive_btn {
+        position: relative;
+        display: block !important;
+        right: -1px;
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .responsive_btn_close {
+        display: flex !important;
+        width: 100%;
+        justify-content: space-evenly;
+
+        .btn_close_logo {
+            width: 50%;
+            margin: 25px 0px;
+        }
+
+        .btn_close_x {
+            width: 10%;
+            margin: 25px 0px;
+        }
+    }
+
+    .session {
+        display: none !important;
+    }
+
+    .planes-btn {
+        width: 90%;
+        margin-top: 15px;
+        position: relative;
+        left: 7px;
+    }
+
+    .logginout {
+        margin-top: 25px;
+        border: 2px solid #ff5a4a;
+        width: 90%;
+        display: block;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}

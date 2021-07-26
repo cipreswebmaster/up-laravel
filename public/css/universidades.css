@@ -1,0 +1,20 @@
+.show_all {
+  margin-top: 2.5%;
+  display: inline-block;
+  margin-left: 8%;
+  background-color: #252146;
+  color: #fff;
+  font-family: Poppins-SemiBold;
+  padding: 20px 35px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  cursor: pointer; }
+
+.uni-content {
+  padding: 0 8%; }
+
+@media only screen and (max-width: 768px) {
+  .show_all {
+    width: 80%;
+    font-size: 0.65rem !important;
+    padding: 10px 25px !important; } }

@@ -1,0 +1,119 @@
+.b-header {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 75px;
+
+    .image {
+        position: relative;
+        top: -50%;
+    }
+
+    .text {
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-family: Poppins-ExtraBold;
+        font-size: 4rem;
+        color: #fff;
+        background-color: rgba(37, 33, 64, 0.6);
+    }
+}
+
+.content {
+    margin: 0px 100px;
+
+    .region_cards {
+        margin-bottom: 100px;
+
+        .region {
+            font-size: 3rem;
+            font-family: Poppins-SemiBold;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+
+            &::after {
+                content: "";
+                flex: auto;
+            }
+
+            .b-card {
+                display: inline-flex;
+                height: 150px;
+                border: 1px solid rgb(200, 200, 200);
+                border-radius: 5px;
+
+                &.last {
+                    margin-left: 25px;
+                }
+
+                .image {
+                    width: 30%;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .name_link {
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding-top: 20px;
+                    padding-left: 20px;
+
+                    .name {
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                    }
+
+                    .link {
+                        background-color: #252140;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 1.5rem;
+                        border-radius: 5px;
+                        text-align: center;
+                        padding: 5px 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .b-header {
+        .image {
+            height: 100%;
+            top: 0 !important;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .content {
+        margin: 0px 25px !important;
+
+        .region {
+            font-size: 2rem !important;
+        }
+    }
+
+    .b-card {
+        width: calc(100%) !important;
+    }
+}

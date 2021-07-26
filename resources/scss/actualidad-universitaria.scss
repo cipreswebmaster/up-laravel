@@ -1,0 +1,77 @@
+.actualidad-universitaria {
+    margin: 0 75px;
+
+    .au-title {
+        font-family: Poppins-SemiBold;
+        font-size: 20px;
+    }
+
+    .au-noticias {
+        margin: 15px 25px;
+        display: flex;
+
+        & > div {
+            width: 50%;
+        }
+
+        .noticia-principal {
+            position: relative;
+
+            .np-title {
+                position: absolute;
+                color: #fff;
+                font-size: 25px;
+                bottom: 15px;
+                left: 15px;
+                font-family: poppins-SemiBold;
+            }
+        }
+
+        .noticias-secundarias {
+            padding-left: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .noticia {
+                display: flex;
+
+                &:first-child {
+                    margin-bottom: 25px;
+                }
+
+                .n-information {
+                    width: 75%;
+                    padding-right: 35px;
+
+                    .n-title {
+                        font-size: 18px;
+                        font-family: Poppins-SemiBold;
+                    }
+
+                    .n-entradilla {
+                        font-style: italic;
+                    }
+
+                    .n-fecha {
+                        color: rgb(167, 173, 199);
+                    }
+                }
+
+                .n-img {
+                    width: 25%;
+                }
+            }
+
+            .ver-mas {
+                background-color: rgb(214, 214, 214);
+                width: 150px;
+                padding: 5px 10px;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                border-radius: 25px;
+            }
+        }
+    }
+}

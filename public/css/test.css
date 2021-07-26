@@ -1,0 +1,32 @@
+.tests {
+  margin: 15px 100px; }
+  .tests .test-container {
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .tests .test-container .t-title {
+      background-color: #212138;
+      font-family: "Poppins-ExtraBold";
+      color: #fff;
+      font-size: 25px;
+      width: 50%;
+      text-align: center;
+      border-radius: 7px;
+      position: relative;
+      top: 20px; }
+    .tests .test-container .t-content {
+      border: 2px solid gray;
+      border-radius: 15px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .tests .test-container .t-content p {
+        width: 75%; }
+      .tests .test-container .t-content .t-iniciar {
+        background-color: #cdf546;
+        font-family: "Poppins-ExtraBold";
+        text-align: center;
+        width: 50%;
+        padding: 10px 0px; }

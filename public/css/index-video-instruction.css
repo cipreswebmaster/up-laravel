@@ -1,0 +1,45 @@
+.index-video-instruction {
+  background-color: #252048;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px; }
+  .index-video-instruction > * {
+    width: calc((100% / 3) - 5px); }
+  .index-video-instruction .video iframe {
+    width: 100%; }
+  .index-video-instruction .carousel-instructions {
+    position: relative;
+    display: flex;
+    height: 315px;
+    overflow: hidden; }
+    .index-video-instruction .carousel-instructions .slides {
+      width: 100%;
+      display: flex; }
+      .index-video-instruction .carousel-instructions .slides .slide {
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        padding: 15px 5px; }
+        .index-video-instruction .carousel-instructions .slides .slide.active {
+          background-color: #ff5a4a; }
+        .index-video-instruction .carousel-instructions .slides .slide:not(.active) {
+          position: absolute;
+          visibility: hidden; }
+        .index-video-instruction .carousel-instructions .slides .slide .title {
+          font-size: 40px;
+          font-family: Poppins-SemiBold; }
+        .index-video-instruction .carousel-instructions .slides .slide .info {
+          display: flex;
+          margin-right: 21%; }
+          .index-video-instruction .carousel-instructions .slides .slide .info .img {
+            width: 50%; }
+          .index-video-instruction .carousel-instructions .slides .slide .info .text {
+            text-align: justify;
+            width: 50%; }
+    .index-video-instruction .carousel-instructions .control {
+      position: absolute;
+      width: 15%;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer; }

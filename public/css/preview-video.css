@@ -1,0 +1,38 @@
+.preview_video {
+  width: 100%;
+  background-color: #212237;
+  padding: 50px 100px;
+  display: flex; }
+  .preview_video > div {
+    padding: 15px; }
+  .preview_video .video {
+    width: 65%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+  .preview_video .description {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .preview_video .description .text {
+      color: #fff;
+      font-size: 1.3rem;
+      font-family: "Poppins-SemiBold";
+      margin-bottom: 5px; }
+
+@media only screen and (max-width: 768px) {
+  .preview_video {
+    flex-direction: column;
+    padding: 0px; }
+    .preview_video > div {
+      width: 100% !important;
+      padding: 0px; }
+    .preview_video .video {
+      max-width: 768px;
+      width: 100vw !important; }
+      .preview_video .video .frame_container,
+      .preview_video .video .frame {
+        width: 100%; }
+    .preview_video .text {
+      margin: 15px; } }
