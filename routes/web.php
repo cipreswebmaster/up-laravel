@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'index');
-Route::view('/test', 'test');
 Route::get('/becas', 'BecasController@index');
+Route::prefix("test")->group(function () {
+  Route::get("/", "TestController@index");
+  Route::get("/example", "TestController@example");
+});
 
 /* Profesiones */
 Route::prefix("profesiones")->group(function () {

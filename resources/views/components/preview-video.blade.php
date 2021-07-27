@@ -10,7 +10,7 @@
   <div class="description">
     <div class="text">{{ $text }}</div>
     <div class="example only-pc">
-      <a href="/example">
+      <a href="{{ url("$example/example") }}">
         <img src="{{ asset("images/examples/$example.png") }}" alt="ejemplo" />
       </a>
     </div>

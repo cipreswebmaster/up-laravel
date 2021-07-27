@@ -1,0 +1,97 @@
+main {
+  margin-top: 150px; }
+  main > * {
+    margin-left: 100px;
+    margin-right: 100px; }
+  main .before_begin {
+    font-size: 1.2rem;
+    display: flex; }
+    main .before_begin .img {
+      width: 35%; }
+    main .before_begin .text {
+      width: 65%;
+      padding: 35px 45px; }
+      main .before_begin .text .title {
+        font-weight: bold; }
+  main .results {
+    margin-top: 75px; }
+    main .results .title {
+      font-size: 1.8rem;
+      font-family: Poppins-SemiBold;
+      color: gray;
+      margin-bottom: 25px; }
+    main .results .icons {
+      display: flex;
+      justify-content: space-between; }
+      main .results .icons .icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f2f5;
+        width: calc(100% / 5.5);
+        border-radius: 7.5px; }
+        main .results .icons .icon img {
+          padding: 25px 50px; }
+        main .results .icons .icon .title {
+          font-size: 1.5rem;
+          text-align: center;
+          margin: 5px 15px;
+          font-family: Poppins-SemiBold;
+          color: gray; }
+    main .results .descriptions {
+      margin-top: 15px; }
+      main .results .descriptions .descrip {
+        display: flex;
+        border: 2px solid gray;
+        margin-bottom: 15px;
+        border-radius: 5px; }
+        main .results .descriptions .descrip .info {
+          padding: 25px;
+          width: 65%; }
+        main .results .descriptions .descrip .res_desc {
+          width: 35%;
+          object-fit: fill;
+          background-color: #f0f2f5;
+          padding: 25px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center; }
+          main .results .descriptions .descrip .res_desc .icon {
+            width: 20%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px; }
+          main .results .descriptions .descrip .res_desc .title {
+            margin-bottom: 0;
+            text-align: center; }
+
+@media only screen and (max-width: 768px) {
+  main > * {
+    margin: 25px; }
+  main * {
+    font-size: 0.9rem; }
+  .before_begin {
+    flex-direction: column; }
+    .before_begin .img,
+    .before_begin .text {
+      width: 100%; }
+    .before_begin .text {
+      padding: 15px 0px; }
+  .results .title {
+    font-size: 1.2rem !important; }
+  .results .icons {
+    overflow-x: scroll; }
+    .results .icons .icon {
+      padding: 25px;
+      width: 150px !important;
+      margin-right: 15px; }
+      .results .icons .icon img {
+        padding: 15px !important; }
+      .results .icons .icon .title {
+        font-size: 0.7rem !important; }
+  .results .descriptions .descrip {
+    flex-direction: column-reverse; }
+    .results .descriptions .descrip > * {
+      width: 100% !important; } }

@@ -74,6 +74,13 @@
         text-align: center;
         padding: 15px;
         font-family: Poppins-ExtraBold; }
+        .u .career-info .general-info .item:first-child {
+          display: flex; }
+          .u .career-info .general-info .item:first-child div {
+            margin-right: 15px;
+            text-align: center; }
+            .u .career-info .general-info .item:first-child div:last-child {
+              margin-left: 55px; }
         .u .career-info .general-info .item:last-child {
           background-color: #e5e5e5;
           font-size: 30px; }
@@ -181,8 +188,15 @@
   padding: 20px 30px; }
   .section .section-title {
     border-bottom: 1px solid gray;
-    font-family: Poppins-ExtraBold;
-    font-size: 2rem; }
+    font-size: 2rem;
+    display: flex; }
+    .section .section-title .icon {
+      margin-right: 15px;
+      margin-bottom: 5px; }
+    .section .section-title .s-title {
+      font-weight: bold;
+      font-size: 25px;
+      padding-top: 10px; }
   .section .section-content {
     padding: 15px; }
 

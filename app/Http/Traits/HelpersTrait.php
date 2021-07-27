@@ -68,7 +68,7 @@ trait HelpersTrait {
     $nameWithoutSpaces = str_replace("-", "", $name);
     foreach ($response as $res) {
       $resAsArray = json_decode(json_encode($res), true);
-      $eliminateFromString = [" ", "-"];
+      $eliminateFromString = [" ", "-", ","];
       $responseNameCleaned = str_replace(
         $eliminateFromString, "", strtolower(clean_string($resAsArray[$fieldName]))
       );

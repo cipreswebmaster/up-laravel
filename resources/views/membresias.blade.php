@@ -18,8 +18,7 @@
         <div class="price offer_active">
           <div class="money_sign">COP$</div>
           <div class="money">30.000</div>
-          <div class="interval">/3 meses</div>
-          <div class="iva"> + 19% IVA</div>
+          <div class="iva"> + IVA</div>
         </div>
         <div class="cobro">Cobro por estudiante</div>
         <div class="mem_list">
@@ -72,8 +71,7 @@
         <div class="price offer_active">
           <div class="money_sign">COP$</div>
           <div class="money">45.000</div>
-          <div class="interval">/3 meses</div>
-          <div class="iva"> + 19% IVA</div>
+          <div class="iva"> + IVA</div>
         </div>
         <div class="cobro">Cobro por estudiante</div>
         <div class="mem_list">
@@ -106,7 +104,7 @@
               <img src={{ asset("images/test/check.svg") }} alt="" />
             </div>
             <div class="text">
-              Podrás presentar hasta 2 veces el test.
+              Podrás presentar hasta 4 veces el test.
             </div>
           </div>
         </div>
@@ -126,8 +124,7 @@
         <div class="price offer_active">
           <div class="money_sign">COP$</div>
           <div class="money">55.000</div>
-          <div class="interval">/3 meses</div>
-          <div class="iva"> + 19% IVA</div>
+          <div class="iva"> + IVA</div>
         </div>
         <div class="cobro">Cobro por estudiante</div>
         <div class="mem_list">
@@ -160,7 +157,7 @@
               <img src={{ asset("images/test/check.svg") }} alt="" />
             </div>
             <div class="text">
-              Podrás presentar hasta 2 veces el test.
+              Podrás presentar hasta 6 veces el test.
             </div>
           </div>
         </div>

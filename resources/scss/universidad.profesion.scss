@@ -113,6 +113,19 @@
                 padding: 15px;
                 font-family: Poppins-ExtraBold;
 
+                &:first-child {
+                    display: flex;
+
+                    div {
+                        margin-right: 15px;
+                        text-align: center;
+
+                        &:last-child {
+                            margin-left: 55px;
+                        }
+                    }
+                }
+
                 &:last-child {
                     background-color: rgb(229, 229, 229);
                     font-size: 30px;
@@ -276,8 +289,19 @@
 
     .section-title {
         border-bottom: 1px solid gray;
-        font-family: Poppins-ExtraBold;
         font-size: 2rem;
+        display: flex;
+
+        .icon {
+            margin-right: 15px;
+            margin-bottom: 5px;
+        }
+
+        .s-title {
+            font-weight: bold;
+            font-size: 25px;
+            padding-top: 10px;
+        }
     }
 
     .section-content {

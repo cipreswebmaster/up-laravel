@@ -27,7 +27,7 @@
           <span>Podrás realizar un test gratuito creado por un tercero</span>
         </div>
         <div class="t-iniciar">
-          <a href="http://" target="_blank" rel="noopener noreferrer">INICIAR TESTS</a>
+          <a href="https://www.elegircarrera.net/test-vocacional/" target="_blank" rel="noopener noreferrer">INICIAR TEST</a>
         </div>
       </div>
     </div>

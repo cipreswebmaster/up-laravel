@@ -43,9 +43,12 @@
             Cerrar Sesión
           </a>
         </div>
+        <div class="planes-btn">
+          <a href="/membresias">Conoce nuestros planes</a>
+        </div>
       @else
         <div class="planes-btn">
-          <a href="/plans">Conoce nuestros planes</a>
+          <a href="/membresias">Conoce nuestros planes</a>
         </div>
         <div class="ref login link">
           <a href="{{ url("login") }}" class="logginout">

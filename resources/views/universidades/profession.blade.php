@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="{{ asset("css/universidad.profesion.css") }}">
 @endsection
 
+@php
+  function priceWithDots($price) {
+    $_price = "$";
+    for ($i = 0; $i < strlen($price); $i++) {
+      $_price .= $price[$i];
+      $dotContinue = (strlen($price) - ($i + 1)) % 3 == 0;
+      if ($dotContinue && $i + 1 < strlen($price))
+        $_price .= ".";
+    }
+    return $_price;
+  }
+@endphp
+
 @section('body')
   <x-banner
     :topText="$profesion['nombre_carrera']"
@@ -42,14 +55,24 @@
         </div>
         <div class="general-info">
           <div class="item">
-            Precio semestre
+            <div>
+              <img src="{{ asset("images/university.profession/icons/precio_semestre.jpg") }}" alt="">
+            </div>
+            <div>Precio semestre</div>
           </div>
           <div class="item">
-            ${{ $prof_uni["precio_semestre"] }}
+            {{ priceWithDots($prof_uni["precio_semestre"]) }}
           </div>
         </div>
         <div class="section" style="padding: 0px; margin-top: 35px">
-          <div class="section-title"> Ubicación </div>
+          <div class="section-title">
+            <div class="icon">
+              <img src="{{ asset("images/university.profession/icons/ubicacion.jpg") }}" alt="">
+            </div>
+            <div class="s-title">
+              Ubicación
+            </div>
+          </div>
           <div class="section-content" style="overflow: hidden; padding: 0px">
             {!! $universidad["mapa"] !!}
           </div>
@@ -75,7 +98,12 @@
           {{-- Proposito de la carrera --}}
           <div class="section">
             <div class="section-title">
-              {{ $profesion["nombre_carrera"] }}
+              <div class="icon">
+                <img src="{{ asset("images/university.profession/icons/proposito_carrera.jpg") }}" alt="">
+              </div>
+              <div class="s-title">
+                {{ $profesion["nombre_carrera"] }}
+              </div>
             </div>
             <div class="section-content">
               {{ $prof_uni["proposito_carrera"] }}
@@ -84,15 +112,34 @@
 
           {{-- Perfil de aspirante --}}
           <div class="section">
-            <div class="section-title">Perfil del aspirante</div>
+            <div class="section-title">
+              <div class="icon">
+                <img src="{{ asset("images/university.profession/icons/perfil_aspirante.jpg") }}" alt="">
+              </div>
+              <div class="s-title">
+                Perfil del aspirante
+              </div>
+            </div>
             <div class="section-content">
-              {{ $prof_uni["perfil_aspirante"] }}
+              {{ $prof_uni["perfil_aspirante"][0] }}
+              <ul>
+                @foreach ($prof_uni["perfil_aspirante"][1] as $pa)
+                  <li>{{ $pa }}</li>
+                @endforeach
+              </ul>
             </div>
           </div>
 
           {{-- Proceso de admision --}}
           <div class="section">
-            <div class="section-title">Proceso de admisión</div>
+            <div class="section-title">
+              <div class="icon">
+                <img src="{{ asset("images/university.profession/icons/proceso_admision.jpg") }}" alt="">
+              </div>
+              <div class="s-title">
+                Proceso de admisión
+              </div>
+            </div>
             <div class="section-content">
               <ul>
                 @foreach ($universidad["proceso_admision"] as $item)
@@ -104,7 +151,14 @@
 
           {{-- Apoyo financiero --}}
           <div class="section">
-            <div class="section-title">Apoyo financiero</div>
+            <div class="section-title">
+              <div class="icon">
+                <img src="{{ asset("images/university.profession/icons/apoyo_financiero.jpg") }}" alt="">
+              </div>
+              <div class="s-title">
+                Apoyo financiero
+              </div>
+            </div>
             <div class="section-content">
               <ul>
                 @foreach ($universidad["apoyo_financiero"] as $item)
@@ -117,7 +171,14 @@
           {{-- Internacionalización --}}
           @if ($universidad["intercambios"] !== false)
             <div class="section">
-              <div class="section-title">Internacionalización</div>
+              <div class="section-title">
+                <div class="icon">
+                  <img src="{{ asset("images/university.profession/icons/internacional.jpg") }}" alt="">
+                </div>
+                <div class="s-title">
+                  Internacionalización
+                </div>
+              </div>
               <div class="section-content">
                 <p>
                   {{ $universidad["intercambios"][0] }}:

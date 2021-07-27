@@ -56,9 +56,9 @@ class UniversidadesController extends Controller
     $universidad["proceso_admision"] = $this->process_data(str_replace("•", "", $universidad["proceso_admision"]));
     $universidad["apoyo_financiero"] = $this->process_data(str_replace("•", "", (string) $universidad["apoyo_financiero"]));
     $intercambios = $this->process_data(str_replace("•", "", (string) $universidad["intercambios"]), ":");
-    $universidad["intercambios"] = count($intercambios) == 1 ? false : [
+    $universidad["intercambios"] = trim($intercambios[0]) == "NO REGISTRA" ? false : [
       $intercambios[0],
-      $this->process_data($intercambios[1])
+      count($intercambios) > 1 ? $this->process_data($intercambios[1]) : []
     ];
 
     $profesion = json_decode(json_encode(
@@ -71,6 +71,12 @@ class UniversidadesController extends Controller
     $prof_uni = UniversidadCarrera
       ::where("id_universidad", $universidad["id_universidad"])
       ->where("id_carrera", $profesion["id_carrera"])->first();
+
+    $perfil = $this->process_data($prof_uni->perfil_aspirante, ":");
+    $prof_uni->perfil_aspirante = [
+      $perfil[0],
+      count($perfil) > 1 ? $this->process_data($perfil[1]) : []
+    ];
 
     return view("universidades.profession", compact("universidad", "profesion", "prof_uni"));
   }
