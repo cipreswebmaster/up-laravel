@@ -178,70 +178,80 @@
               </div>
             </div>
             <div class="list">
-              {{-- @foreach ($profesiones as $prof)
-                @php
-                  
-                @endphp
+              @foreach ($profesiones as $prof)
                 <div class="stars_container">
                   <div class="icon" >
                     <img
-                      src={
-                        isCareerFavourite(val["id_carrera_4beyond"])
-                          ? hs
-                          : hns
-                      }
+                      src="{{ asset("images/test/results/heart-select.svg") }}"
                       alt=""
                     />
                   </div>
-                  <div class="name">{val.nombre_carrera}</div>
-                  <Stars afinity={val.afinidad} />
+                  <div class="name">{{ $prof["nombre_carrera"] }}</div>
+                  <div class="stars">
+                    @for ($i = 0; $i < intval($prof["afinidad"]); $i++)
+                      <span class="star" >
+                        &#9733;
+                      </span>
+                    @endfor
+                  </div>
                 </div>
-              @endforeach --}}
+              @endforeach
             </div>
           </div>
         </div>
       </div>
     </div>
 
-   {{-- {/* Favoritos */}
-    <Section number={3}>
-      <div className={styles.favourite}>
-        <div className={styles.description}>
-          <div className={styles.title}>Favoritos</div>
-          <p className={styles.text}>
+   <div class="section">
+    <div class="number">3</div>
+    <div class="content">
+      <div class="favourite">
+        <div class="description">
+          <div class="title">Favoritos</div>
+          <p class="text">
             Estas son tus carreras escogidas como "favoritas". Para conocer
             más información sobre ella, haz click sobre la carrera de
             interés. Estas carreras se verán reflejadas en tu reporte.
           </p>
         </div>
-        <div className={styles.careers_favs}>
-          <div className={styles.list}>
-            {favourites.map((val, idx) => (
-              <div key={idx} className={styles.stars_container}>
-                <div
-                  className={styles.icon}
-                  onClick={() => removeFavourite(val.id_carrera)}
-                >
-                  <img src={hs} alt="" />
+        <div class="careers_favs">
+          <div class="list">
+            @foreach ($favs as $fav)
+              <div class="stars_container">
+                <div class="icon">
+                  <img src="{{ asset("images/test/results/heart-select.svg") }}" alt="" />
                 </div>
-                <div className={styles.name}>{val.nombre_carrera}</div>
-                <Stars afinity={val.afinidad} />
-                <div className={styles.see_career}>
-                  <Link to={`/professions/${slugify(val.nombre_carrera)}`}>
+                <div class="name">{{ $fav["nombre_carrera"] }}</div>
+                <div class="stars">
+                  @for ($i = 0; $i < intval($fav["afinidad"]); $i++)
+                    <span class="star" >
+                      &#9733;
+                    </span>
+                  @endfor
+                </div>
+                <div class="see_career">
+                  <a href="{{ route("profession", ["professionName" => Str::slug($fav["nombre_carrera"])]) }}">
                     ver carrera
-                  </Link>
+                  </a>
                 </div>
               </div>
-            ))}
+            @endforeach
           </div>
         </div>
       </div>
-    </Section>
-    <DownloadPDF token={userInfo["4beyond_token_id"]} />
+    </div>
   </div>
-  <ResultsFooter
-    before={{ text: "Cuál es mi perfil", link: "/results" }}
-    after={{ text: "Elijo carrera", link: `/professions` }}
-  /> --}}
+  <a
+      class="pdf"
+      href="https://apps4beyond.com/REST/TeOrienta/pdf_integracion.php?tokenId={{ $token }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="icon">
+        <img src="{{ asset("images/test/results/pdf.svg") }}" alt="PDF Icon" />
+      </div>
+      <div class="text">Descarga tu reporte</div>
+    </a>
+  </div>
 </div>
 @endsection

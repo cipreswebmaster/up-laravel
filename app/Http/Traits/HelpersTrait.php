@@ -3,6 +3,7 @@
 namespace App\Http\Traits;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 trait HelpersTrait {
   /**
@@ -38,6 +39,52 @@ trait HelpersTrait {
     $res = $response->get();
     $theOne = $this->getTheOne($res, $slugifyied_name, $query_condition_field);
     return $theOne;
+  }
+
+  /**
+   * Look for the 4Beyond career data with the id
+   * 
+   * @param int $id The career id
+   * 
+   * @return array The career data
+   */
+  public function search4BeyondCareerData(int $id, int $area_id) {
+    $data = $this->get4BeyondData($area_id);
+    $career = "";
+    foreach ($data as $d) {
+      if ($d["id_carrera"] == $id)
+        $career = $d;
+    }
+
+    return $career;
+  }
+
+  /**
+   * Load data from 4Beyond API
+   * 
+   * @param int $id Area id
+   * 
+   * @return array The data
+   */
+  public function get4BeyondData(int $id) {
+    if (session_status() == 1)
+      session_start();
+    if (!isset($_SESSION["4BeyondData"]))
+      $_SESSION["4BeyondData"] = [];
+    
+    if (isset($_SESSION["4BeyondData"][$id]))
+      $_SESSION["4BeyondData"][$id];
+    else {
+      $res = Http::withHeaders([
+        "token" => "4bcgp-bgyt",
+      ])->post("https://apps4beyond.com/REST/api/consultarCarreras", [
+        "token_id" => "0ead8013-43e8-11eb-8ecc-02eef28b5605",
+        "area_id" => strval($id)
+      ]);
+      $_SESSION["4BeyondData"][$id] = $res["result"]["resultObject"];
+    }
+
+    return $_SESSION["4BeyondData"][$id];
   }
 
   /**

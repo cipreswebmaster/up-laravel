@@ -80,111 +80,147 @@ main {
           font-family: Poppins-SemiBold; }
         main .profile .before_begin .text p {
           font-size: 1.2rem; }
-    main .profile .sections {
-      margin: 0px 100px; }
-      main .profile .sections .section {
-        display: flex;
-        border: 2px solid rgba(0, 0, 0, 0.5);
-        border-radius: 7.5px;
-        overflow: hidden;
-        margin-bottom: 25px; }
-        main .profile .sections .section .number {
-          background-color: #f5f9ff;
-          font-size: 6rem;
+    main .profile .sections .section {
+      display: flex;
+      border: 2px solid rgba(0, 0, 0, 0.5);
+      border-radius: 7.5px;
+      overflow: hidden;
+      margin-bottom: 25px; }
+      main .profile .sections .section .number {
+        background-color: #f5f9ff;
+        font-size: 6rem;
+        font-family: Poppins-SemiBold;
+        padding: 10px 30px;
+        width: 125px; }
+      main .profile .sections .section .content {
+        padding: 30px;
+        width: 90%; }
+    main .profile .sections .instructions {
+      background-color: #f5f8ff;
+      text-align: center;
+      padding: 15px;
+      margin: 25px 0px; }
+      main .profile .sections .instructions .title {
+        font-family: Poppins-ExtraBold;
+        font-size: 1.2rem; }
+      main .profile .sections .instructions img {
+        width: 50%; }
+    main .profile .sections .select_area {
+      display: flex;
+      align-items: center;
+      height: 100%; }
+      main .profile .sections .select_area .select_area_title {
+        font-family: Poppins-SemiBold; }
+      main .profile .sections .select_area .selec_tag_container {
+        width: 50%;
+        border: 2px solid gray;
+        padding: 0px 15px;
+        margin-left: 25px;
+        border-radius: 50px; }
+        main .profile .sections .select_area .selec_tag_container select {
+          width: 100%;
+          font-size: 25px;
           font-family: Poppins-SemiBold;
-          padding: 10px 30px;
-          width: 125px; }
-        main .profile .sections .section .content {
-          padding: 30px;
-          width: 90%; }
-      main .profile .sections .instructions {
-        background-color: #f5f8ff;
-        text-align: center;
-        padding: 15px;
-        margin: 25px 0px; }
-        main .profile .sections .instructions .title {
-          font-family: Poppins-ExtraBold;
-          font-size: 1.2rem; }
-        main .profile .sections .instructions img {
-          width: 50%; }
-      main .profile .sections .select_area {
-        display: flex;
-        align-items: center;
-        height: 100%; }
-        main .profile .sections .select_area .select_area_title {
+          border-radius: 50px;
+          outline: none;
+          border: 0; }
+    main .profile .sections .explore {
+      display: flex; }
+      main .profile .sections .explore .careers {
+        padding-left: 50px;
+        width: 65%; }
+        main .profile .sections .explore .careers .load_gif {
+          width: 75px;
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 10px; }
+        main .profile .sections .explore .careers .stars_description .instructions {
           font-family: Poppins-SemiBold; }
-        main .profile .sections .select_area .selec_tag_container {
-          width: 50%;
-          border: 2px solid gray;
-          padding: 0px 15px;
-          margin-left: 25px;
-          border-radius: 50px; }
-          main .profile .sections .select_area .selec_tag_container select {
-            width: 100%;
-            font-size: 25px;
-            font-family: Poppins-SemiBold;
-            border-radius: 50px;
-            outline: none;
-            border: 0; }
-      main .profile .sections .explore {
-        display: flex; }
-        main .profile .sections .explore .careers {
-          padding-left: 50px;
-          width: 65%; }
-          main .profile .sections .explore .careers .load_gif {
-            width: 75px;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 10px; }
-          main .profile .sections .explore .careers .stars_description .instructions {
-            font-family: Poppins-SemiBold; }
-      main .profile .sections .favourite {
-        display: flex; }
-        main .profile .sections .favourite .see_career {
-          background-color: #fa5a4c;
-          color: #fff;
-          padding: 5px 10px;
-          border-radius: 25px;
-          margin-bottom: 5px;
-          margin-left: 15px;
-          display: flex;
-          align-items: center; }
-          main .profile .sections .favourite .see_career a {
-            color: #fff; }
-        main .profile .sections .favourite .careers_favs {
-          padding-left: 25px;
-          width: 65%; }
-          main .profile .sections .favourite .careers_favs .list {
-            overflow: hidden;
-            margin-left: 25px; }
-      main .profile .sections .list {
-        overflow-y: scroll;
-        max-height: 250px; }
-        main .profile .sections .list .stars_container {
-          display: flex;
-          height: 35px; }
-          main .profile .sections .list .stars_container .icon img {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            margin-right: 5px;
-            cursor: pointer; }
-          main .profile .sections .list .stars_container .name {
+    main .profile .sections .favourite {
+      display: flex; }
+      main .profile .sections .favourite .see_career {
+        background-color: #fa5a4c;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 25px;
+        margin-bottom: 5px;
+        margin-left: 15px;
+        display: flex;
+        align-items: center; }
+        main .profile .sections .favourite .see_career a {
+          color: #fff; }
+      main .profile .sections .favourite .careers_favs {
+        padding-left: 25px;
+        width: 65%; }
+        main .profile .sections .favourite .careers_favs .list {
+          overflow: hidden;
+          margin-left: 25px; }
+          main .profile .sections .favourite .careers_favs .list .stars {
             display: flex;
             align-items: center;
-            margin-right: 5px;
-            word-wrap: break-word;
-            width: 320px;
-            line-height: 15px;
-            font-family: Poppins-SemiBold; }
-      main .profile .sections .description {
-        width: 35%; }
-        main .profile .sections .description .title {
-          font-size: 2rem;
-          font-family: Poppins-SemiBold;
-          margin-bottom: 10px; }
+            width: 100px;
+            margin-right: 15px; }
+            main .profile .sections .favourite .careers_favs .list .stars .star {
+              font-size: 2rem;
+              color: #000; }
+              main .profile .sections .favourite .careers_favs .list .stars .star.highest {
+                color: #0030d2; }
+              main .profile .sections .favourite .careers_favs .list .stars .star.high {
+                color: #00ff01; }
+              main .profile .sections .favourite .careers_favs .list .stars .star.low {
+                color: #fffe04; }
+              main .profile .sections .favourite .careers_favs .list .stars .star.lowest {
+                color: #fe0000; }
+    main .profile .sections .list {
+      overflow-y: scroll;
+      max-height: 250px; }
+      main .profile .sections .list .stars_container {
+        display: flex;
+        height: 35px; }
+        main .profile .sections .list .stars_container .icon img {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          margin-right: 5px;
+          cursor: pointer; }
+        main .profile .sections .list .stars_container .name {
+          display: flex;
+          align-items: center;
+          margin-right: 5px;
+          word-wrap: break-word;
+          width: 320px;
+          line-height: 15px;
+          font-family: Poppins-SemiBold; }
+    main .profile .sections .description {
+      width: 35%; }
+      main .profile .sections .description .title {
+        font-size: 2rem;
+        font-family: Poppins-SemiBold;
+        margin-bottom: 10px; }
+    main .profile .pdf {
+      display: flex;
+      border: 2px solid rgba(0, 0, 0, 0.5);
+      border-radius: 7.5px;
+      margin-bottom: 25px;
+      width: 35%;
+      overflow: hidden; }
+      main .profile .pdf .icon {
+        width: 125px;
+        display: flex;
+        padding: 30px 0px;
+        justify-content: center;
+        background-color: #f5f9ff; }
+        main .profile .pdf .icon img {
+          width: 50%; }
+      main .profile .pdf .text {
+        width: calc(100% - 125px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: #fa5a4c; }
 
 @media only screen and (max-width: 768px) {
   main > * {
@@ -261,6 +297,8 @@ main {
       .profile .sections .favourite .careers_favs .list {
         margin: 0px !important;
         overflow: scroll !important; }
+        .profile .sections .favourite .careers_favs .list .stars .star {
+          font-size: 1.2rem !important; }
         .profile .sections .favourite .careers_favs .list .name {
           font-size: 0.6rem !important;
           min-width: 125px; }
@@ -269,4 +307,10 @@ main {
           width: 200px !important; }
     .profile .sections .list {
       height: unset !important;
-      margin-top: 15px; } }
+      margin-top: 15px; }
+  .profile .pdf {
+    width: 100%; }
+    .profile .pdf .icon {
+      width: 75px; }
+    .profile .pdf .text {
+      font-size: 1.1rem; } }

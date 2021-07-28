@@ -58,41 +58,6 @@ class ProfesionesController extends Controller
   #endregion
 
   /**
-   * Look for the 4Beyond career data with the id
-   * 
-   * @param int $id The career id
-   * 
-   * @return array The career data
-   */
-  private function search4BeyondCareerData(int $id, int $area_id) {
-    $data = $this->get4BeyondData($area_id);
-    foreach ($data as $d) {
-      if ($d["id_carrera"] == $id)
-        $career = $d;
-    }
-
-    return $career;
-  }
-
-  /**
-   * Load data from 4Beyond API
-   * 
-   * @param int $id Area id
-   * 
-   * @return array The data
-   */
-  private function get4BeyondData(int $id) {
-    $res = Http::withHeaders([
-      "token" => "4bcgp-bgyt",
-    ])->post("https://apps4beyond.com/REST/api/consultarCarreras", [
-      "token_id" => "0ead8013-43e8-11eb-8ecc-02eef28b5605",
-      "area_id" => strval($id)
-    ]);
-
-    return $res["result"]["resultObject"];
-  }
-
-  /**
    * Look for an icon in the bbdd and return an array with the information ordened, including an icon name
    * 
    * @param array $data_exploded

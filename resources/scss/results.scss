@@ -129,8 +129,6 @@ main {
         }
 
         .sections {
-            margin: 0px 100px;
-
             .section {
                 display: flex;
                 border: 2px solid rgba(0, 0, 0, 0.5);
@@ -243,6 +241,34 @@ main {
                     .list {
                         overflow: hidden;
                         margin-left: 25px;
+
+                        .stars {
+                            display: flex;
+                            align-items: center;
+                            width: 100px;
+                            margin-right: 15px;
+
+                            .star {
+                                font-size: 2rem;
+                                color: #000;
+
+                                &.highest {
+                                    color: #0030d2;
+                                }
+
+                                &.high {
+                                    color: #00ff01;
+                                }
+
+                                &.low {
+                                    color: #fffe04;
+                                }
+
+                                &.lowest {
+                                    color: #fe0000;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -284,6 +310,36 @@ main {
                     font-family: Poppins-SemiBold;
                     margin-bottom: 10px;
                 }
+            }
+        }
+
+        .pdf {
+            display: flex;
+            border: 2px solid rgba(0, 0, 0, 0.5);
+            border-radius: 7.5px;
+            margin-bottom: 25px;
+            width: 35%;
+            overflow: hidden;
+
+            .icon {
+                width: 125px;
+                display: flex;
+                padding: 30px 0px;
+                justify-content: center;
+                background-color: #f5f9ff;
+
+                img {
+                    width: 50%;
+                }
+            }
+
+            .text {
+                width: calc(100% - 125px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+                color: #fa5a4c;
             }
         }
     }
@@ -440,6 +496,10 @@ main {
                         margin: 0px !important;
                         overflow: scroll !important;
 
+                        .stars .star {
+                            font-size: 1.2rem !important;
+                        }
+
                         .name {
                             font-size: 0.6rem !important;
                             min-width: 125px;
@@ -456,6 +516,18 @@ main {
             .list {
                 height: unset !important;
                 margin-top: 15px;
+            }
+        }
+
+        .pdf {
+            width: 100%;
+
+            .icon {
+                width: 75px;
+            }
+
+            .text {
+                font-size: 1.1rem;
             }
         }
     }

@@ -29,8 +29,7 @@ Route::post('/registrar-contacto', "ContactoController@registrar");
 /* Test */
 Route::prefix("test")->group(function () {
   Route::get("/", "TestController@index");
-  Route::get("/example", "TestController@example")
-    ->middleware("islogged");
+  Route::get("/example", "TestController@example");
 });
 
 /* Profesiones */
