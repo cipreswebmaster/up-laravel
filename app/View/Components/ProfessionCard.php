@@ -2,10 +2,14 @@
 
 namespace App\View\Components;
 
+use App\Http\Traits\HelpersTrait;
+use App\Models\Profesion;
 use Illuminate\View\Component;
 
 class ProfessionCard extends Component
 {
+  use HelpersTrait;
+
     public $imgSrc;
     public $title;
     public $arrow;
@@ -31,6 +35,15 @@ class ProfessionCard extends Component
      */
     public function render()
     {
-        return view('components.profession-card');
+        $slugifyiedTitle = str_replace([" ", ","], "-", strtolower(clean_string($this->title)));
+        $profesion = $this->getDatabaseInfoWithSlugifyiedName(
+          "carreras",
+          $slugifyiedTitle,
+          "nombre_carrera",
+          Profesion::$shortWordsException
+        );
+        return view('components.profession-card', [
+          "id_area" => $profesion["id_area"]
+        ]);
     }
 }

@@ -8,6 +8,11 @@
   Membresias
 @endsection
 
+@php
+  session_start();
+  $route = isset($_SESSION["logged"]) ? "pagar" : "registrate";
+@endphp
+
 @section('body')
 <div>
   <div class="memberships">
@@ -57,7 +62,7 @@
         </div>
         <div class="start_now">
           <div class="btn">
-            <a href="/register">
+            <a href="{{ route($route, ["plan" => 1]) }}">
               Empezar ahora
             </a>
           </div>
@@ -110,7 +115,7 @@
         </div>
         <div class="start_now">
           <div class="btn">
-            <a href="/register">
+            <a href="{{ route($route, ["plan" => 2]) }}">
               Empezar ahora
             </a>
           </div>
@@ -163,7 +168,7 @@
         </div>
         <div class="start_now">
           <div class="btn">
-            <a href="/register">
+            <a href="{{ route($route, ["plan" => 3]) }}">
               Empezar ahora
             </a>
           </div>

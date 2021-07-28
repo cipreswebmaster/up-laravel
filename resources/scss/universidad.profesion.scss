@@ -133,6 +133,21 @@
             }
         }
 
+        .btn {
+            background-color: #ff5a4a;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+
+            .btn_link {
+                color: #fff;
+                border: 2px solid #fff;
+                display: block;
+                padding: 5px 65px;
+                border-radius: 5px;
+            }
+        }
+
         .lateral-info {
             &.fixed {
                 display: block;
@@ -214,22 +229,6 @@
         display: flex;
         justify-content: center;
         padding: 25px 0px;
-
-        .btn {
-            background-color: #ff5a4a;
-            color: #fff;
-            font-size: 1.2rem;
-            margin-left: 25px;
-            font-weight: bold;
-
-            .btn_link {
-                color: #fff;
-                border: 2px solid #fff;
-                display: block;
-                padding: 5px 15px;
-                border-radius: 5px;
-            }
-        }
     }
 }
 
@@ -306,6 +305,29 @@
 
     .section-content {
         padding: 15px;
+    }
+}
+
+.quiero-ser-contactado {
+    .contacto-input {
+        display: block;
+        width: 100%;
+        padding: 5px 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #000;
+        outline: none;
+    }
+
+    button {
+        background-color: #ff5a4a;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        width: 75%;
+        outline: none;
+        padding: 10px;
+        border: none;
     }
 }
 

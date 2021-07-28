@@ -102,6 +102,191 @@ main {
             }
         }
     }
+
+    .profile {
+        margin-top: 150px;
+
+        .before_begin {
+            display: flex;
+            margin: 100px;
+
+            .img {
+                width: 35%;
+            }
+
+            .text {
+                width: 65%;
+                padding: 35px 45px;
+
+                h2 {
+                    font-family: Poppins-SemiBold;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .sections {
+            margin: 0px 100px;
+
+            .section {
+                display: flex;
+                border: 2px solid rgba(0, 0, 0, 0.5);
+                border-radius: 7.5px;
+                overflow: hidden;
+                margin-bottom: 25px;
+
+                .number {
+                    background-color: #f5f9ff;
+                    font-size: 6rem;
+                    font-family: Poppins-SemiBold;
+                    padding: 10px 30px;
+                    width: 125px;
+                }
+
+                .content {
+                    padding: 30px;
+                    width: 90%;
+                }
+            }
+
+            .instructions {
+                background-color: #f5f8ff;
+                text-align: center;
+                padding: 15px;
+                margin: 25px 0px;
+
+                .title {
+                    font-family: Poppins-ExtraBold;
+                    font-size: 1.2rem;
+                }
+
+                img {
+                    width: 50%;
+                }
+            }
+
+            .select_area {
+                display: flex;
+                align-items: center;
+                height: 100%;
+
+                .select_area_title {
+                    font-family: Poppins-SemiBold;
+                }
+
+                .selec_tag_container {
+                    width: 50%;
+                    border: 2px solid gray;
+                    padding: 0px 15px;
+                    margin-left: 25px;
+                    border-radius: 50px;
+
+                    select {
+                        width: 100%;
+                        font-size: 25px;
+                        font-family: Poppins-SemiBold;
+                        border-radius: 50px;
+                        outline: none;
+                        border: 0;
+                    }
+                }
+            }
+
+            .explore {
+                display: flex;
+
+                .careers {
+                    padding-left: 50px;
+                    width: 65%;
+
+                    .load_gif {
+                        width: 75px;
+                        position: relative;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        margin-top: 10px;
+                    }
+
+                    .stars_description {
+                        .instructions {
+                            font-family: Poppins-SemiBold;
+                        }
+                    }
+                }
+            }
+
+            .favourite {
+                display: flex;
+
+                .see_career {
+                    background-color: #fa5a4c;
+                    color: #fff;
+                    padding: 5px 10px;
+                    border-radius: 25px;
+                    margin-bottom: 5px;
+                    margin-left: 15px;
+                    display: flex;
+                    align-items: center;
+
+                    a {
+                        color: #fff;
+                    }
+                }
+
+                .careers_favs {
+                    padding-left: 25px;
+                    width: 65%;
+
+                    .list {
+                        overflow: hidden;
+                        margin-left: 25px;
+                    }
+                }
+            }
+
+            .list {
+                overflow-y: scroll;
+                max-height: 250px;
+
+                .stars_container {
+                    display: flex;
+                    height: 35px;
+
+                    .icon img {
+                        position: relative;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 20px;
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+
+                    .name {
+                        display: flex;
+                        align-items: center;
+                        margin-right: 5px;
+                        word-wrap: break-word;
+                        width: 320px;
+                        line-height: 15px;
+                        font-family: Poppins-SemiBold;
+                    }
+                }
+            }
+
+            .description {
+                width: 35%;
+
+                .title {
+                    font-size: 2rem;
+                    font-family: Poppins-SemiBold;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -156,6 +341,121 @@ main {
                 & > * {
                     width: 100% !important;
                 }
+            }
+        }
+    }
+
+    .profile {
+        .before_begin {
+            flex-direction: column;
+            margin: 0px 15px;
+
+            & > div {
+                width: 100% !important;
+            }
+
+            .text {
+                padding: 25px 15px;
+
+                h2 {
+                    font-size: 1.2rem;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .sections {
+            margin: 0px 25px !important;
+
+            .section {
+                flex-direction: column;
+
+                & > div {
+                    width: 100% !important;
+                }
+
+                .number {
+                    font-size: 3rem;
+                    text-align: center;
+                }
+
+                .content {
+                    padding: 30px 15px;
+
+                    & > div {
+                        flex-direction: column;
+
+                        & > div {
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+
+            .instructions img {
+                width: 100%;
+            }
+
+            // Section 1
+            .select_area {
+                .select_area_title {
+                    font-size: 1rem;
+                }
+
+                .selec_tag_container {
+                    width: 100% !important;
+                    margin: 0 !important;
+
+                    &,
+                    & * {
+                        font-size: 1rem !important;
+                    }
+                }
+            }
+
+            // Section 2
+            .explore {
+                & * {
+                    font-size: 0.8rem;
+                }
+
+                .description .title {
+                    font-size: 1.5rem;
+                }
+
+                .careers {
+                    padding: 0px !important;
+                }
+            }
+
+            // Section 3
+            .favourite {
+                .careers_favs {
+                    padding: 0px !important;
+
+                    .list {
+                        margin: 0px !important;
+                        overflow: scroll !important;
+
+                        .name {
+                            font-size: 0.6rem !important;
+                            min-width: 125px;
+                        }
+
+                        .stars_container .see_career {
+                            font-size: 0.5rem;
+                            width: 200px !important;
+                        }
+                    }
+                }
+            }
+
+            .list {
+                height: unset !important;
+                margin-top: 15px;
             }
         }
     }

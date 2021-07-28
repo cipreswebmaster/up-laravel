@@ -106,4 +106,142 @@
     @endforeach
   </div>
 </div>
+<div class="profile">
+  <div class="before_begin">
+    <div class="img">
+      <img src="{{ asset("images/test/results/image.jpg") }}" alt="" />
+    </div>
+    <div class="text">
+      <h2>Antes de comenzar</h2>
+      <p>
+        En esta sección podrás explotar la información de las diferentes áreas
+        profesionales, al final podrás seleccionar las 5 carreras de tu
+        interés las cuales sugerimos estén marcadas con estrellas azules y
+        verdes. <br />
+        <br />
+        Por favor, sigue los pasos y lee cada indicación.
+      </p>
+    </div>
+  </div>
+  <div class="sections">
+    <div class="section">
+      <div class="number">1</div>
+      <div class="content">
+        <div class="select_area">
+          <h2 class="select_area_title">
+            Selecciona un área de estudio:
+          </h2>
+          <div class="selec_tag_container">
+            <select name="areas">
+              @foreach ($areas as $area)
+                <option value="{{ $area["id_area"] }}">
+                  {{ $area["nombre_area"] }}
+                </option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="instructions">
+      <div class="title">¿Qué significan las estrellas?</div>
+      <div class="descript">
+        Porcentaje de afinidad con las carreras seleccionadas
+      </div>
+      <img src="{{ asset("images/test/results/stars.jpg") }}" alt="" />
+    </div>
+
+    {{-- Explorar carreras --}}
+    <div class="section">
+      <div class="number">2</div>
+      <div class="content">
+        <div class="explore">
+          <div class="description">
+            <div class="title">Explora las carreras</div>
+            <p class="text">
+              Frente a cada carrera verás estrellas de colores: Las azules y
+              verdes son las que tienen mayor ajuste a tus fortalezas
+              naturales, las amarillas las que presentan un ajuste medio de
+              acuerdo a tus resultados y las rojas las que no y por tanto, no
+              recomendamos que estudies.
+            </p>
+          </div>
+          <div class="careers">
+            <div class="stars_description">
+              <div class="instructions">
+                Añade o elimina hasta 5 carreras favoritas
+              </div>
+              <div class="instruc_descrip">
+                Para seleccionar tus 5 carreras favoritas, haz click en el
+                corazón. Para retirarla de tu lista de favoritas, vuelve a dar
+                click en el corazón.
+              </div>
+            </div>
+            <div class="list">
+              {{-- @foreach ($profesiones as $prof)
+                @php
+                  
+                @endphp
+                <div class="stars_container">
+                  <div class="icon" >
+                    <img
+                      src={
+                        isCareerFavourite(val["id_carrera_4beyond"])
+                          ? hs
+                          : hns
+                      }
+                      alt=""
+                    />
+                  </div>
+                  <div class="name">{val.nombre_carrera}</div>
+                  <Stars afinity={val.afinidad} />
+                </div>
+              @endforeach --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   {{-- {/* Favoritos */}
+    <Section number={3}>
+      <div className={styles.favourite}>
+        <div className={styles.description}>
+          <div className={styles.title}>Favoritos</div>
+          <p className={styles.text}>
+            Estas son tus carreras escogidas como "favoritas". Para conocer
+            más información sobre ella, haz click sobre la carrera de
+            interés. Estas carreras se verán reflejadas en tu reporte.
+          </p>
+        </div>
+        <div className={styles.careers_favs}>
+          <div className={styles.list}>
+            {favourites.map((val, idx) => (
+              <div key={idx} className={styles.stars_container}>
+                <div
+                  className={styles.icon}
+                  onClick={() => removeFavourite(val.id_carrera)}
+                >
+                  <img src={hs} alt="" />
+                </div>
+                <div className={styles.name}>{val.nombre_carrera}</div>
+                <Stars afinity={val.afinidad} />
+                <div className={styles.see_career}>
+                  <Link to={`/professions/${slugify(val.nombre_carrera)}`}>
+                    ver carrera
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Section>
+    <DownloadPDF token={userInfo["4beyond_token_id"]} />
+  </div>
+  <ResultsFooter
+    before={{ text: "Cuál es mi perfil", link: "/results" }}
+    after={{ text: "Elijo carrera", link: `/professions` }}
+  /> --}}
+</div>
 @endsection

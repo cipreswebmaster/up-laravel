@@ -1,9 +1,9 @@
 @php
   $isTitleLarge = strlen($title) > 25 && count(str_split($title)) > 3;
-  $titleSlugged = clean_string(Str::slug($title));
+  $titleSlugged = Str::slug($title);
 @endphp
 
-<div class="card">
+<div class="card area-{{ $id_area }}">
   <a href="@if (Route::currentRouteName() == "university")
     {{ Request::url() . "/$titleSlugged" }}
   @else

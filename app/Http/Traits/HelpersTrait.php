@@ -22,13 +22,18 @@ trait HelpersTrait {
     string $query_condition_field,
     array $exception_words = []
   ) {
+    $especificsWords = [
+      "diseno" => "diseño"
+    ];
     $nameExploded = explode("-", $slugifyied_name);
     $wordsToUse = array_values(array_filter($nameExploded, function ($el) use ($exception_words) {
       return strlen($el) > 2 && !in_array($el, $exception_words);
     }));
-    $response = DB::table($table)->where($query_condition_field, "LIKE", "%" . $wordsToUse[0] . "%");
+    $condition = isset($especificsWords[$wordsToUse[0]]) ? $especificsWords[$wordsToUse[0]] : $wordsToUse[0];
+    $response = DB::table($table)->where($query_condition_field, "LIKE", "%" . $condition . "%");
     for ($i = 1; $i < count($wordsToUse); $i++) { 
-      $response->orWhere($query_condition_field, "LIKE", "%" . $wordsToUse[$i] . "%");
+      $condition = isset($especificsWords[$wordsToUse[$i]]) ? $especificsWords[$wordsToUse[$i]] : $wordsToUse[$i];
+      $response->orWhere($query_condition_field, "LIKE", "%" . $condition . "%");
     }
     $res = $response->get();
     $theOne = $this->getTheOne($res, $slugifyied_name, $query_condition_field);

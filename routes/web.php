@@ -14,28 +14,44 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'index');
+Route::view('/membresias', 'membresias');
+
 Route::get('/becas', 'BecasController@index');
+Route::get("/logout", "UsuariosController@logout")->name("logout");
+Route::get("/registrate", "UsuariosController@registrate")->name("registrate");
+Route::get("/perfil", "PerfilController@index")->name("perfil");
+Route::get("/pagar/{plan}", "PagosController@pagar")->name("pagar");
+Route::get('/estado_pago', 'PagosController@estado_pago');
+
+Route::post("/registrar", "UsuariosController@registrar")->name("registrar");
+Route::post('/registrar-contacto', "ContactoController@registrar");
+
+/* Test */
 Route::prefix("test")->group(function () {
   Route::get("/", "TestController@index");
-  Route::get("/example", "TestController@example");
+  Route::get("/example", "TestController@example")
+    ->middleware("islogged");
 });
 
 /* Profesiones */
 Route::prefix("profesiones")->group(function () {
   Route::get('/', 'ProfesionesController@index');
   Route::get("/{professionName}", 'ProfesionesController@profesion')
-    ->name("profession");
+    ->name("profession")
+    ->middleware("islogged");
 });
 
 /* Universidades */
 Route::prefix("universidades")->group(function () {
   Route::get('/', 'UniversidadesController@index');
   Route::get('/{uniName}', 'UniversidadesController@universidad')
-    ->name("university");
+    ->name("university")
+    ->middleware("islogged");;
   Route::get('/p/{professionName}', 'UniversidadesController@unisOfProf')
     ->name("unisOfProf");
   Route::get('/{uniName}/{professionName}', 'UniversidadesController@profInU')
-    ->name("profInU");
+    ->name("profInU")
+    ->middleware("islogged");;
 });
 
 /* Login */
@@ -49,11 +65,3 @@ Route::prefix("login")->group(function () {
   Route::post("/comprobar_codigo", "UsuariosController@comprobarCodigo")
     ->name("comprobar_codigo");
 });
-
-Route::get("/logout", "UsuariosController@logout")->name("logout");
-Route::get("/registrate", "UsuariosController@registrate")->name("registrate");
-Route::post("/registrar", "UsuariosController@registrar")->name("registrar");
-
-Route::get("/perfil", "PerfilController@index")->name("perfil");
-
-Route::view('/membresias', 'membresias');

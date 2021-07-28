@@ -1,7 +1,7 @@
 <a
-  href="/register"
+  href="{{ route("registrate") }}"
   class="join_now @if ($big) 'big' @endif">
-  ÚNETE AHORA
+  Registrate gratis
 </a>
 
 <style>

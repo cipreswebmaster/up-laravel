@@ -9,12 +9,15 @@
 @endsection
 
 @php
-  function priceWithDots($price) {
+  function getPrice($price) {
     $_price = "$";
-    for ($i = 0; $i < strlen($price); $i++) {
-      $_price .= $price[$i];
-      $dotContinue = (strlen($price) - ($i + 1)) % 3 == 0;
-      if ($dotContinue && $i + 1 < strlen($price))
+    $priceWithoutDots = str_replace(".", "", $price);
+    if (!is_numeric($priceWithoutDots))
+      return $price;
+    for ($i = 0; $i < strlen($priceWithoutDots); $i++) {
+      $_price .= $priceWithoutDots[$i];
+      $dotContinue = (strlen($priceWithoutDots) - ($i + 1)) % 3 == 0;
+      if ($dotContinue && $i + 1 < strlen($priceWithoutDots))
         $_price .= ".";
     }
     return $_price;
@@ -61,8 +64,13 @@
             <div>Precio semestre</div>
           </div>
           <div class="item">
-            {{ priceWithDots($prof_uni["precio_semestre"]) }}
+            {{ getPrice($prof_uni["precio_semestre"]) }}
           </div>
+        </div>
+        <div class="contacto btn">
+          <span class="btn_link">
+            Quiero ser contactado
+          </span>
         </div>
         <div class="section" style="padding: 0px; margin-top: 35px">
           <div class="section-title">
@@ -248,4 +256,25 @@
       </div> --}}
     </div>
   </div>
+@endsection
+
+@section('scripts')
+  <script src="{{ asset("js/swal.min.js") }}"></script>
+  <script>
+    const contactoBtn = document.querySelector(".contacto.btn");
+    contactoBtn.addEventListener("click", function () {
+      Swal.fire({
+        title: "Quiero ser contactado",
+        html:
+          '<form action="/registrar-contacto" method="POST" class="quiero-ser-contactado">' +
+          '@csrf' +
+          '<input required type="text" class="contacto-input" placeholder="Escribe tu nombre completo" name="nombre" >' +
+          '<input required type="text" class="contacto-input" placeholder="Escribe tu telefono" name="tel">' +
+          '<input required type="email" class="contacto-input" placeholder="Escribe tu email" name="email">' + 
+          '<button type="submit">Enviar</button>' + 
+          '</form>',
+        showConfirmButton: false
+      });
+    });
+  </script>
 @endsection

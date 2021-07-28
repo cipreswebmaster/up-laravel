@@ -14,10 +14,6 @@
     topText="Profesiones"
     arrow="prof"
     img="profesiones.jpg" />
-  <x-preview-video
-    videoId="zoDE65qLBSU"
-    text="Esto es lo que podrás encontrar en las más de 300 carreras disponibles y actualizadas de UP"
-    example="profesion" />
 
   {{-- Seleccionar carreras por área --}}
   <div style="padding: 6.5%">
@@ -29,8 +25,7 @@
         <div class="no-real-area only-pc">SELECCIONA CARRERAS POR ÁREA</div>
         @foreach ($areas as $area)
           @php $lowLetter = count(str_split($area["nombre_area"])) @endphp
-        
-          <div class="area" >
+          <div class="area" id="area-{{ $area["id_area"] }}">
             <div class="img">
               <img 
                 src="{{ asset("images/select-area/back-img/" . $area["img"]) . ".png" }}"
@@ -56,8 +51,6 @@
         Mostras todas las profesiones
       </div>
     </div>
-
-    
     <div class="search">
       <x-showcase 
         title="Profesiones"

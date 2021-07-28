@@ -5,6 +5,9 @@
 @endsection
 
 @section('body')
+  @if (isset($_GET["message"]))
+    <h1 align="center" style="font-family: Poppins-SemiBold; margin: 15px">Inicia sesión o registrate gratis para poder acceder a la información de las carreras</h1>
+  @endif
   <div class="container">
     <div class="image">
       <img src="{{ asset("images/login/graduated-smiling.jpg") }}" alt="" />
@@ -13,18 +16,5 @@
       @yield('form')
     </div>
   </div>
-  {{-- <GraduatedSmilingContainer videoId={careerVideo}>
-    {!isValidated ? (
-      <CredentialsForm onLogin={handleLogin} />
-    ) : (
-      <CodeForm
-        email={email}
-        onMailChange={handleMailChange}
-        setIsValidated={setIsValidated}
-        onLoginComplete={handleLoginComplete}
-      />
-    )}
-    {/* <CreateAccountBtn /> */}
-  </GraduatedSmilingContainer> --}}
   
 @endsection

@@ -84,6 +84,17 @@
         .u .career-info .general-info .item:last-child {
           background-color: #e5e5e5;
           font-size: 30px; }
+    .u .career-info .btn {
+      background-color: #ff5a4a;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold; }
+      .u .career-info .btn .btn_link {
+        color: #fff;
+        border: 2px solid #fff;
+        display: block;
+        padding: 5px 65px;
+        border-radius: 5px; }
     .u .career-info .lateral-info.fixed {
       display: block;
       position: sticky;
@@ -134,18 +145,6 @@
     display: flex;
     justify-content: center;
     padding: 25px 0px; }
-    .u .buttons .btn {
-      background-color: #ff5a4a;
-      color: #fff;
-      font-size: 1.2rem;
-      margin-left: 25px;
-      font-weight: bold; }
-      .u .buttons .btn .btn_link {
-        color: #fff;
-        border: 2px solid #fff;
-        display: block;
-        padding: 5px 15px;
-        border-radius: 5px; }
 
 .btn {
   background-color: #ececf5;
@@ -199,6 +198,25 @@
       padding-top: 10px; }
   .section .section-content {
     padding: 15px; }
+
+.quiero-ser-contactado .contacto-input {
+  display: block;
+  width: 100%;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  outline: none; }
+
+.quiero-ser-contactado button {
+  background-color: #ff5a4a;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 75%;
+  outline: none;
+  padding: 10px;
+  border: none; }
 
 @media only screen and (max-width: 768px) {
   .presentation-card {
