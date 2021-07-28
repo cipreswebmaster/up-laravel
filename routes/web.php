@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,11 @@ Route::get('/estado_pago', 'PagosController@estado_pago');
 
 Route::post("/registrar", "UsuariosController@registrar")->name("registrar");
 Route::post('/registrar-contacto', "ContactoController@registrar");
+
+/* Contacto */
+Route::prefix("contacto")->group(function () {
+  Route::get("/", "ContactoController@index");
+});
 
 /* Test */
 Route::prefix("test")->group(function () {

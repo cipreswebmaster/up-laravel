@@ -6,7 +6,7 @@
       [ "name" => "Universidades", "to" => "/universidades", "color" => "#ffe25a" ],
       // [ "name" => "Becas", "to" => "/becas", "color" => "#38b148" ],
       // [ "name" => "Actualidad", "to" => "/actualidad", "color" => "#90278c" ],
-      // [ "name" => "Contacto", "to" => "/contacto", "color" => "#cf1459" ],
+      [ "name" => "Contacto", "to" => "/contacto", "color" => "#cf1459" ],
     ]
 @endphp
 
