@@ -54,4 +54,6 @@
   .index-video-instruction {
     flex-direction: column; }
     .index-video-instruction > div {
-      width: 100%; } }
+      width: 100%; }
+    .index-video-instruction .carousel-instructions .slides .slide .info .text {
+      font-size: 15px; } }

@@ -1,3 +1,3 @@
 <button type="submit" class="start-now">
-  Registrate gratis
+  Regístrate gratis
 </button>

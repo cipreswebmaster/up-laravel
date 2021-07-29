@@ -60,6 +60,8 @@
       margin: 25px; }
       .what-is-up .description .title {
         font-size: 3rem; }
+      .what-is-up .description p {
+        font-size: 15px; }
     .what-is-up .contact-form {
       padding: 0px; }
       .what-is-up .contact-form .form input {

@@ -6,7 +6,7 @@
 
 @section('body')
   @if (isset($_GET["message"]))
-    <h1 align="center" style="font-family: Poppins-SemiBold; margin: 15px">Inicia sesión o registrate gratis para poder acceder a la información de las carreras</h1>
+    <h1 align="center" style="font-family: Poppins-SemiBold; margin: 15px">Inicia sesión o regístrate gratis para poder acceder a la información de las carreras</h1>
   @endif
   <div class="container">
     <div class="image">

@@ -15,7 +15,7 @@
         name="email"
         required
       /><br>
-      <button type="submit">Registrate gratis</button>
+      <button type="submit">Regístrate gratis</button>
     </form>
     <div class="login">
       ¿Ya tienes cuenta? <a href="/login" style="color: #fff">Inicia sesión</a>
