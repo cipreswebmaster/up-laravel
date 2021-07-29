@@ -1,11 +1,18 @@
 @extends('base')
 
+@section('title')
+  Contáctanos
+@endsection
+
 @section('styles')
   <link rel="stylesheet" href="{{ asset("css/contact.css") }}">
 @endsection
 
 @section('body')
   <x-banner arrow="prof" img="banner.jpg" topText="Contacto" />
+  @if (isset($_GET["success"]))
+    <h1 align="center" style="margin-top: 15px; font-family: Poppins-SemiBold">Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto</h1>
+  @endif
   <div class="contact">
     <div class="title">
       ¿Tienes alguna duda o pregunta? ¡Envíanos un mensaje!
@@ -27,7 +34,7 @@
         )} --}}
       </div>
       <div class="form">
-        <form action="" method="POST">
+        <form action="/contacto/contactar" method="POST">
           @csrf
           <div class="row">
             <div class="input_label">

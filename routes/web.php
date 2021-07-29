@@ -30,6 +30,7 @@ Route::post('/registrar-contacto', "ContactoController@registrar");
 /* Contacto */
 Route::prefix("contacto")->group(function () {
   Route::get("/", "ContactoController@index");
+  Route::post('/contactar', "ContactoController@contactar");
 });
 
 /* Test */
