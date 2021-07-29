@@ -17,3 +17,19 @@
         cursor: pointer;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .horizontal-ad {
+        width: 100vw !important;
+        margin: 15px 0px;
+
+        .ad-content {
+            display: flex;
+            justify-content: center;
+
+            video {
+                width: 75%;
+            }
+        }
+    }
+}

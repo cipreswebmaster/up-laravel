@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset("css/actualidad-universitaria.css") }}">
 
-<div class="actualidad-universitaria">
+<div class="actualidad-universitaria only-pc">
   <div class="au-title">ACTUALIDAD UNIVERSITARIA</div>
     <div class="au-noticias">
       <div class="noticia-principal">

@@ -77,3 +77,36 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .what-is-up {
+        flex-direction: column;
+
+        & > div {
+            width: 100% !important;
+        }
+
+        .description {
+            margin: 25px;
+
+            .title {
+                font-size: 3rem;
+            }
+        }
+
+        .contact-form {
+            padding: 0px;
+
+            .form {
+                input {
+                    margin-bottom: 20px;
+                }
+
+                button {
+                    font-size: 15px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

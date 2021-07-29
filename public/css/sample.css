@@ -3,3 +3,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px; }
+
+@media only screen and (max-width: 768px) {
+  .sample {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 5px; } }

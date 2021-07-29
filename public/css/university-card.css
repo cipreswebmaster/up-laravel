@@ -38,15 +38,13 @@
       font-family: "Poppins-SemiBold"; }
 
 @media only screen and (max-width: 768px) {
-  .card {
-    width: calc((100% / 2) - 5px); }
-    .card .uni_img {
-      top: 30%; }
-    .card .layer .header_img {
-      height: 70px; }
-      .card .layer .header_img img {
-        height: auto !important; }
-    .card .layer .info .title {
-      font-size: 0.9rem;
-      padding: 50px 10px;
-      padding-bottom: 0px; } }
+  .card .uni_img {
+    top: 30%; }
+  .card .layer .header_img {
+    height: 70px; }
+    .card .layer .header_img img {
+      height: auto !important; }
+  .card .layer .info .title {
+    font-size: 0.9rem;
+    padding: 50px 10px;
+    padding-bottom: 0px; } }

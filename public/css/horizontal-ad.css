@@ -12,3 +12,13 @@
     font-weight: bold; }
   .horizontal-ad .ad-content {
     cursor: pointer; }
+
+@media only screen and (max-width: 768px) {
+  .horizontal-ad {
+    width: 100vw !important;
+    margin: 15px 0px; }
+    .horizontal-ad .ad-content {
+      display: flex;
+      justify-content: center; }
+      .horizontal-ad .ad-content video {
+        width: 75%; } }

@@ -75,3 +75,15 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .actualidad-universitaria {
+        .au-noticias {
+            flex-direction: column;
+
+            & > div {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -233,7 +233,7 @@ a {
       .columns .video iframe {
         width: 100%; }
     .columns .profit-graph {
-      height: auto; }
+      height: 615px !important; }
       .columns .profit-graph .graph {
         flex-direction: column; }
         .columns .profit-graph .graph > div {

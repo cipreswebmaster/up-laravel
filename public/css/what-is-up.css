@@ -50,3 +50,20 @@
         border-bottom: 2px solid #fff; }
         .what-is-up .contact-form .login a:hover {
           color: #fff; }
+
+@media only screen and (max-width: 768px) {
+  .what-is-up {
+    flex-direction: column; }
+    .what-is-up > div {
+      width: 100% !important; }
+    .what-is-up .description {
+      margin: 25px; }
+      .what-is-up .description .title {
+        font-size: 3rem; }
+    .what-is-up .contact-form {
+      padding: 0px; }
+      .what-is-up .contact-form .form input {
+        margin-bottom: 20px; }
+      .what-is-up .contact-form .form button {
+        font-size: 15px;
+        margin-bottom: 20px; } }

@@ -19,6 +19,9 @@ body {
 
 main {
     margin-top: 125px;
+    margin-right: 0px;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 img {
@@ -80,6 +83,7 @@ a {
 @media only screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
+        min-width: unset;
     }
 
     .only-pc {

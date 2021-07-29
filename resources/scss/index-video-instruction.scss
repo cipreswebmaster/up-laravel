@@ -76,3 +76,13 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .index-video-instruction {
+        flex-direction: column;
+
+        & > div {
+            width: 100%;
+        }
+    }
+}
