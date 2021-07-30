@@ -247,27 +247,6 @@ main {
                             align-items: center;
                             width: 100px;
                             margin-right: 15px;
-
-                            .star {
-                                font-size: 2rem;
-                                color: #000;
-
-                                &.highest {
-                                    color: #0030d2;
-                                }
-
-                                &.high {
-                                    color: #00ff01;
-                                }
-
-                                &.low {
-                                    color: #fffe04;
-                                }
-
-                                &.lowest {
-                                    color: #fe0000;
-                                }
-                            }
                         }
                     }
                 }
@@ -341,6 +320,27 @@ main {
                 font-size: 1.5rem;
                 color: #fa5a4c;
             }
+        }
+    }
+
+    .star {
+        font-size: 2rem;
+        color: #000;
+
+        &.highest {
+            color: #0030d2;
+        }
+
+        &.high {
+            color: #00ff01;
+        }
+
+        &.low {
+            color: #fffe04;
+        }
+
+        &.lowest {
+            color: #fe0000;
         }
     }
 }
@@ -496,8 +496,11 @@ main {
                         margin: 0px !important;
                         overflow: scroll !important;
 
-                        .stars .star {
-                            font-size: 1.2rem !important;
+                        .stars {
+                            display: flex;
+                            align-items: center;
+                            width: 100px;
+                            margin-right: 15px;
                         }
 
                         .name {

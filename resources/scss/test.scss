@@ -61,3 +61,15 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .tests {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 50px;
+
+        .test-container {
+            width: 100% !important;
+        }
+    }
+}

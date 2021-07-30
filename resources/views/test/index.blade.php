@@ -20,7 +20,6 @@
     videoId="IKeT_aP5fUg"
     text="Estos son algunos aspectos que podrás encontrar para hacer una selección de carrera según tu test premium de UP"
     example="test" />
-  @if (isset($_SESSION["logged"]))
     <div class="tests" style="display: flex">
       <div class="test-container">
         <div class="t-title">TEST GRATUITO</div>
@@ -97,5 +96,4 @@
         </div>
       </div>
     </div>
-  @endif
 @endsection

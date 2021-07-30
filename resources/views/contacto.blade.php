@@ -21,7 +21,7 @@
       <div class="info">
         <div class="info_title">Información de contacto</div>
         <div class="info_text">
-          Rellena el formulario y nuestro equipo se pondrá en contacto
+          Completa el formulario y nuestro equipo se pondrá en contacto
           contigo en menos de 24 horas
         </div>
         <div class="info_email">

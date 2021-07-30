@@ -45,6 +45,8 @@
       [ "description" => $results["personalidad"] ],
       [ "description" => $results["tareas_motivan"] ],
     ];
+
+    $starsClasses = ["lowest", "low", "high", "highest"];
 @endphp
 
 @section('body')
@@ -189,7 +191,7 @@
                   <div class="name">{{ $prof["nombre_carrera"] }}</div>
                   <div class="stars">
                     @for ($i = 0; $i < intval($prof["afinidad"]); $i++)
-                      <span class="star" >
+                      <span class="star {{ $starsClasses[intval($prof["afinidad"]) - 1] }}" >
                         &#9733;
                       </span>
                     @endfor
@@ -224,7 +226,7 @@
                 <div class="name">{{ $fav["nombre_carrera"] }}</div>
                 <div class="stars">
                   @for ($i = 0; $i < intval($fav["afinidad"]); $i++)
-                    <span class="star" >
+                    <span class="star {{ $starsClasses[intval($fav["afinidad"]) - 1] }}" >
                       &#9733;
                     </span>
                   @endfor

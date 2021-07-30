@@ -44,3 +44,11 @@
           font-family: "Poppins-ExtraBold";
           font-size: 20px;
           text-align: center; }
+
+@media only screen and (max-width: 768px) {
+  .tests {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 50px; }
+    .tests .test-container {
+      width: 100% !important; } }

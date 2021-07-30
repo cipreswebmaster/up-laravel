@@ -38,26 +38,26 @@
         </a>
       </div>
     @endforeach
-    <div class="only-mobile">
-      @if (isset($_SESSION["logged"]))  
-        <div class="ref login link">
-          <a href="{{ url("logout") }}" class="logginout">
-            Cerrar Sesión
-          </a>
-        </div>
-        {{-- <div class="planes-btn">
-          <a href="/membresias">Conoce nuestros planes</a>
-        </div> --}}
-      @else
-        {{-- <div class="planes-btn">
-          <a href="/membresias">Conoce nuestros planes</a>
-        </div> --}}
-        <div class="ref login link">
-          <a href="{{ url("login") }}" class="logginout">
-            Iniciar Sesión
-          </a>
-        </div>
-      @endif
+      <div class="only-mobile">
+        @if (isset($_SESSION["logged"]))  
+          <div class="ref login link">
+            <a href="{{ url("logout") }}" class="logginout">
+              Cerrar Sesión
+            </a>
+          </div>
+          <div class="planes-btn">
+            <a href="/membresias">Conoce nuestros planes</a>
+          </div>
+        @else
+          <div class="planes-btn">
+            <a href="/membresias">Conoce nuestros planes</a>
+          </div>
+          <div class="ref login link">
+            <a href="{{ url("login") }}" class="logginout">
+              Iniciar Sesión
+            </a>
+          </div>
+        @endif
     </div>
   </nav>
   <div class="session">

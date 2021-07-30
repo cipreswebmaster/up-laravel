@@ -208,7 +208,7 @@
 @media only screen and (max-width: 768px) {
     .memberships {
         padding: 0;
-        padding-top: 250px;
+        padding-top: 20px;
         width: 100vw;
 
         .title {
@@ -223,6 +223,7 @@
             .mem {
                 width: 90% !important;
                 margin-left: 5%;
+                margin-bottom: 15px;
             }
         }
     }
