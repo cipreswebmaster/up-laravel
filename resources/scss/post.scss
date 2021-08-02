@@ -1,0 +1,46 @@
+.post {
+    padding: 100px 150px;
+
+    .title {
+        font-family: Poppins-ExtraBold;
+        font-size: 3.2rem;
+        text-align: center;
+    }
+
+    .publication_date {
+        text-align: end;
+        margin: 15px 0px;
+    }
+
+    .entradilla {
+        margin: 25px 0px;
+        font-size: 25px;
+    }
+
+    .post_text {
+        margin: 25px 0px;
+
+        a {
+            color: #007bff !important;
+        }
+    }
+
+    .tags {
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .post {
+        padding: 25px 20px;
+
+        .title {
+            font-size: 2rem;
+        }
+
+        .entradilla,
+        .post_text {
+            font-size: 15px;
+        }
+    }
+}

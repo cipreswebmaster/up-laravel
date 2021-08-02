@@ -4,7 +4,7 @@
   <div class="au-title">ACTUALIDAD UNIVERSITARIA</div>
     <div class="au-noticias">
       <div class="noticia-principal">
-        <a href="/posts">
+        <a href="{{ route("post", ["postName" => Str::slug($posts[0]["title"])]) }}">
           <div class="np-title"> {{ strtoupper($posts[0]["title"]) }} </div>
           <div class="np-img">
             <img src="{{ env("API_URL") . "/images/posts/" . $posts[0]["image"] }}" alt="">
@@ -15,7 +15,7 @@
         @for ($i = 1; $i < 3; $i++)
           <div class="noticia">
             <div class="n-information">
-              <a href="/">
+              <a href="{{ route("post", ["postName" => Str::slug($posts[$i]["title"])]) }}">
                 <div class="n-title">{{ $posts[$i]["title"] }}</div>
               </a>
               <div class="n-entradilla">{{ $posts[$i]["entradilla"] }}</div>

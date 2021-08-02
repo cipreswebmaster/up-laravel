@@ -1,0 +1,27 @@
+.post {
+  padding: 100px 150px; }
+  .post .title {
+    font-family: Poppins-ExtraBold;
+    font-size: 3.2rem;
+    text-align: center; }
+  .post .publication_date {
+    text-align: end;
+    margin: 15px 0px; }
+  .post .entradilla {
+    margin: 25px 0px;
+    font-size: 25px; }
+  .post .post_text {
+    margin: 25px 0px; }
+    .post .post_text a {
+      color: #007bff !important; }
+  .post .tags {
+    font-weight: bold; }
+
+@media only screen and (max-width: 768px) {
+  .post {
+    padding: 25px 20px; }
+    .post .title {
+      font-size: 2rem; }
+    .post .entradilla,
+    .post .post_text {
+      font-size: 15px; } }

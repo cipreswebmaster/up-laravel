@@ -16,7 +16,8 @@ class ActualidadUniversitaria extends Component
      */
     public function __construct()
     {
-      $this->posts = Post::all()->reverse();
+      $posts = array_values(Post::all()->reverse()->toArray());
+      $this->posts = $posts;
     }
 
     /**
