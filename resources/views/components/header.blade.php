@@ -4,10 +4,12 @@
       [ "name" => "Test", "to" => "/test", "color" => "#90278c" ],
       [ "name" => "Profesiones", "to" => "/profesiones", "color" => "#99dce5" ],
       [ "name" => "Universidades", "to" => "/universidades", "color" => "#ffe25a" ],
-      // [ "name" => "Becas", "to" => "/becas", "color" => "#38b148" ],
       // [ "name" => "Actualidad", "to" => "/actualidad", "color" => "#90278c" ],
       [ "name" => "Contacto", "to" => "/contacto", "color" => "#cf1459" ],
-    ]
+    ];
+
+    if (isset($_SESSION["state"]) && $_SESSION["state"] == 0)
+      array_push($tabs, [ "name" => "Becas", "to" => "/becas", "color" => "#38b148" ]);
 @endphp
 
 <header class="header" style="width: 100%">

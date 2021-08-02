@@ -62,6 +62,7 @@ class UsuariosController extends Controller
     
     $user = User::where("email", $email)->first();
     $_SESSION["session_token"] = $user->session_token;
+    $_SESSION["state"] = $user->state;
     $_SESSION["logged"] = true;
     return redirect()->route("perfil");
   }
@@ -98,6 +99,7 @@ class UsuariosController extends Controller
     $user->document = $request->documento;
     $user->password = password_hash($request->password, PASSWORD_DEFAULT);
     $user->state = 1;
+    $user->test_attempts = 0;
 
     $dia = intval($request->day);
     $mes = intval($request->month);

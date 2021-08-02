@@ -65,6 +65,7 @@
           autoComplete="off"
           required
           name="email"
+          @if (isset($_GET["email"])) value="{{ $_GET["email"] }}" @endif
         />
       </div>
       <div class="born_date">
