@@ -1,0 +1,31 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+
+    .count {
+        font-family: Poppins-SemiBold;
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .buttons {
+        display: flex;
+
+        .do_again,
+        .go_results {
+            border: none;
+            outline: none;
+            background-color: #ff5a4a;
+            color: #fff;
+            padding: 10px 50px;
+            border-radius: 50px;
+            font-family: Poppins-ExtraBold;
+        }
+    }
+
+    .go_results {
+        margin-left: 25px;
+    }
+}

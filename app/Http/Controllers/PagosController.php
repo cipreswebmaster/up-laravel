@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class PagosController extends Controller
 {
   private const plans = [30000, 45000, 55000];
+  private const testAttempts = [1, 3, 6];
 
   public function pagar($plan) {
     session_start();
@@ -52,6 +53,7 @@ class PagosController extends Controller
       $u->save();
       
       $_SESSION["pago_token"] = $response->inicio_pagoV2Result;
+      $_SESSION["plan"] = $plan;
       return redirect("/estado_pago");
     } catch (\Exception $e) {
       echo $e->getMessage();
@@ -93,6 +95,20 @@ class PagosController extends Controller
     
       if ($data["zona_pago_state"] == 0) {
         $res_pago_exploded = explode("|", $response->str_res_pago);
+        if (intval($res_pago_exploded[1]) == 1) {
+          $planMonths = self::testAttempts[intval($_SESSION["plan"]) - 1];
+
+          $today = date_create();
+          date_add($today, date_interval_create_from_date_string($planMonths . " months"));
+          $fechaRenovacion = date_format($today, "Y-m-d");
+
+          $userObj = User::find($user->id_user);
+          $userObj->state = 0;
+          $userObj->test_attempts = $planMonths;
+          $userObj->payment_expiration = $fechaRenovacion;
+          $userObj->save();
+          return;
+        }
         $data["zona_pago_payment_info"] = [
           "estado_pago" => trim($res_pago_exploded[1]),
           "forma_pago" => trim($res_pago_exploded[14])
