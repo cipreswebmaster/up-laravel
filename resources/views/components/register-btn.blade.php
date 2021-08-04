@@ -13,7 +13,7 @@
 </div>
 
 <script>
-  const mainContainer = document.querySelector(".container");
+  let mainContainer = document.querySelector(".container");
   window.addEventListener("resize", function () {
     if (isMobile()) {
       mainContainer.classList.add("mobile");

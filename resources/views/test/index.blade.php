@@ -6,10 +6,6 @@
   <link rel="stylesheet" href="{{ asset("css/test.css") }}">
 @endsection
 
-@php
-  session_start();
-@endphp
-
 @section("body")
   <x-banner
     topText="Test"

@@ -260,6 +260,10 @@ main {
                     display: flex;
                     height: 35px;
 
+                    &.hide {
+                        display: none;
+                    }
+
                     .icon img {
                         position: relative;
                         top: 50%;

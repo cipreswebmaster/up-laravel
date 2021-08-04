@@ -84,7 +84,7 @@
             @endfor
           </select>
           <select class="select" name="year" id="year" required>
-            <option>Selecciona el mes</option>
+            <option>Selecciona el año</option>
             @for ($i = 2006; $i >= 1950; $i--)
               <option value="{{ $i }}">{{ $i }}</option>
             @endfor
@@ -107,6 +107,24 @@
           <option value="1">Mujer</option>
           <option value="2">Hombre</option>
         </select>
+      </div>
+      <div class="r-row">
+        <input
+          type="text"
+          class="text"
+          id="favorita_in"
+          name="favorita"
+          style="width: 100%"
+          placeholder="Dinos la carrera que más te llama la atención"
+          list="favorita"
+          required
+        />
+        <datalist id="favorita">
+          <option>No sé</option>
+          @foreach ($profesiones as $prof)
+            <option value="{{ $prof->nombre_carrera }}" />
+          @endforeach
+        </datalist>
       </div>
       <div class="p-container">
         <div class="inputs">

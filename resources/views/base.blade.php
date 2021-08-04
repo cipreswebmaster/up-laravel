@@ -26,6 +26,17 @@
   <script src="{{ asset("js/popper.min.js") }}"></script>
   <script src="{{ asset("js/bootstrap.min.js") }}"></script>
   <script src="{{ asset("js/functions.js") }}"></script>
+  @if (!env("APP_DEBUG"))
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-184506190-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-184506190-1');
+    </script>
+  @endif
   @yield('scripts')
 </body>
 </html>

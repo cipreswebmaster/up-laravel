@@ -167,6 +167,8 @@ main {
       main .profile .sections .list .stars_container {
         display: flex;
         height: 35px; }
+        main .profile .sections .list .stars_container.hide {
+          display: none; }
         main .profile .sections .list .stars_container .icon img {
           position: relative;
           top: 50%;

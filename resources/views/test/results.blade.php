@@ -4,6 +4,10 @@
   <link rel="stylesheet" href="{{ asset("css/results.css") }}">
 @endsection
 
+@section('title')
+  Resultados del test
+@endsection
+
 @php
     $icons = [
       [
@@ -47,6 +51,14 @@
     ];
 
     $starsClasses = ["lowest", "low", "high", "highest"];
+
+    function isInFavs($id_carrera, $favorites) {
+      foreach ($favorites as $fav) {
+        if ($fav["id_carrera"] == $id_carrera)
+          return true;
+      }
+      return false;
+    }
 @endphp
 
 @section('body')
@@ -134,7 +146,7 @@
             Selecciona un área de estudio:
           </h2>
           <div class="selec_tag_container">
-            <select name="areas">
+            <select name="areas" id="areas">
               @foreach ($areas as $area)
                 <option value="{{ $area["id_area"] }}">
                   {{ $area["nombre_area"] }}
@@ -181,15 +193,24 @@
             </div>
             <div class="list">
               @foreach ($profesiones as $prof)
-                <div class="stars_container">
-                  <div class="icon" >
+                <div
+                  class="stars_container selec"
+                  area="{{ $prof["id_area"] }}"
+                  id="prof-{{ $prof["id_carrera_4beyond"] }}"
+                >
+                  <div class="icon heart-icon">
                     <img
-                      src="{{ asset("images/test/results/heart-select.svg") }}"
-                      alt=""
+                      src="@if (isInFavs($prof["id_carrera_4beyond"], $favs))
+                        {{ asset("images/test/results/heart-select.svg") }}
+                      @else
+                        {{ asset("images/test/results/heart-no-select.svg") }}
+                      @endif"
+                      id="heart-icon-img"
+                      selected="{{ isInFavs($prof["id_carrera_4beyond"], $favs) }}"  
                     />
                   </div>
                   <div class="name">{{ $prof["nombre_carrera"] }}</div>
-                  <div class="stars">
+                  <div class="stars" af="{{ $prof["afinidad"] }}">
                     @for ($i = 0; $i < intval($prof["afinidad"]); $i++)
                       <span class="star {{ $starsClasses[intval($prof["afinidad"]) - 1] }}" >
                         &#9733;
@@ -219,12 +240,15 @@
         <div class="careers_favs">
           <div class="list">
             @foreach ($favs as $fav)
-              <div class="stars_container">
-                <div class="icon">
-                  <img src="{{ asset("images/test/results/heart-select.svg") }}" alt="" />
+              <div class="stars_container" id="fav-{{ $fav["id_carrera"] }}">
+                <div class="icon heart-icon">
+                  <img 
+                    src="{{ asset("images/test/results/heart-select.svg") }}"
+                    selected="1"
+                    alt="" />
                 </div>
                 <div class="name">{{ $fav["nombre_carrera"] }}</div>
-                <div class="stars">
+                <div class="stars" af="{{ $fav["afinidad"] }}">
                   @for ($i = 0; $i < intval($fav["afinidad"]); $i++)
                     <span class="star {{ $starsClasses[intval($fav["afinidad"]) - 1] }}" >
                       &#9733;
@@ -257,3 +281,120 @@
   </div>
 </div>
 @endsection
+
+@if (Route::currentRouteName() == "results")
+  @section('scripts')
+  <script>
+    const areas = document.getElementById("areas");
+    hide(areas.value);
+
+    areas.addEventListener("change", function (e) {
+        hide(e.target.value);
+    });
+
+    const heartContainers = document.querySelectorAll(".icon.heart-icon");
+    heartContainers.forEach((el) => {
+        el.addEventListener("click", handleClick);
+    });
+
+    function hide(id_area) {
+        const profs = document.querySelectorAll(".stars_container.selec");
+        profs.forEach(function (el) {
+            const area = el.getAttribute("area");
+            if (area != id_area) el.classList.add("hide");
+            else el.classList.remove("hide");
+        });
+    }
+
+    function handleClick(e) {
+        const favourites = document.querySelector(".careers_favs .list");
+        const heart = e.target;
+        if (heart.tagName !== "IMG") return;
+        const id = heart.parentNode.parentNode.id.split("-")[1];
+        const afinidad = heart.parentNode.parentNode.children[2].getAttribute("af");
+        const isSelected = parseInt(heart.getAttribute("selected"));
+        const heartUrl =
+            location.protocol + "//" + location.host + "/images/test/results/";
+
+        console.log(afinidad);
+        if (isSelected) {
+            editFavourite("DEL", afinidad, id).then(function (res) {
+                heart.src = heartUrl + "heart-no-select.svg";
+                heart.setAttribute("selected", "0");
+
+                const favorite = document.getElementById("fav-" + id);
+                favorite.parentNode.removeChild(favorite);
+
+                // Cambiando icono en apartado de todas las carreras
+                const carId = favorite.id.split("-")[1];
+                const carEl = document.getElementById("prof-" + carId);
+                const carElImg = carEl.children[0].children[0];
+                carElImg.src = heartUrl + "heart-no-select.svg";
+                carElImg.setAttribute("selected", "0");
+            });
+        } else {
+            if (favourites.children.length == 5) return;
+            editFavourite("ADD", afinidad, id).then(function (res) {
+              heart.src = heartUrl + "heart-select.svg";
+              heart.setAttribute("selected", "1");
+
+              const heartParent = heart.parentNode.parentNode;
+              const newFav = heartParent.cloneNode(true);
+              newFav.id = "fav-" + id;
+
+              // Creando botón de ver carrera
+              const see_career = document.createElement("div");
+              see_career.classList.add("see_career");
+              const a = document.createElement("a");
+              a.href =
+                  location.protocol +
+                  "//" +
+                  location.host +
+                  "/profesiones/" +
+                  slug(newFav.childNodes[3].innerText);
+              a.innerText = "ver carrera";
+
+              see_career.appendChild(a);
+              newFav.appendChild(see_career);
+              newFav.removeEventListener("click", handleClick);
+              newFav.addEventListener("click", handleClick);
+
+              favourites.appendChild(newFav);
+            });
+        }
+    }
+
+    function slug(title = "") {
+        // prettier-ignore
+        const chars = ["á","é","í","ó","ú","ü","ñ","Á","É","Í","Ó","Ú","Ü","Ñ", ","];
+        // prettier-ignore
+        const replace = ["a","e","i","o","u","u","n","A","E","I","O","U","U","N", ""];
+
+        let newWord = "";
+        for (let i = 0; i < title.length; i++) {
+            const curr = title.charAt(i);
+            const charIndex = chars.indexOf(curr);
+            newWord += charIndex > -1 ? replace[charIndex] : curr;
+        }
+
+        return newWord.trim().replaceAll(" ", "-").toLowerCase();
+    }
+
+    async function editFavourite(action, puntutation, id) {
+        return fetch("https://apps4beyond.com/REST/api/editFavoritas", {
+            method: "POST",
+            headers: {
+                token: "4bcgp-bgyt",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                token_id: "{{ $token }}",
+                puntuacion: puntutation,
+                id_carrera: id,
+                accion: action,
+            }),
+        }).then((res) => res.json());
+    }
+  </script>
+  @endsection
+@endif

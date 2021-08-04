@@ -37,8 +37,8 @@ Route::prefix("contacto")->group(function () {
 /* Test */
 Route::prefix("test")->group(function () {
   Route::get("/", "TestController@index");
-  Route::get("/example", "TestController@example");
-  Route::get("/results", "TestController@results");
+  Route::get("/example", "TestController@example")->name("test_example");
+  Route::get("/results", "TestController@results")->name("results");
 });
 
 /* Profesiones */

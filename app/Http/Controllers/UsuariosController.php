@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\LoginCode;
+use App\Models\Profesion;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -77,7 +78,8 @@ class UsuariosController extends Controller
     session_start();
     if (isset($_SESSION["logged"]))
       return redirect("perfil");
-    return view("registrate");
+    $profesiones = Profesion::all();
+    return view("registrate", compact("profesiones"));
   }
 
   public function registrar(Request $request) {
