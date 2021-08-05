@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title') Indice de UP @endsection
+@section('title') Orientación Vocacional @endsection
 
 @section('styles')
   <link rel="stylesheet" href="{{ asset("css/index.css") }}">

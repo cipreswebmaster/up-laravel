@@ -23,10 +23,15 @@ Route::get("/registrate", "UsuariosController@registrate")->name("registrate");
 Route::get("/perfil", "PerfilController@index")->name("perfil");
 Route::get("/pagar/{plan}", "PagosController@pagar")->name("pagar");
 Route::get('/estado_pago', 'PagosController@estado_pago');
-Route::get('/posts/{postName}', 'PostsController@post')->name("post");
 
 Route::post("/registrar", "UsuariosController@registrar")->name("registrar");
 Route::post('/registrar-contacto', "ContactoController@registrar");
+
+/* Actualidad */
+Route::prefix("/actualidad")->group(function () {
+  Route::get("/", "PostsController@index")->name("actualidad");
+  Route::get("/{postName}", "PostsController@post")->name("post");
+});
 
 /* Contacto */
 Route::prefix("contacto")->group(function () {

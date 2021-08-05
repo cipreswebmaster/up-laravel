@@ -9,7 +9,7 @@
 @endsection
 
 @section('body')
-  <x-banner arrow="prof" img="banner.jpg" topText="Contacto" />
+  <x-banner arrow="prof" img="contacto.jpg" topText="Contacto" />
   @if (isset($_GET["success"]))
     <h1 align="center" style="margin-top: 15px; font-family: Poppins-SemiBold">Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto</h1>
   @endif

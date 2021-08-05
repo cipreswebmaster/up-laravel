@@ -1,7 +1,7 @@
-@extends('base')
+@extends('posts.base')
 
 @section('title')
-  {{ $post["title"] }}
+  {{ $post["title"] }} |
 @endsection
 
 @section('styles')
@@ -17,7 +17,7 @@
   }
 @endphp
 
-@section('body')
+@section('content')
   <div class="post">
     <h1 class="title">{{ $post["title"] }}</h1>
     <div class="publication_date">
