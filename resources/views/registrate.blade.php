@@ -34,15 +34,15 @@
       @csrf
       <div class="r-row">
         <input
-          class="text"
-          placeholder="Nombres"
+          class="text required"
+          placeholder="Nombres *"
           autoComplete="off"
           required
           name="nombres"
         />
         <input
-          class="text"
-          placeholder="Apellidos"
+          class="text required"
+          placeholder="Apellidos *"
           autoComplete="off"
           required
           name="apellidos"
@@ -50,9 +50,9 @@
       </div>
       <div class="r-row">
         <input
-          class="text"
+          class="text required"
           type="number"
-          placeholder="Número de celular"
+          placeholder="Número de celular *"
           autoComplete="off"
           min="1111111111"
           max="9999999999"
@@ -60,8 +60,8 @@
           required
         />
         <input
-          class="text"
-          placeholder="Email"
+          class="text required"
+          placeholder="Email *"
           autoComplete="off"
           required
           name="email"
@@ -71,19 +71,19 @@
       <div class="born_date">
         <div class="title">Fecha de nacimiento</div>
         <div class="form">
-          <select class="select" name="day" id="day" required>
+          <select class="select" name="day" id="day">
             <option>Selecciona el día</option>
             @for ($i = 1; $i < 31; $i++)
               <option value="{{ $i + 1 }}">{{ $i + 1 }}</option>
             @endfor
           </select>
-          <select class="select" name="month" id="month" required>
+          <select class="select" name="month" id="month">
             <option>Selecciona el mes</option>
             @for ($i = 0; $i < count($months); $i++)
               <option value="{{ $i + 1 }}">{{ $months[$i] }}</option>
             @endfor
           </select>
-          <select class="select" name="year" id="year" required>
+          <select class="select" name="year" id="year">
             <option>Selecciona el año</option>
             @for ($i = 2006; $i >= 1950; $i--)
               <option value="{{ $i }}">{{ $i }}</option>
@@ -99,10 +99,9 @@
           maxLength="10"
           minLength="8"
           autoComplete="off"
-          required
           name="documento"
         />
-        <select type="text" class="select" required name="gender">
+        <select type="text" class="select" name="gender">
           <option>Selecciona tu género</option>
           <option value="1">Mujer</option>
           <option value="2">Hombre</option>
@@ -111,11 +110,11 @@
       <div class="r-row">
         <input
           type="text"
-          class="text"
+          class="text required"
           id="favorita_in"
           name="favorita"
           style="width: 100%"
-          placeholder="Dinos la carrera que más te llama la atención"
+        placeholder="¿Qué carrera quieres estudiar? *"
           list="favorita"
           required
         />
@@ -129,23 +128,26 @@
       <div class="p-container">
         <div class="inputs">
           <input
-            class="text"
+            class="text required"
             type="password"
-            placeholder="Contraseña"
+            placeholder="Contraseña *"
             required
             name="password"
             id="pass"
           />
           <input
-            class="text"
-            type="password"
-            placeholder="Confirmar contraseña"
+            class="text required"
+            type="password required"
+            placeholder="Confirmar contraseña *"
             required
             name="password_confirm"
             id="confirm_pass"
           />
         </div>
         <p class="pass_error" id="pass_error" style="display: none">Las contraseñas no coinciden</p>
+      </div>
+      <div class="required_advice" style="color: #fd0034">
+        * Estos campos son obligatorios
       </div>
       <div class="terms_conditions">
         Al hacer click en <i>Registrarse</i>, indicas que has leído y

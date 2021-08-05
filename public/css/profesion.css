@@ -1,3 +1,6 @@
+main {
+  overflow: unset; }
+
 a {
   color: inherit !important; }
 

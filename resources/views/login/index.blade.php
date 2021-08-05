@@ -1,5 +1,9 @@
 @extends('login.base')
 
+@section('title')
+  Inicia sesión
+@endsection
+
 @section('form')
   <div class="credentials_form">
     <form action="{{ route("validar") }}" method="POST" class="credentials">
@@ -10,6 +14,9 @@
     </form>
     <div class="forgot_password">
       <a href="">OLVIDÉ MI CONTRASEÑA</a>
+    </div>
+    <div class="registrate" style="text-align: center; margin-top: 15px">
+      ¿No tienes cuenta? <a href="/registrate" style="text-decoration: underline !important">Regístrate gratis</a>
     </div>
   </div>
 @endsection

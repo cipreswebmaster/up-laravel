@@ -50,6 +50,14 @@
         border-bottom: 2px solid #fff; }
         .what-is-up .contact-form .login a:hover {
           color: #fff; }
+  .what-is-up .logo {
+    width: 50%; }
+    .what-is-up .logo img {
+      width: 75%;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
 
 @media only screen and (max-width: 768px) {
   .what-is-up {

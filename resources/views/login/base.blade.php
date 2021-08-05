@@ -5,12 +5,12 @@
 @endsection
 
 @section('body')
-  @if (isset($_GET["message"]))
-    <h1 align="center" style="font-family: Poppins-SemiBold; margin: 15px">Inicia sesión o regístrate gratis para poder acceder a la información de las carreras</h1>
-  @endif
+  <h1 align="center" style="font-size: 37px; margin-bottom: 15px">
+    Inicia sesión o regístrate gratis para acceder <span style="font-family: Poppins-SemiBold; color: #fc5a48; font-size: 50px">completamente gratis</span> a toda la información de carreras y universidades que UP tiene para ti
+  </h1>
   <div class="container">
     <div class="image">
-      <img src="{{ asset("images/login/graduated-smiling.jpg") }}" alt="" />
+      <img src="{{ asset("images/login/img.jpg") }}" alt="" />
     </div>
     <div class="form">
       @yield('form')

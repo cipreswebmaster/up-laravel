@@ -1,10 +1,11 @@
-<a
-  href="{{ route("registrate") }}"
-  class="join_now @if ($big) 'big' @endif">
-  Regístrate gratis
-</a>
+@if (!isset($_SESSION["logged"]))
+  <a
+    href="{{ route("registrate") }}"
+    class="join_now @if ($big) 'big' @endif">
+    Regístrate gratis
+  </a>
 
-<style>
+  <style>
   .join_now {
     display: inline-block;
     background-color: #f65a4d;
@@ -23,4 +24,5 @@
   .join_now.big {
     font-size: 1.5rem;
   }
-</style>
+  </style>
+@endif

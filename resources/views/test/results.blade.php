@@ -85,6 +85,10 @@
   </div>
 </div>
 
+@if (Route::currentRouteName() != "results")
+  <h2 align="center" style="margin-top: 15px; color: #fd0034; font-family: Poppins-ExtraBold; font-size: 40px">ESTE ES UN EJEMPLO DE TEST PREMIUM NO FUNCIONAL</h2>
+@endif
+
 <div class="results">
   <h1 class="title">¿Qué dicen los resultados de ti?</h1>
   <div class="icons only-pc">
@@ -137,6 +141,11 @@
       </p>
     </div>
   </div>
+
+  @if (Route::currentRouteName() != "results")
+    <h2 align="center" style="margin: 50px; color: #fd0034; font-family: Poppins-ExtraBold; font-size: 40px">ESTE ES UN EJEMPLO DE TEST PREMIUM NO FUNCIONAL</h2>
+  @endif
+  
   <div class="sections">
     <div class="section">
       <div class="number">1</div>
@@ -276,7 +285,11 @@
       <div class="icon">
         <img src="{{ asset("images/test/results/pdf.svg") }}" alt="PDF Icon" />
       </div>
-      <div class="text">Descarga tu reporte</div>
+      @if (Route::currentRouteName() == "results")
+        <div class="text">Descarga tu reporte</div>
+      @else
+        <div class="text">Descarga un ejemplo del test premium</div>
+      @endif
     </a>
   </div>
 </div>

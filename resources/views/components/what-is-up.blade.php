@@ -25,5 +25,9 @@
         ¿Ya tienes cuenta? <a href="/login" style="color: #fff">Inicia sesión</a>
       </div>
     </div>
+  @else
+    <div class="logo">
+      <img src="{{ asset("images/index/logo-up.png") }}" alt="Universidades y profesiones">
+    </div>
   @endif
 </div>

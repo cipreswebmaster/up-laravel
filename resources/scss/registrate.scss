@@ -12,6 +12,10 @@ main {
             border-width: 1px;
             border-radius: 25px;
             width: calc((100% / 2) - 10px);
+
+            &.required::placeholder {
+                color: #fd0034;
+            }
         }
 
         .select {

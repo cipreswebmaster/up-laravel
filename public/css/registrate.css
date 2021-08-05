@@ -10,6 +10,8 @@ main {
       border-width: 1px;
       border-radius: 25px;
       width: calc((100% / 2) - 10px); }
+      main .r-container .text.required::placeholder {
+        color: #fd0034; }
     main .r-container .select {
       padding: 5px 25px;
       outline: none;

@@ -16,7 +16,7 @@
 @section('body')
 <div>
   <div class="memberships">
-    <div class="title">Elige tu plan premium</div>
+    <div class="title">Elige tu plan para hacer el test premium</div>
     <div class="premium_mem">
       <div class="mem">
         <div class="time">1 mes</div>
