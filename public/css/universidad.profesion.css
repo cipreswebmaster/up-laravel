@@ -1,3 +1,6 @@
+main {
+  overflow: unset; }
+
 .u {
   padding: 50px 55px; }
   .u .column-container {
@@ -10,6 +13,10 @@
         width: calc(30% - 7.5px); }
       .u .column-container .column:last-child {
         width: calc(70% - 7.5px); }
+      .u .column-container .column .sticky {
+        display: block;
+        position: sticky;
+        top: 125px; }
   .u .career-info {
     margin-bottom: 35px; }
     .u .career-info .presentation-card {
@@ -89,6 +96,8 @@
       color: #fff;
       font-size: 1.2rem;
       font-weight: bold; }
+      .u .career-info .btn a {
+        color: #fff; }
       .u .career-info .btn .btn_link {
         color: #fff;
         border: 2px solid #fff;

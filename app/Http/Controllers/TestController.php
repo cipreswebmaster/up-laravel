@@ -18,6 +18,19 @@ class TestController extends Controller
     if (isset($_SESSION["logged"])) {
       $token = $_SESSION["session_token"];
       $user = User::where("session_token", $token)->first();
+      if ($user->state != 0)
+        return view("test.index");
+
+      $fourBeyond = Http::withHeaders([
+        "token" => "4bcgp-bgyt",
+      ])->post("https://apps4beyond.com/REST/api/getFavoritas", [
+        "token_id" => $user["4beyond_token_id"]
+      ])["result"]["resultObject"];
+
+      if ($fourBeyond == "No Result Set Return") {
+        return view("test.test", ["token" => $user["4beyond_token_id"]]);
+      }
+
       $attempts = $user->test_attempts;
       return view("test.index_pago", compact("attempts"));
     }

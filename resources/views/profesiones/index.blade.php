@@ -25,13 +25,15 @@
         <div class="no-real-area only-pc">SELECCIONA CARRERAS POR ÁREA</div>
         @foreach ($areas as $area)
           @php $lowLetter = count(str_split($area["nombre_area"])) @endphp
-          <div class="area" id="area-{{ $area["id_area"] }}">
+          <div
+            class="area"
+            id="area-{{ $area["id_area"] }}">
             <div class="img">
               <img 
                 src="{{ asset("images/select-area/back-img/" . $area["img"]) . ".png" }}"
                 alt="{{ $area["nombre_area"] }}" />
             </div>
-            <div class="text @if ($lowLetter) low @endif">
+            <div class="text @if ($lowLetter) low @endif" style="border: 4px solid {{ $area["color"] }}">
               {{ strtoupper($area["nombre_area"]) }}
             </div>
             <div class="arrow">
@@ -41,7 +43,7 @@
             </div>
           </div>
         @endforeach
-        <div class="area only-pc">
+        <div class="area only-pc" id="all">
           <div class="text" style="background-color: #252146">
             Mostrar todas las profesiones
           </div>

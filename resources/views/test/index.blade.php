@@ -27,7 +27,13 @@
             <span>Podrás realizar un test gratuito creado por un tercero</span>
           </div>
           <div class="t-iniciar">
-            <a href="https://www.elegircarrera.net/test-vocacional/" target="_blank" rel="noopener noreferrer">INICIAR TEST</a>
+            <a
+              href="{{ isset($_SESSION["logged"]) ? "https://www.elegircarrera.net/test-vocacional/" : "/login" }}"
+              @if (isset($_SESSION["logged"]))
+                target="_blank"
+                rel="noopener noreferrer"
+              @endif
+            >INICIAR TEST</a>
           </div>
         </div>
       </div>

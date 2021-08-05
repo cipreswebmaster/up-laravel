@@ -1,3 +1,7 @@
+main {
+    overflow: unset;
+}
+
 .u {
     padding: 50px 55px;
 
@@ -16,6 +20,12 @@
 
             &:last-child {
                 width: calc(70% - #{$margin_val});
+            }
+
+            .sticky {
+                display: block;
+                position: sticky;
+                top: 125px;
             }
         }
     }
@@ -138,6 +148,10 @@
             color: #fff;
             font-size: 1.2rem;
             font-weight: bold;
+
+            a {
+                color: #fff;
+            }
 
             .btn_link {
                 color: #fff;

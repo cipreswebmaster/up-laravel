@@ -6,6 +6,16 @@
         display: flex;
         flex-wrap: wrap;
 
+        .area:not(.active) {
+            .text {
+                border: none !important;
+            }
+
+            .arrow img {
+                display: none;
+            }
+        }
+
         .area,
         .no-real-area {
             $space-between: 15px;

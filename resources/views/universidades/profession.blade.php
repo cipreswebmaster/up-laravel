@@ -34,7 +34,7 @@
   />
   <div class="u">
     <div class="career-info column-container">
-      <div class="column">
+      <div class="column" style="position: relative">
         <div class="presentation-card">
           <div class="uni-img">
             @php
@@ -56,33 +56,35 @@
               ]) }}">Ver todas las carreras > ></a>
           </div>
         </div>
-        <div class="general-info">
-          <div class="item">
-            <div>
-              <img src="{{ asset("images/university.profession/icons/precio_semestre.jpg") }}" alt="">
+        <div class="sticky">
+          <div class="general-info">
+            <div class="item">
+              <div>
+                <img src="{{ asset("images/university.profession/icons/precio_semestre.jpg") }}" alt="">
+              </div>
+              <div>Precio semestre</div>
             </div>
-            <div>Precio semestre</div>
-          </div>
-          <div class="item">
-            {{ getPrice($prof_uni["precio_semestre"]) }}
-          </div>
-        </div>
-        <div class="contacto btn">
-          <span class="btn_link">
-            Quiero ser contactado
-          </span>
-        </div>
-        <div class="section" style="padding: 0px; margin-top: 35px">
-          <div class="section-title">
-            <div class="icon">
-              <img src="{{ asset("images/university.profession/icons/ubicacion.jpg") }}" alt="">
-            </div>
-            <div class="s-title">
-              Ubicación
+            <div class="item">
+              {{ getPrice($prof_uni["precio_semestre"]) }}
             </div>
           </div>
-          <div class="section-content" style="overflow: hidden; padding: 0px">
-            {!! $universidad["mapa"] !!}
+          <div class="contacto btn">
+            <span class="btn_link">
+              Quiero ser contactado
+            </span>
+          </div>
+          <div class="section" style="padding: 0px; margin-top: 35px">
+            <div class="section-title">
+              <div class="icon">
+                <img src="{{ asset("images/university.profession/icons/ubicacion.jpg") }}" alt="">
+              </div>
+              <div class="s-title">
+                Ubicación
+              </div>
+            </div>
+            <div class="section-content" style="overflow: hidden; padding: 0px">
+              {!! $universidad["mapa"] !!}
+            </div>
           </div>
         </div>
       </div>
@@ -234,13 +236,13 @@
           Quiero ser contactado
         </a>
       </div> --}}
-      <div class="btn">
+      {{-- <div class="btn">
         <a
           href="/universidades"
           class="btn_link" >
           Regresar al listado de universidades
         </a>
-      </div>
+      </div> --}}
       {{-- <div class="btn">
         <span
           onClick={handleReturnToUniversitiesClick}

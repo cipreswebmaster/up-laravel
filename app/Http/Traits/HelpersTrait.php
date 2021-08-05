@@ -38,7 +38,7 @@ trait HelpersTrait {
     }
     $res = $response->get();
     $theOne = $this->getTheOne($res, $slugifyied_name, $query_condition_field);
-    return $theOne;
+    return $theOne ? $theOne : abort(404);
   }
 
   /**
