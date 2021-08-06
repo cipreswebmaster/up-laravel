@@ -84,9 +84,7 @@ class UsuariosController extends Controller
 
   public function registrar(Request $request) {
     $email = $request->email;
-    $document = $request->documento;
-    $userAlreadyExists = User::where("email", "=", $email)
-                              ->orWhere("document", "=", $document)->get();
+    $userAlreadyExists = User::where("email", "=", $email)->first();
 
     if ($userAlreadyExists != null) {
       return redirect()->route("registrate", ["user_exists" => true]);
@@ -95,10 +93,10 @@ class UsuariosController extends Controller
     $user = new User();
     $user->names = $request->nombres;
     $user->last_names = $request->apellidos;
-    $user->id_gender = $request->gender;
+    $user->id_gender = $request->gender == "Selecciona tu género" ? 3 : $request->gender;
     $user->phone_number = $request->tel;
     $user->email = $request->email;
-    $user->document = $request->documento;
+    $user->document = $request->documento ?? "00000";
     $user->password = password_hash($request->password, PASSWORD_DEFAULT);
     $user->state = 1;
     $user->test_attempts = 0;

@@ -44,8 +44,6 @@ class TestController extends Controller
 
   public function results() {
     session_start();
-    if (!isset($_SESSION["logged"]))
-      return redirect("/");
     $user = User::where("session_token", $_SESSION["session_token"])->first()->toArray();
     $results = $this->getResultsInfo($user["4beyond_token_id"]);
     return view("test.results", $results);
@@ -93,5 +91,26 @@ class TestController extends Controller
       "favs" => $favs,
       "token" => "0ead8013-43e8-11eb-8ecc-02eef28b5605"
     ];
+  }
+
+  public function renew() {
+    $user = User::where("session_token", $_SESSION["session_token"])->first();
+
+    $obj = [
+      "nombre" => $user["names"],
+      "apellido" => $user["last_names"],
+      "email" => $user["email"],
+      "clave" => $user["document"],
+      "id_genero" => $user["id_gender"],
+      "force_renew" => "1"
+    ];
+
+    // Http::withHeaders([
+    //   "token" => "4bcgp-bgyt",
+    // ])->post("https://apps4beyond.com/REST/api/createUserCipres", [
+    //   "nombre" => $user[""]
+    // ])["result"]["resultObject"];
+
+    return redirect("/test");
   }
 }

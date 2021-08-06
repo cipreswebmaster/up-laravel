@@ -137,7 +137,7 @@
           />
           <input
             class="text required"
-            type="password required"
+            type="password"
             placeholder="Confirmar contraseña *"
             required
             name="password_confirm"

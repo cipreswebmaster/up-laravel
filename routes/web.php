@@ -43,7 +43,12 @@ Route::prefix("contacto")->group(function () {
 Route::prefix("test")->group(function () {
   Route::get("/", "TestController@index");
   Route::get("/example", "TestController@example")->name("test_example");
-  Route::get("/results", "TestController@results")->name("results");
+  Route::get("/results", "TestController@results")
+    ->name("results")
+    ->middleware("islogged");
+  Route::get("/renew_test", "TestController@renew")
+  ->name("renew_test")
+  ->middleware("islogged");
 });
 
 /* Profesiones */

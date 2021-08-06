@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PagosController extends Controller
 {
@@ -101,6 +102,13 @@ class PagosController extends Controller
           $today = date_create();
           date_add($today, date_interval_create_from_date_string($planMonths . " months"));
           $fechaRenovacion = date_format($today, "Y-m-d");
+
+          // $res_4beyond = Http::withHeaders([
+          //   "token" => "4bcgp-bgyt",
+          // ])->post("https://apps4beyond.com/REST/api/createUserCipres", [
+          //   "nombre" => $user->names,
+          //   "apellido" => $user->last_names
+          // ])["result"]["resultObject"];
 
           $userObj = User::find($user->id_user);
           $userObj->state = 0;
