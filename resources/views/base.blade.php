@@ -12,7 +12,7 @@
   <title>@yield('title') | Elige qué estudiar en la universidad con UP ✅</title>
   <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
   <link rel="stylesheet" href="{{ asset("css/general.css") }}">
-  <link rel="stylesheet" href="{{ asset("css/header.css") }}">
+  <link rel="stylesheet" href="{{ mix("/css/header.css") }}">
   <link rel="stylesheet" href="{{ asset("css/footer.css") }}">
   @yield('styles')
 </head>

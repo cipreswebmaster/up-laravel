@@ -17,6 +17,9 @@ class ActualidadUniversitaria extends Component
     public function __construct()
     {
       $posts = array_values(Post::all()->reverse()->toArray());
+      foreach ($posts as &$post) {
+        $post["created_at"] = explode("T", $post["created_at"])[0];
+      }
       $this->posts = $posts;
     }
 

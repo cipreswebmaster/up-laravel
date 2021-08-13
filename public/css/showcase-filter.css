@@ -5,7 +5,8 @@
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    font-family: "Poppins-ExtraBold"; }
+    font-family: "Poppins-ExtraBold";
+    width: 25%; }
   .filter input {
     border: 1px solid #000;
     padding: 10px 25px;
@@ -14,6 +15,51 @@
     height: 50%;
     outline: none;
     align-self: center; }
+  .filter .order {
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    padding-left: 15px; }
+    .filter .order > div {
+      width: 50%; }
+    .filter .order select {
+      border: none;
+      outline: none;
+      margin-left: 30px; }
+    .filter .order .select-country {
+      position: relative;
+      width: 100%;
+      left: 0;
+      cursor: pointer; }
+      .filter .order .select-country .selected .option .text {
+        text-align: left; }
+      .filter .order .select-country .options {
+        display: none;
+        position: absolute;
+        z-index: 100;
+        background-color: #fff;
+        width: 100%; }
+        .filter .order .select-country .options.show {
+          display: block; }
+        .filter .order .select-country .options .option:hover {
+          background-color: #ccc; }
+      .filter .order .select-country .option {
+        display: flex; }
+        .filter .order .select-country .option > div {
+          width: 50%; }
+        .filter .order .select-country .option a {
+          display: flex; }
+        .filter .order .select-country .option .img {
+          height: 30px;
+          width: 25%; }
+          .filter .order .select-country .option .img img {
+            width: unset;
+            height: 100%; }
+        .filter .order .select-country .option .text {
+          width: 75%;
+          font-size: 12px;
+          margin: 5px;
+          text-align: center; }
 
 @media only screen and (max-width: 768px) {
   .search {

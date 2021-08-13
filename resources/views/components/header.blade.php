@@ -30,9 +30,9 @@
         <img src="{{ asset("images/header/menu-icon-close.jpg") }}" alt="" />
       </div>
     </div>
-    <div class="only-mobile">
+    {{-- <div class="only-mobile">
       <x-register-btn />
-    </div>
+    </div> --}}
     @foreach ($tabs as $tab)
       <div
         class="ref tab link"
@@ -51,11 +51,11 @@
             </a>
           </div>
           <div class="planes-btn">
-            <a href="/membresias">Conoce nuestros planes</a>
+            <a href="/membresias">Conoce UP Premium</a>
           </div>
         @else
           <div class="planes-btn">
-            <a href="/membresias">Conoce nuestros planes</a>
+            <a href="/membresias">Conoce UP Premium</a>
           </div>
           <div class="ref login link">
             <a href="{{ url("login") }}" class="logginout">
@@ -72,20 +72,20 @@
             Cerrar Sesión
           </a>
         </div>
-        <div class="planes-btn">
-          <a href="/membresias">Conoce nuestros planes</a>
-        </div>
+        {{-- <div class="planes-btn">
+          <a href="/membresias">Conoce UP Premium</a>
+        </div> --}}
       @else
-        <div class="planes-btn">
-          <a href="/membresias">Conoce nuestros planes</a>
-        </div>
+        {{-- <div class="planes-btn">
+          <a href="/membresias">Conoce UP Premium</a>
+        </div> --}}
         <div class="ref login link">
           <a href="{{ url("login") }}" class="logginout">
-            Iniciar Sesión
+            Si tu colegio está en UP, inicia sesión
           </a>
         </div>
       @endif
-      <x-register-btn />
+      {{-- <x-register-btn /> --}}
   </div>
   <div class="responsive_btn" id="menu-icon">
     <img src="{{ asset("images/header/menu-icon.png") }}" alt="" />

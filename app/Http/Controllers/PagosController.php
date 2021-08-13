@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class PagosController extends Controller
 {
-  private const plans = [30000, 45000, 55000];
+  private const plans = [50000, 100000, 150000];
   private const testAttempts = [1, 3, 6];
 
   public function pagar($plan) {
@@ -107,8 +107,12 @@ class PagosController extends Controller
           //   "token" => "4bcgp-bgyt",
           // ])->post("https://apps4beyond.com/REST/api/createUserCipres", [
           //   "nombre" => $user->names,
-          //   "apellido" => $user->last_names
-          // ])["result"]["resultObject"];
+          //   "apellido" => $user->last_names,
+          //   "clave" => "12345678",
+          //   "id_genero" => $user->id_gender,
+          //   "email" => $user->email,
+          //   "documento" => $user->documento
+          // ])["result"]["resultObject"][0];
 
           $userObj = User::find($user->id_user);
           $userObj->state = 0;

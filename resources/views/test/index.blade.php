@@ -27,18 +27,17 @@
             <span>Podrás realizar un test gratuito creado por un tercero</span>
           </div>
           <div class="t-iniciar">
-            <a
-              href="{{ isset($_SESSION["logged"]) ? "https://www.elegircarrera.net/test-vocacional/" : "/login" }}"
-              @if (isset($_SESSION["logged"]))
-                target="_blank"
-                rel="noopener noreferrer"
-              @endif
-            >INICIAR TEST</a>
+            {{-- <a
+              href="https://www.elegircarrera.net/test-vocacional/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >INICIAR TEST</a> --}}
+            <span style="font-family: Poppins-ExtraBold; font-size: 20px; cursor: pointer" id="test-gratis">INICIAR TEST</span>
           </div>
         </div>
       </div>
       <div class="test-container">
-        <div class="t-title">TEST PREMIUM</div>
+        <div class="t-title">TEST UP PREMIUM</div>
         <div class="t-content">
           <div>
             <div class="img">
@@ -98,4 +97,23 @@
         </div>
       </div>
     </div>
+@endsection
+
+@section('scripts')
+  <script src="{{ asset("js/swal.min.js") }}"></script>
+  <script>
+    const testGratis = document.getElementById("test-gratis");
+    testGratis.addEventListener("click", function () {
+      Swal.fire({
+        html: "<div style='display: flex; justify-content: center' > <img style='width: 25%' src='{{ asset("images/test/mano-stop.png") }}' /> </div>" +
+              "<p>Estás siendo redireccionado a otra página, vuelve cuando termines el test gratuito para encontrar toda la información de carreras y universidades que UP tiene para ti</p>",
+        showConfirmButton: false,
+        didOpen: function () {
+          setTimeout(function () {
+            window.open("https://www.elegircarrera.net/test-vocacional/");
+          }, 5000);
+        }
+      });
+    });
+  </script>
 @endsection

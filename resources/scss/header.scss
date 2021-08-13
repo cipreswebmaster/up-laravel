@@ -80,6 +80,46 @@
     .session .login {
         margin-right: 10px;
         font-size: 0.8rem;
+        background-color: #ff5a4a;
+        padding: 5px 15px;
+        border-radius: 15px;
+
+        animation-name: parpadeo;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-name: parpadeo;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+
+        @-moz-keyframes parpadeo {
+            0% {
+                background-color: #ff5a4a;
+            }
+            50% {
+                background-color: #2edcb4;
+            }
+        }
+
+        @-webkit-keyframes parpadeo {
+            0% {
+                background-color: #ff5a4a;
+            }
+            50% {
+                background-color: #2edcb4;
+            }
+        }
+
+        @keyframes parpadeo {
+            0% {
+                background-color: #ff5a4a;
+            }
+            50% {
+                background-color: #2edcb4;
+            }
+        }
     }
 
     .responsive_btn,

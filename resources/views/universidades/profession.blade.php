@@ -5,7 +5,7 @@
 @endsection
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset("css/universidad.profesion.css") }}">
+  <link rel="stylesheet" href="{{ mix("/css/universidad.profesion.css") }}">
 @endsection
 
 @php
@@ -62,10 +62,27 @@
               <div>
                 <img src="{{ asset("images/university.profession/icons/precio_semestre.jpg") }}" alt="">
               </div>
-              <div>Precio semestre</div>
+              <div style="margin-left: 15px;">Precio semestre</div>
             </div>
             <div class="item">
               {{ getPrice($prof_uni["precio_semestre"]) }}
+            </div>
+          </div>
+          <div class="info-contacto">
+            <div class="title">
+              <div>
+                <img src="{{ asset("images/university.profession/icons/admisiones.jpg") }}" alt="">
+              </div>
+              <div>Información de contacto</div>
+            </div>
+            <div class="content">
+              <ul style="font-size: 15px; list-style: none">
+                @foreach ($universidad["contacto_admision"] as $c)
+                  <li>
+                    {{ $c }}
+                  </li>
+                @endforeach
+              </ul>
             </div>
           </div>
           <div class="contacto btn">
@@ -96,9 +113,9 @@
               containerClass="video"
               class="frame"
             />
-            @if ($profesion["codigo_video"])
+            @if ($prof_uni["video"])
               <x-youtube
-                :videoId="$profesion['codigo_video']"
+                :videoId="$prof_uni['video']"
                 containerClass="video"
                 class="frame"
               />
@@ -216,9 +233,9 @@
     <div class="pensum">
       <div class="h">
         <h4 style="display: flex">
-          {{-- <div style="margin-right: 15px">
-            <img src={pensum} alt="" />
-          </div> --}}
+          <div style="margin-right: 15px">
+            <img src="{{ asset("images/university.profession/icons/pensum.jpg") }}" alt="" />
+          </div>
           <div>Pensum</div>
         </h4>
       </div>
@@ -231,31 +248,39 @@
       </div>
     </div>
     <div class="buttons">
-      {{-- <div class="btn">
-        <a href="/" class="btn_link">
-          Quiero ser contactado
+      <div class="contacto btn">
+        <span class="btn_link">Quiero ser contactado</span>
+      </div>
+      <div class="btn">
+        <a
+          href="/profesiones"
+          class="btn_link" >
+          Regresar al listado de profesiones
         </a>
-      </div> --}}
-      {{-- <div class="btn">
+      </div>
+      <div class="btn">
         <a
           href="/universidades"
           class="btn_link" >
           Regresar al listado de universidades
         </a>
-      </div> --}}
-      {{-- <div class="btn">
-        <span
-          onClick={handleReturnToUniversitiesClick}
-          class="btn_link"
-        >
+      </div>
+      <div class="btn">
+        <a
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn_link">
           Ir al sitio web de la universidad
-        </span>
-      </div> --}}
-      {{-- <div class="btn">
-        <a to="/results/profile" class="btn_link">
-          Regresar a favoritos
         </a>
-      </div> --}}
+      </div>
+      @if (isset($_SESSION["logged"]) && $_SESSION["state"] == 0)
+        <div class="btn">
+          <a to="/results/profile" class="btn_link">
+            Regresar a favoritos
+          </a>
+        </div>
+      @endif
     </div>
   </div>
 @endsection
@@ -263,20 +288,24 @@
 @section('scripts')
   <script src="{{ asset("js/swal.min.js") }}"></script>
   <script>
-    const contactoBtn = document.querySelector(".contacto.btn");
-    contactoBtn.addEventListener("click", function () {
+    const contactoBtn = document.querySelectorAll(".contacto.btn");
+    contactoBtn.forEach(function (btn) {
+      btn.addEventListener("click", function () {
       Swal.fire({
         title: "Quiero ser contactado",
         html:
           '<form action="/registrar-contacto" method="POST" class="quiero-ser-contactado">' +
           '@csrf' +
-          '<input required type="text" class="contacto-input" placeholder="Escribe tu nombre completo" name="nombre" >' +
-          '<input required type="text" class="contacto-input" placeholder="Escribe tu telefono" name="tel">' +
-          '<input required type="email" class="contacto-input" placeholder="Escribe tu email" name="email">' + 
+          '<input required type="text" class="contacto-input" placeholder="Escribe tu nombre completo" name="nombre" />' +
+          '<input required type="text" class="contacto-input" placeholder="Escribe tu teléfono" name="tel" />' +
+          '<input required type="email" class="contacto-input" placeholder="Escribe tu email" name="email" />' + 
+          '<input type="hidden" name="universidad" value="{{ $universidad['nombre_universidad'] }}" />' + 
+          '<input type="hidden" name="profesion" value="{{ $profesion['nombre_carrera'] }}" />' +
           '<button type="submit">Enviar</button>' + 
           '</form>',
         showConfirmButton: false
       });
     });
+    })
   </script>
 @endsection

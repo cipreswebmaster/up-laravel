@@ -14,7 +14,7 @@ class ProfesionesController extends Controller
 
   #region Path functions
   public function index() {
-    $profesiones = Profesion::all();
+    $profesiones = Profesion::orderBy("nombre_carrera")->get();
     $areas = Area::all();
     foreach ($profesiones as &$profesion) {
       $id_area = $profesion["id_area"];
@@ -50,7 +50,7 @@ class ProfesionesController extends Controller
     $profession["razon_estudio"] = $this->process_data($profession["razon_estudio"]);
     $profession["areas_desempenio"] = $this->process_data($profession["areas_desempenio"]);
     $profession["posgrados"] = $this->process_data($profession["posgrados"]);
-    $profession["carreras_rel"] = $this->process_data($profession["carreras_rel"]);
+    $profession["carreras_rel"] = $this->process_data(str_replace("-", " ", $profession["carreras_rel"]));
 
     $fourBeyondData = $this->search4BeyondCareerData($profession["id_carrera_4beyond"], $profession["id_area"]);
     return view("profesiones.profesion", compact("profession", "fourBeyondData", "professionName"));

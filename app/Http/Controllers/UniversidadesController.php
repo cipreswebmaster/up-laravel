@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\HelpersTrait;
+use App\Models\Pais;
 use App\Models\Profesion;
 use App\Models\Universidad;
 use App\Models\UniversidadCarrera;
@@ -13,8 +14,11 @@ class UniversidadesController extends Controller
 {
   use HelpersTrait;
 
-  public function index() {
-    $universidades = Universidad::orderBy("nombre_universidad")->get();
+  public function index($idCountry = '', $uniCountry = '') {
+    $universidades = $idCountry ?
+      Pais::find($idCountry)->universidades :
+      Universidad::orderBy("nombre_universidad")->get();
+
     return view("universidades.index", compact("universidades"));
   }
 
@@ -55,6 +59,7 @@ class UniversidadesController extends Controller
 
     $universidad["proceso_admision"] = $this->process_data(str_replace("•", "", $universidad["proceso_admision"]));
     $universidad["apoyo_financiero"] = $this->process_data(str_replace("•", "", (string) $universidad["apoyo_financiero"]));
+    $universidad["contacto_admision"] = $this->process_data($universidad["contacto_admision"]);
     $intercambios = $this->process_data(str_replace("•", "", (string) $universidad["intercambios"]), ":");
     $universidad["intercambios"] = trim($intercambios[0]) == "NO REGISTRA" ? false : [
       $intercambios[0],
@@ -93,9 +98,12 @@ class UniversidadesController extends Controller
       ->where("universidad_carrera.id_carrera", "=", $profesion["id_carrera"])
       ->select("universidades.*")
       ->distinct()->get()->toArray();
-    
+
+    session_start();
+    $_SESSION["profesion"] = $profesion["nombre_carrera"];
     return view("universidades.index", [
-      "universidades" => $this->convertAllElementsToArray($unis)
+      "universidades" => $this->convertAllElementsToArray($unis),
+      "profesion" => $profesion["nombre_carrera"]
     ]);
   }
 

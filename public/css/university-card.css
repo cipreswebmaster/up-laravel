@@ -11,6 +11,8 @@
   transition: all 0.1s ease-in; }
   .card:hover {
     transform: scale(1.05, 1.05); }
+  .card.non {
+    display: none; }
   .card .uni_img {
     position: absolute;
     top: 45%;

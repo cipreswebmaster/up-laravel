@@ -46,10 +46,12 @@ trait HelpersTrait {
    * 
    * @param int $id The career id
    * 
-   * @return array The career data
+   * @return array|false The career data
    */
-  public function search4BeyondCareerData(int $id, int $area_id) {
-    $data = $this->get4BeyondData($area_id);
+  public function search4BeyondCareerData(int $id, int $area_id, string $token = "0ead8013-43e8-11eb-8ecc-02eef28b5605") {
+    if (!$id)
+      return false;
+    $data = $this->get4BeyondData($area_id, $token);
     $career = "";
     foreach ($data as $d) {
       if ($d["id_carrera"] == $id)
@@ -66,7 +68,7 @@ trait HelpersTrait {
    * 
    * @return array The data
    */
-  public function get4BeyondData(int $id) {
+  public function get4BeyondData(int $id, $token) {
     if (session_status() == 1)
       session_start();
     if (!isset($_SESSION["4BeyondData"]))
@@ -78,7 +80,7 @@ trait HelpersTrait {
       $res = Http::withHeaders([
         "token" => "4bcgp-bgyt",
       ])->post("https://apps4beyond.com/REST/api/consultarCarreras", [
-        "token_id" => "0ead8013-43e8-11eb-8ecc-02eef28b5605",
+        "token_id" => $token,
         "area_id" => strval($id)
       ]);
       $_SESSION["4BeyondData"][$id] = $res["result"]["resultObject"];

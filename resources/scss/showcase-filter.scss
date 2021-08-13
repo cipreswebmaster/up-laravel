@@ -7,6 +7,7 @@
         display: flex;
         align-items: center;
         font-family: "Poppins-ExtraBold";
+        width: 25%;
     }
 
     input {
@@ -17,6 +18,79 @@
         height: 50%;
         outline: none;
         align-self: center;
+    }
+
+    .order {
+        display: flex;
+        width: 25%;
+        justify-content: space-between;
+        padding-left: 15px;
+
+        & > div {
+            width: 50%;
+        }
+
+        select {
+            border: none;
+            outline: none;
+            margin-left: 30px;
+        }
+
+        .select-country {
+            position: relative;
+            width: 100%;
+            left: 0;
+            cursor: pointer;
+
+            .selected .option .text {
+                text-align: left;
+            }
+
+            .options {
+                display: none;
+                position: absolute;
+                z-index: 100;
+                background-color: #fff;
+                width: 100%;
+
+                &.show {
+                    display: block;
+                }
+
+                .option:hover {
+                    background-color: #ccc;
+                }
+            }
+
+            .option {
+                display: flex;
+
+                & > div {
+                    width: 50%;
+                }
+
+                a {
+                    display: flex;
+                }
+
+                .img {
+                    height: 30px;
+                    width: 25%;
+
+                    img {
+                        width: unset;
+                        height: 100%;
+                    }
+                }
+
+                .text {
+                    width: 75%;
+                    font-size: 12px;
+                    margin: 5px;
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 

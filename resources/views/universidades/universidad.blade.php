@@ -57,3 +57,7 @@
       cardTitle="nombre_carrera"
     />
 @endsection
+
+@section('scripts')
+  <script src="{{ asset("js/profesiones.js") }}"></script>
+@endsection

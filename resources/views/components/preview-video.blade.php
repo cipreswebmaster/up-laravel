@@ -14,6 +14,6 @@
         <img src="{{ asset("images/examples/$example.png") }}" alt="ejemplo" />
       </a>
     </div>
-    <x-join-now-btn />
+    {{-- <x-join-now-btn /> --}}
   </div>
 </div>

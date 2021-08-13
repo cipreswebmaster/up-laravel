@@ -5,7 +5,11 @@
     <div class="au-noticias">
       <div class="noticia-principal">
         <a href="{{ route("post", ["postName" => Str::slug($posts[0]["title"])]) }}">
-          <div class="np-title"> {{ strtoupper($posts[0]["title"]) }} </div>
+          <div class="np-title">
+            <div class="title">
+              {{ strtoupper($posts[0]["title"]) }}
+            </div>
+          </div>
           <div class="np-img">
             <img src="{{ env("API_URL") . "/images/posts/" . $posts[0]["image"] }}" alt="">
           </div>

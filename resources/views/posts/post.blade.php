@@ -1,5 +1,12 @@
 @extends('posts.base')
 
+@section('metatags')
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ $post["title"] }}" />
+  <meta property="og:description" content="{{ $post["entradilla"] }}" />
+  <meta property="og:image:secure_url" itemprop="image" content="{{ env("API_URL") . "/images/posts/" . $post["image"] }}" />
+@endsection
+
 @section('title')
   {{ $post["title"] }} |
 @endsection

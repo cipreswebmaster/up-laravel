@@ -23,7 +23,7 @@ class TestController extends Controller
 
       $fourBeyond = Http::withHeaders([
         "token" => "4bcgp-bgyt",
-      ])->post("https://apps4beyond.com/REST/api/getFavoritas", [
+      ])->post("https://apps4beyond.com/REST/api/consultarResultados", [
         "token_id" => $user["4beyond_token_id"]
       ])["result"]["resultObject"];
 
@@ -43,9 +43,10 @@ class TestController extends Controller
   }
 
   public function results() {
-    session_start();
     $user = User::where("session_token", $_SESSION["session_token"])->first()->toArray();
     $results = $this->getResultsInfo($user["4beyond_token_id"]);
+    if (!$results)
+      return redirect("/test");
     return view("test.results", $results);
   }
 
@@ -70,7 +71,7 @@ class TestController extends Controller
     $profesiones = Profesion::all();
 
     foreach ($profesiones as &$prof) {
-      $info = $this->search4BeyondCareerData($prof->id_carrera_4beyond, $prof->id_area);
+      $info = $this->search4BeyondCareerData($prof->id_carrera_4beyond, $prof->id_area, $token);
       if ($info)
         $prof->afinidad = $info["Afinidad"];
       else $prof->afinidad = 0;
@@ -89,7 +90,7 @@ class TestController extends Controller
       "areas" => $areas,
       "profesiones" => $profesiones,
       "favs" => $favs,
-      "token" => "0ead8013-43e8-11eb-8ecc-02eef28b5605"
+      "token" => $token
     ];
   }
 

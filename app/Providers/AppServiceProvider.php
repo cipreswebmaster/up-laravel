@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      if (!env("APP_DEBUG")) {
+        $this->app->bind("path.public", function () {
+          return base_path().'/../';
+        });
+      }
     }
 }

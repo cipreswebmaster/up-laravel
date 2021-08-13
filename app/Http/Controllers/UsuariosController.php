@@ -25,17 +25,24 @@ class UsuariosController extends Controller
       return redirect()->route("login");
     $user = User::where("email", $email)->first();
 
-    $params_to_login = [ "error" => true ];
-    session_start();
-    if (password_verify($password, $user->password)) {
-      unset($user->password);
-      $code = $this->random_string();
-      $_SESSION["confirm_code"] = $code;
-      $_SESSION["email"] = $email;
-      Mail::to($email)->send(new LoginCode($code));
-      unset($params_to_login["error"]);
+    $redirect = "login";
+    if (!$user)
+      $redirect .= "?no_user=1";
+    else {
+      session_start();
+      if (password_verify($password, $user->password)) {
+        unset($user->password);
+        $code = $this->random_string();
+        $_SESSION["confirm_code"] = $code;
+        $_SESSION["email"] = $email;
+        Mail::to($email)->send(new LoginCode($code));
+
+        return redirect()->route("login_code");
+      } else {
+        $redirect .= "?pass_err=1";
+      }
     }
-    return redirect()->route("login_code", $params_to_login);
+    return redirect($redirect);
   }
 
   public function codigo() {
@@ -56,10 +63,15 @@ class UsuariosController extends Controller
     } catch (Exception $e) {
       return redirect("/login");
     }
-    unset($_SESSION["confirm_code"]);
+    
+    if ($code != $userCode) {
+      $_SESSION["error"] = true;
+      return redirect()->route("login_code");
+    }
+    
+    unset($_SESSION["error"]);
     unset($_SESSION["email"]);
-    if ($code != $userCode)
-      return redirect()->route("login_code", ["error" => true]);
+    unset($_SESSION["confirm_code"]);
     
     $user = User::where("email", $email)->first();
     $_SESSION["session_token"] = $user->session_token;
@@ -70,6 +82,7 @@ class UsuariosController extends Controller
 
   public function logout() {
     session_start();
+    session_unset();
     session_destroy();
     return redirect("/");
   }
@@ -100,6 +113,7 @@ class UsuariosController extends Controller
     $user->password = password_hash($request->password, PASSWORD_DEFAULT);
     $user->state = 1;
     $user->test_attempts = 0;
+    $user->carrera_prospecto = $request->favorita;
 
     $dia = intval($request->day);
     $mes = intval($request->month);

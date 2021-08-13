@@ -53,23 +53,21 @@ Route::prefix("test")->group(function () {
 
 /* Profesiones */
 Route::prefix("profesiones")->group(function () {
-  Route::get('/', 'ProfesionesController@index');
+  Route::get('/', 'ProfesionesController@index')->name("profIndex");
   Route::get("/{professionName}", 'ProfesionesController@profesion')
-    ->name("profession")
-    ->middleware("islogged");
+    ->name("profession");
 });
 
 /* Universidades */
 Route::prefix("universidades")->group(function () {
-  Route::get('/', 'UniversidadesController@index');
+  Route::get('/', 'UniversidadesController@index')->name("uniIndex");
+  Route::get("/c/{idCountry?}/{uniCountry?}", "UniversidadesController@index")->name("uniIndexCountry");
   Route::get('/{uniName}', 'UniversidadesController@universidad')
-    ->name("university")
-    ->middleware("islogged");;
+    ->name("university");
   Route::get('/p/{professionName}', 'UniversidadesController@unisOfProf')
     ->name("unisOfProf");
   Route::get('/{uniName}/{professionName}', 'UniversidadesController@profInU')
-    ->name("profInU")
-    ->middleware("islogged");;
+    ->name("profInU");
 });
 
 /* Login */
@@ -82,4 +80,10 @@ Route::prefix("login")->group(function () {
     ->name("login_code");
   Route::post("/comprobar_codigo", "UsuariosController@comprobarCodigo")
     ->name("comprobar_codigo");
+});
+
+/* Administrador */
+
+Route::prefix("admin")->group(function () {
+  Route::match(["get", "post"],"/precios", "AdminController@precios");
 });

@@ -72,18 +72,20 @@
         padding: 0px 50px;
         line-height: 25px;
         margin-bottom: 15px; }
-      .memberships .premium_mem .mem .mem_list .item {
-        display: flex;
-        margin-bottom: 25px; }
-        .memberships .premium_mem .mem .mem_list .item .list_indicator {
-          width: 15%;
-          text-align: end;
-          padding-right: 15px; }
-          .memberships .premium_mem .mem .mem_list .item .list_indicator img {
-            width: 40%; }
-        .memberships .premium_mem .mem .mem_list .item .text {
-          width: 85%;
-          font-family: Poppins-SemiBold; }
+      .memberships .premium_mem .mem .mem_list {
+        padding-right: 20px; }
+        .memberships .premium_mem .mem .mem_list .item {
+          display: flex;
+          margin-bottom: 25px; }
+          .memberships .premium_mem .mem .mem_list .item .list_indicator {
+            width: 15%;
+            text-align: end;
+            padding-right: 15px; }
+            .memberships .premium_mem .mem .mem_list .item .list_indicator img {
+              width: 40%; }
+          .memberships .premium_mem .mem .mem_list .item .text {
+            width: 85%;
+            font-family: Poppins-SemiBold; }
       .memberships .premium_mem .mem .start_now {
         display: flex;
         flex-direction: column;

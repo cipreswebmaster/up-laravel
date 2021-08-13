@@ -16,13 +16,13 @@
 @section('body')
 <div>
   <div class="memberships">
-    <div class="title">Elige tu plan para hacer el test premium</div>
+    <div class="title">Elige UP Premium</div>
     <div class="premium_mem">
-      <div class="mem">
+      {{-- <div class="mem">
         <div class="time">1 mes</div>
         <div class="price offer_active">
           <div class="money_sign">COP$</div>
-          <div class="money">30.000</div>
+          <div class="money">50.000</div>
           <div class="iva"> + IVA</div>
         </div>
         <div class="cobro">Cobro por estudiante</div>
@@ -48,7 +48,7 @@
               <img src={{ asset("images/test/check.svg") }} alt="" />
             </div>
             <div class="text">
-              Acceso a todas la universidades a nivel nacional e internacional (próximamente).
+              Acceso a todas la universidades a nivel nacional y de EEUU
             </div>
           </div>
           <div class="item">
@@ -57,6 +57,22 @@
             </div>
             <div class="text">
               Podrás presentar hasta 2 veces el test.
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Acceso a toda la información de becas
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Información de weebinars (próximamente)
             </div>
           </div>
         </div>
@@ -75,7 +91,7 @@
         <div class="time">3 meses</div>
         <div class="price offer_active">
           <div class="money_sign">COP$</div>
-          <div class="money">45.000</div>
+          <div class="money">100.000</div>
           <div class="iva"> + IVA</div>
         </div>
         <div class="cobro">Cobro por estudiante</div>
@@ -101,7 +117,7 @@
               <img src={{ asset("images/test/check.svg") }} alt="" />
             </div>
             <div class="text">
-              Acceso a todas la universidades a nivel nacional e internacional (próximamente).
+              Acceso a todas la universidades a nivel nacional y de EEUU
             </div>
           </div>
           <div class="item">
@@ -110,6 +126,22 @@
             </div>
             <div class="text">
               Podrás presentar hasta 4 veces el test.
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Acceso a toda la información de becas
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Información de weebinars (próximamente)
             </div>
           </div>
         </div>
@@ -123,24 +155,16 @@
             Nuestras membresías son autorenovables
           </div>
         </div>
-      </div>
-      <div class="mem">
+      </div> --}}
+      <div class="mem" style="position: relative; left: 50%; transform: translateX(-50%)" >
         <div class="time">6 meses</div>
         <div class="price offer_active">
           <div class="money_sign">COP$</div>
-          <div class="money">55.000</div>
+          <div class="money">150.000</div>
           <div class="iva"> + IVA</div>
         </div>
         <div class="cobro">Cobro por estudiante</div>
         <div class="mem_list">
-          <div class="item">
-            <div class="list_indicator">
-              <img src={{ asset("images/test/check.svg") }} alt="" />
-            </div>
-            <div class="text">
-              Acceso al test durante 5 meses.
-            </div>
-          </div>
           <div class="item">
             <div class="list_indicator">
               <img src={{ asset("images/test/check.svg") }} alt="" />
@@ -154,7 +178,7 @@
               <img src={{ asset("images/test/check.svg") }} alt="" />
             </div>
             <div class="text">
-              Acceso a todas la universidades a nivel nacional e internacional (próximamente).
+              Acceso a todas la universidades a nivel nacional y de EEUU
             </div>
           </div>
           <div class="item">
@@ -162,7 +186,47 @@
               <img src={{ asset("images/test/check.svg") }} alt="" />
             </div>
             <div class="text">
-              Podrás presentar hasta 6 veces el test.
+              Podrás presentar hasta 2 veces el test premium.
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Podrás entender que carreras se alinean a tu perfil.
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Acceso a toda la información de becas
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Acceso a información de actualidad universitaria
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Información de webinars (próximamente)
+            </div>
+          </div>
+          <div class="item">
+            <div class="list_indicator">
+              <img src={{ asset("images/test/check.svg") }} alt="" />
+            </div>
+            <div class="text">
+              Financiación (próximamente)
             </div>
           </div>
         </div>

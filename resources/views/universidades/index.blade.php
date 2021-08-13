@@ -9,11 +9,21 @@
 @endsection
 
 @section('body')
-  <x-banner
-    img="universidades.jpg"
-    topText="Universidades"
-    arrow="uni"
-  />
+
+  @if (Route::currentRouteName() == "unisOfProf")
+    <x-banner
+      img="universidades.jpg"
+      topText="Universidades"
+      :bottomText="$profesion"
+      arrow="uni"
+    />
+  @else
+    <x-banner
+      img="universidades.jpg"
+      topText="Universidades"
+      arrow="uni"
+    />
+  @endif
   {{-- <div class="show_all">
     Mostrar todas las universidades
   </div> --}}
@@ -34,4 +44,8 @@
       />
     </div>
   @endif
+@endsection
+
+@section('scripts')
+  <script src="{{ asset("js/universidades.js") }}"></script>
 @endsection

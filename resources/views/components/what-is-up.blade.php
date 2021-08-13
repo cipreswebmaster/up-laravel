@@ -10,7 +10,7 @@
     </p>
   </div>
   @if (!isset($_SESSION["logged"]))
-    <div class="contact-form">
+    {{-- <div class="contact-form">
       <h2 class="title">Empieza a crear tu futuro:</h2>
       <form action="/registrate" class="form" id="index-form">
         <input
@@ -24,6 +24,9 @@
       <div class="login">
         ¿Ya tienes cuenta? <a href="/login" style="color: #fff">Inicia sesión</a>
       </div>
+    </div> --}}
+    <div class="logo">
+      <img src="{{ asset("images/index/navega-gratis.png") }}" alt="">
     </div>
   @else
     <div class="logo">

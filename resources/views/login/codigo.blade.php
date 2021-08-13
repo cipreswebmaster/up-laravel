@@ -2,6 +2,11 @@
 
 @section('form')
   <div class="code_form">
+    @isset($_SESSION["error"])
+      <div class="error" style="color: #ff5a4a; text-align: center">
+        El código que has ingresado es incorrecto
+      </div>
+    @endisset
     <div class="title">Te enviamos un código a {{ $_SESSION["email"] }}</div>
     <div class="return_login">
       <a href="{{ route("login") }}">¿Este no es tu correo?</a>

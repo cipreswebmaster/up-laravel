@@ -321,10 +321,23 @@
             <br />
             <div class="sec_content">
               <div class="list">
+                @php
+                  $exceptions = [
+                    "Administración de Mercado y Logística Internacionales",
+                    "Gestión Deportiva",
+                    "Administración de Empresas y Gestión Ambiental",
+                    "Matemáticas",
+                    "Ingeniería en Ciencia de Datos",
+                    "Ingeniería Biotecnológica",
+                    "Agronomía"
+                  ]
+                @endphp
                 @foreach ($profession["carreras_rel"] as $i)
-                  <div class="item blue">
-                    <a href="{{ route("profession", ["professionName" => Str::slug($i)]) }}">{{ trim($i) }}</a>
-                  </div>
+                  @if (!in_array($i, $exceptions))
+                    <div class="item blue">
+                      <a href="{{ route("profession", ["professionName" => Str::slug($i)]) }}">{{ trim($i) }}</a>
+                    </div>
+                  @endif
                 @endforeach
               </div>
             </div>

@@ -14,6 +14,10 @@
         transform: scale(1.05, 1.05);
     }
 
+    &.non {
+        display: none;
+    }
+
     .uni_img {
         position: absolute;
         top: 45%;

@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Pais;
 use Illuminate\View\Component;
 
 class ShowcaseFilter extends Component
@@ -25,6 +26,7 @@ class ShowcaseFilter extends Component
      */
     public function render()
     {
-        return view('components.showcase-filter');
+        $paises = Pais::all();
+        return view('components.showcase-filter', compact("paises"));
     }
 }
