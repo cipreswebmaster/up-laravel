@@ -11,7 +11,7 @@ const mix = require("laravel-mix");
  |
  */
 
-const archivos = ["universidad.profesion.scss", "header.scss"];
+const archivos = ["universidad.profesion.scss", "header.scss", "general.scss"];
 
 archivos.forEach(function (el) {
     mix.sass("resources/scss/" + el, "public/css");
