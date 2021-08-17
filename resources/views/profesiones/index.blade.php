@@ -34,7 +34,7 @@
                 alt="{{ $area["nombre_area"] }}" />
             </div>
             <div class="text @if ($lowLetter) low @endif" style="border: 4px solid {{ $area["color"] }}">
-              {{ strtoupper($area["nombre_area"]) }}
+              {{ mb_strtoupper($area["nombre_area"]) }}
             </div>
             <div class="arrow">
               <img 

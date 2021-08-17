@@ -33,7 +33,7 @@
     </div>
     <div class="info">
       <div class="topText" >
-        {{ strtoupper($topText) }}
+        {{ mb_strtoupper($topText) }}
       </div>
       <div
         class="line"
@@ -41,7 +41,7 @@
       ></div>
       @if ($bottomText)
         <div class="bottomText" >
-          {{ strtoupper($bottomText) }}
+          {{ mb_strtoupper($bottomText) }}
         </div>
       @endif
     </div>

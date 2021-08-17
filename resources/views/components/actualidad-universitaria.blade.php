@@ -7,7 +7,7 @@
         <a href="{{ route("post", ["postName" => Str::slug($posts[0]["title"])]) }}">
           <div class="np-title">
             <div class="title">
-              {{ strtoupper($posts[0]["title"]) }}
+              {{ mb_strtoupper($posts[0]["title"]) }}
             </div>
           </div>
           <div class="np-img">
