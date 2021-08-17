@@ -265,15 +265,17 @@
           Regresar al listado de universidades
         </a>
       </div>
-      <div class="btn">
-        <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn_link">
-          Ir al sitio web de la universidad
-        </a>
-      </div>
+      @if ($universidad["web"])
+        <div class="btn">
+          <a
+            href="{{ $universidad["web"] }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn_link">
+            Ir al sitio web de la universidad
+          </a>
+        </div>
+      @endif
       @if (isset($_SESSION["logged"]) && $_SESSION["state"] == 0)
         <div class="btn">
           <a to="/results/profile" class="btn_link">
