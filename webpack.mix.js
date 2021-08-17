@@ -11,10 +11,15 @@ const mix = require("laravel-mix");
  |
  */
 
-const archivos = ["universidad.profesion.scss", "header.scss", "general.scss"];
+const sass = ["universidad.profesion", "header", "general"];
+const js = ["profession-events"];
 
-archivos.forEach(function (el) {
-    mix.sass("resources/scss/" + el, "public/css");
+sass.forEach(function (css) {
+    mix.sass("resources/scss/" + css + ".scss", "public/css");
+});
+
+js.forEach(function (js) {
+    mix.js("resources/js/" + js + ".js", "public/js");
 });
 
 if (mix.inProduction()) mix.version();

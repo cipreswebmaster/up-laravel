@@ -10,15 +10,15 @@
 
 @php
   $sidebarSections = [
-    "Acerca de",
-    "Dirigido a",
-    "Habilidades que obtendrás",
-    "¿En qué te puedes especializar?",
-    "Habilidades para esta carrera",
-    "¿Por qué estudiar esta profesión?",
-    "Cargos que puedes desempeñar",
-    "Posgrados",
-    "Otras carrereas relacionadas...",
+    ["Acerca de", "acerca-de"],
+    ["Dirigido a", "dirigido-a"],
+    ["Habilidades que obtendrás", "habilidades"],
+    ["¿En qué te puedes especializar?", "especializar"],
+    ["Habilidades para esta carrera", "requerimientos"],
+    ["¿Por qué estudiar esta profesión?", "razon-estudio"],
+    ["Cargos que puedes desempeñar", "cargos"],
+    ["Posgrados", "posgrados"],
+    ["Otras carrereas relacionadas...", "carreras-rel"],
 ];
 @endphp
 
@@ -33,13 +33,13 @@
     <div class="column">
       <x-youtube :videoId="$profession['codigo_video']" containerClass="video" class="frame" />
       <div class="side_menu only-pc">
-        @foreach ($sidebarSections as $sec)
-          <div class="career_menu_section" >
+        @foreach ($sidebarSections as $i => $sec)
+          <div class="career_menu_section {{ !$i ? 'active' : ''}}" data-id="{{ $sec[1] }}">
             <div class="drawing">
               <div class="circle"></div>
               <div class="line"></div>
             </div>
-            <div class="name">{{ $sec }}</div>
+            <div class="name">{{ $sec[0] }}</div>
           </div>
         @endforeach
       </div>
@@ -68,7 +68,7 @@
       </div>
       <div class="sections">
         {{-- ACERCA DE LA PROFESION --}}
-        <div class="single_section profession-section">
+        <div class="single_section profession-section" id="acerca-de">
           <div class="style_line">
             <div class="point" style="border-color: rgb(250, 90, 76)">
               <div
@@ -90,7 +90,7 @@
         </div>
 
         {{-- DIRIGIDO A --}}
-        <div class="single_section profession-section">
+        <div class="single_section profession-section" id="dirigido-a">
           <div class="style_line">
             <div class="point" style="border-color: rgb(250, 90, 76)">
               <div
@@ -112,7 +112,7 @@
         </div>
 
         {{-- HABILIDADES QUE OBTENDRAS --}}
-        <div class="single_section profession-section">
+        <div class="single_section profession-section" id="habilidades">
           <div class="style_line">
             <div class="point" style="border-color: rgb(250, 90, 76)">
               <div
@@ -155,7 +155,7 @@
         </div>
 
         {{-- ¿EN QUE TE PUEDES ESPECIALIZAR? --}}
-        <div class="single_section profession-section">
+        <div class="single_section profession-section" id="especializar">
           <div class="style_line">
             <div class="point" style="border-color: rgb(250, 90, 76)">
               <div
@@ -183,7 +183,7 @@
         </div>
 
         {{-- HABILIDADES A TENER EN CUENTA --}}
-        <div class="single_section profession-section">
+        <div class="single_section profession-section" id="requerimientos">
           <div class="style_line">
             <div class="point" style="border-color: rgb(250, 90, 76)">
               <div
@@ -226,7 +226,7 @@
         </div>
 
         {{-- ¿PORQUÉ ESTUDIAR ESTA CARRERA? --}}
-        <div class="single_section profession-section">
+        <div class="single_section profession-section" id="razon-estudio">
           <div class="style_line">
             <div class="point" style="border-color: rgb(57, 181, 74)">
               <div
@@ -253,7 +253,7 @@
 
         {{-- SECCIÓN DOBLE --}}
         <div class="doble_section">
-          <div class="single_section profession-section">
+          <div class="single_section profession-section" id="cargos">
             <div class="style_line">
               <div class="point" style="border-color: rgb(46, 99, 175)">
                 <div
@@ -277,7 +277,7 @@
               </div>
             </div>
           </div>
-          <div class="single_section profession-section">
+          <div class="single_section profession-section" id="posgrados">
             <div class="style_line no_line">
               <div class="point" style="border-color: rgb(46, 99, 175)">
                 <div
@@ -304,7 +304,7 @@
         </div>
 
         {{-- OTRAS CARRERAS RELACIONADAS --}}
-        <div class="single_section profession-section">
+        <div class="single_section profession-section" id="carreras-rel">
           <div class="style_line">
             <div class="point" style="border-color: rgb(46, 99, 175)">
               <div
@@ -361,7 +361,7 @@
 
 @section('scripts')
   <script src="{{ asset("js/chartjs.js") }}"></script>
-  <script src="{{ asset("js/profession-events.js") }}"></script>
+  <script src="{{ mix("/js/profession-events.js") }}"></script>
   <script>
     /** CHARTJS CONFIG */
     const lineChartCtx = document.getElementById('lineChart').getContext('2d');
