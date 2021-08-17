@@ -16,7 +16,7 @@
     autoComplete="off"
   />
   <div class="order">
-    @if (Route::currentRouteName() != "profIndex")
+    {{-- @if (Route::currentRouteName() != "profIndex")
       <div class="select-country" id="select-country">
         <div class="selected" id="selected-c">
           @php
@@ -45,7 +45,7 @@
           @endforeach
         </div>
       </div>
-    @endif
+    @endif --}}
     <div>
       <select name="order" id="order">
         <option value="1">Ordenar por A-Z</option>
@@ -56,6 +56,18 @@
 </div>
 
 <script>
+  const orderSelect = document.getElementById("order");
+  orderSelect.addEventListener("change", function (e) {
+    let cards = [...document.querySelectorAll(".card")];
+    cards = cards.reverse();
+
+    const parent = cards[0].parentNode;
+    cards.forEach(function (c) {
+      parent.removeChild(c);
+      parent.appendChild(c);
+    });
+  });
+
   const selectedCountry = document.getElementById("selected-c");
   selectedCountry.addEventListener("mouseover", showOptions);
   selectedCountry.addEventListener("mouseout", hideOptions);
