@@ -22,7 +22,6 @@
 @endsection
 
 @section('scripts')
-  <script src="{{ asset("js/swal.min.js") }}"></script>
   <script>
     setTimeout(function () {
       Swal.fire({

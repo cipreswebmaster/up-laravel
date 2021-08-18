@@ -60,7 +60,6 @@
 
 @section('scripts')
 @if (isset($token) && $estado["zona_pago_state"] != 1)
-<script src="{{ asset("js/swal.min.js") }}"></script>
   <script>
     const a = window.open('https://www.zonapagos.com/t_Ciprespas/pago.asp?estado_pago=iniciar_pago&identificador={{ $token }}', '_blank');
     if (!a) {

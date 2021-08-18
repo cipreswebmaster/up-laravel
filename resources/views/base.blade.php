@@ -17,35 +17,49 @@
   @yield('styles')
 </head>
 <body>
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '{your-app-id}',
-        cookie     : true,
-        xfbml      : true,
-        version    : '{api-version}'
-      });
-        
-      FB.AppEvents.logPageView();
-    };
-
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
   <x-header />
   <main>
     @yield('body')
   </main>
   <x-footer />
 
+  <script src="{{ asset("js/swal.min.js") }}"></script>
   <script src="{{ asset("js/popper.min.js") }}"></script>
   <script src="{{ asset("js/bootstrap.min.js") }}"></script>
   <script src="{{ asset("js/functions.js") }}"></script>
+  @if (Request::is("/"))
+    <style>
+      .swal2-popup{
+        width: 875px !important;
+      }
+
+      .share_img {
+        width: auto !important;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .share_img {
+          width: 100% !important
+        }
+      }
+    </style>
+  @endif
+  <script>
+    if (!sessionStorage.getItem("share_popup_showed")) {
+      setTimeout(function () {
+        Swal.fire({
+          html: 
+            '<div style="position: relative;">' +
+              '<img src="{{ asset('images/index/compartir.png') }}" class="share_img" />' +
+              '<a href="whatsapp://send?text=¿Ya%20conoces%20UP%20La%20plataforma%20de%20orientación%20profesional%20más%20completa!%20Tienes%20que%20probarla: https://universidadesyprofesiones.com/" style="position: absolute; width: 40%; height: 14%; background-color: transparent; top: 53%; left: 3%; border: none; outline: none" target="_blank" rel="noopener noreferrer"></a>' +
+            '</div>',
+          showConfirmButton: false
+        }).then(function () {
+          sessionStorage.setItem("share_popup_showed", true);
+        });
+      }, 180000)
+    }
+  </script>
   @if (!env("APP_DEBUG"))
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-184506190-1"></script>
