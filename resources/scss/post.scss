@@ -1,5 +1,5 @@
 .post {
-    padding: 100px 150px;
+    padding: 100px 300px;
 
     .title {
         font-family: Poppins-ExtraBold;
@@ -8,7 +8,7 @@
     }
 
     .publication_date {
-        text-align: end;
+        text-align: center;
         margin: 15px 0px;
     }
 
@@ -27,6 +27,47 @@
 
     .tags {
         font-weight: bold;
+    }
+
+    .share {
+        margin-top: 25px;
+
+        ul {
+            list-style: none;
+            padding: 0px;
+            display: flex;
+            align-items: center;
+
+            li {
+                display: inline-block;
+                width: 30px;
+                height: 50px;
+
+                &:not(:first-child) {
+                    margin-left: 75px;
+
+                    a {
+                        display: flex;
+                        align-content: center;
+                        height: 100%;
+                        width: 30px;
+                        overflow: hidden;
+                    }
+                }
+
+                &:first-child {
+                    font-size: 19px;
+                    line-height: 50px;
+                }
+
+                .logo {
+                    border-radius: 50%;
+                    width: 100%;
+                    pointer-events: none;
+                    z-index: -1000;
+                }
+            }
+        }
     }
 }
 
