@@ -10,6 +10,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @yield('metatags')
   <title>@yield('title') | Elige qué estudiar en la universidad con UP ✅</title>
+
+  @if (!env("APP_DEBUG"))
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MWKSX3V');</script>
+    <!-- End Google Tag Manager -->
+  @endif
+
   <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
   <link rel="stylesheet" href="{{ mix("/css/general.css") }}">
   <link rel="stylesheet" href="{{ mix("/css/header.css") }}">
@@ -17,6 +28,14 @@
   @yield('styles')
 </head>
 <body>
+
+  @if (!env("APP_DEBUG"))
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWKSX3V"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  @endif
+
   <x-header />
   <main>
     @yield('body')

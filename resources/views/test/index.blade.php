@@ -27,7 +27,7 @@
             <span>Podrás realizar un test gratuito creado por un tercero</span>
           </div>
           <div class="t-iniciar">
-            <span style="font-family: Poppins-ExtraBold; font-size: 20px; cursor: pointer" id="test-gratis">INICIAR TEST</span>
+            <span style="font-family: Poppins-ExtraBold; font-size: 20px; cursor: pointer" id="test-gratis" class="test-btn">INICIAR TEST</span>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
             </span>
           </div>
           <div class="t-iniciar">
-            <a href="{{ url("/membresias") }}">VER PLANES</a>
+            <a href="{{ url("/membresias") }}" class="test-btn">VER PLANES</a>
           </div>
         </div>
       </div>
