@@ -95,7 +95,16 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .search {
-        width: 100% !important;
+    .filter {
+        display: unset;
+
+        .search {
+            width: 100% !important;
+            margin-bottom: 25px;
+        }
+
+        .order {
+            width: 75%;
+        }
     }
 }

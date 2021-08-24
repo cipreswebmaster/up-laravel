@@ -334,3 +334,27 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .uni-content {
+        .uni_info {
+            flex-direction: column;
+
+            .video .video_frame {
+                width: 100% !important;
+            }
+        }
+
+        .career-info {
+            flex-direction: column;
+
+            .column {
+                width: 100% !important;
+            }
+
+            .section {
+                padding: 25px 0px !important;
+            }
+        }
+    }
+}
