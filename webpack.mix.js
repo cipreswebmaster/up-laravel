@@ -18,6 +18,7 @@ const sass = [
     "post",
     "extranjero",
     "showcase-filter",
+    "results",
 ];
 const js = ["profession-events"];
 

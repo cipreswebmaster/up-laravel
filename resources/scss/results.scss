@@ -363,11 +363,11 @@ main {
 
         .img,
         .text {
-            width: 100%;
+            width: 100% !important;
         }
 
         .text {
-            padding: 15px 0px;
+            padding: 15px 0px !important;
         }
     }
 
@@ -408,7 +408,7 @@ main {
     .profile {
         .before_begin {
             flex-direction: column;
-            margin: 0px 15px;
+            margin: 0px 15px !important;
 
             & > div {
                 width: 100% !important;
@@ -428,8 +428,6 @@ main {
         }
 
         .sections {
-            margin: 0px 25px !important;
-
             .section {
                 flex-direction: column;
 
@@ -456,7 +454,7 @@ main {
             }
 
             .instructions img {
-                width: 100%;
+                width: 100% !important;
             }
 
             // Section 1
@@ -513,8 +511,11 @@ main {
                         }
 
                         .stars_container .see_career {
-                            font-size: 0.5rem;
                             width: 200px !important;
+
+                            a {
+                                font-size: 0.7rem;
+                            }
                         }
                     }
                 }
@@ -523,11 +524,19 @@ main {
             .list {
                 height: unset !important;
                 margin-top: 15px;
+                overflow: scroll !important;
+
+                .stars_container .stars {
+                    display: flex;
+                    align-items: center;
+                    width: 100px;
+                    margin-right: 15px;
+                }
             }
         }
 
         .pdf {
-            width: 100%;
+            width: 100% !important;
 
             .icon {
                 width: 75px;

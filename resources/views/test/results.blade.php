@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset("css/results.css") }}">
+  <link rel="stylesheet" href="{{ mix("css/results.css") }}">
 @endsection
 
 @section('title')
