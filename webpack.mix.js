@@ -11,7 +11,14 @@ const mix = require("laravel-mix");
  |
  */
 
-const sass = ["universidad.profesion", "header", "general", "post"];
+const sass = [
+    "universidad.profesion",
+    "header",
+    "general",
+    "post",
+    "extranjero",
+    "showcase-filter",
+];
 const js = ["profession-events"];
 
 sass.forEach(function (css) {

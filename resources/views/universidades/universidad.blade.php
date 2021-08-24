@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="accreditations">
-      <div class="title">Acreditaciones</div>
+      {{-- <div class="title">Acreditaciones</div> --}}
       {{-- <div class="logos">
         {university.acreditaciones.map((acc, idx) => (
           <img

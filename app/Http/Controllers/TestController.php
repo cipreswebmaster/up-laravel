@@ -77,12 +77,18 @@ class TestController extends Controller
       else $prof->afinidad = 0;
     }
     
-    foreach ($favs as &$fav) {
+    foreach ($favs as $i => &$fav) {
       $prof = array_values(array_filter($profesiones->toArray(), function ($el) use ($fav) {
-        return $el["id_carrera_4beyond"] == $fav["id_carrera"];
-      }))[0];
-      $fav["nombre_carrera"] = $prof["nombre_carrera"];
-      $fav["afinidad"] = $prof["afinidad"];
+        $carrera4beyond = $el["id_carrera_4beyond"];
+        $carreraFav = $fav["id_carrera"];
+        return $carreraFav  == $carrera4beyond;
+      }));
+      if (!$prof) {
+        unset($favs[$i]);
+        continue;
+      }
+      $fav["nombre_carrera"] = $prof[0]["nombre_carrera"];
+      $fav["afinidad"] = $prof[0]["afinidad"];
     }
 
     return [

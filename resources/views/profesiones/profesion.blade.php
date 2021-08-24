@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('metatags')
+  <meta name="keywords" content="universidades, {{ $profession["nombre_carrera"] }}" />
+@endsection
+
 @section('title')
   {{ $profession["nombre_carrera"] }}
 @endsection
@@ -13,10 +17,10 @@
     ["Acerca de", "acerca-de"],
     ["Dirigido a", "dirigido-a"],
     ["Habilidades que obtendrás", "habilidades"],
-    ["¿En qué te puedes especializar?", "especializar"],
+    ["¿En dónde te puedes desempeñar?", "especializar"],
     ["Habilidades para esta carrera", "requerimientos"],
     ["¿Por qué estudiar esta profesión?", "razon-estudio"],
-    ["Cargos que puedes desempeñar", "cargos"],
+    ["Áreas de especialización", "cargos"],
     ["Posgrados", "posgrados"],
     ["Otras carrereas relacionadas...", "carreras-rel"],
 ];
@@ -154,7 +158,7 @@
           </div>
         </div>
 
-        {{-- ¿EN QUE TE PUEDES ESPECIALIZAR? --}}
+        {{-- ¿EN DÓNDE TE PUEDES DESEMPEÑAR? --}}
         <div class="single_section profession-section" id="especializar">
           <div class="style_line">
             <div class="point" style="border-color: rgb(250, 90, 76)">
@@ -167,7 +171,7 @@
           </div>
           <div class="info">
             <div class="sec_title">
-              <h2>¿En qué te puedes especializar?</h2>
+              <h2>¿En dónde te puedes desempeñar?</h2>
             </div>
             <br />
             <div class="sec_content">
@@ -238,7 +242,7 @@
           </div>
           <div class="info">
             <div class="sec_title">
-              <h2>¿En qué te puedes especializar?</h2>
+              <h2>¿Por qué estudiar {{ $profession["nombre_carrera"] }}?</h2>
             </div>
             <br />
             <div class="sec_content">
@@ -265,7 +269,7 @@
             </div>
             <div class="info">
               <div class="sec_title">
-                <h2>Cargos que puedes desempeñar</h2>
+                <h2>Áreas de especialización</h2>
               </div>
               <br />
               <div class="sec_content">

@@ -65,7 +65,7 @@
         @endif
     </div>
   </nav>
-  <div class="session">
+  <div class="session" style="justify-content: flex-end">
     @if (isset($_SESSION["logged"]))  
         <div class="ref login link">
           <a href="{{ url("logout") }}" class="logginout">

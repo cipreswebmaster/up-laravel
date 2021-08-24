@@ -1,14 +1,15 @@
 @php
   $isTitleLarge = strlen($title) > 25 && count(str_split($title)) > 3;
   $titleSlugged = Str::slug($title);
+
+  $redirects = [
+    "university" => Request::url() . "/$titleSlugged",
+    "profIndex" => route("profession", ["professionName" => $titleSlugged])
+  ]
 @endphp
 
 <div class="card area-{{ $id_area }}">
-  <a href="@if (Route::currentRouteName() == "university")
-    {{ Request::url() . "/$titleSlugged" }}
-  @else
-    {{ route("profession", ["professionName" => $titleSlugged]) }}
-  @endif">
+  <a @if (Route::currentRouteName() != "uniCountry") href="{{ $redirects[Route::currentRouteName()] }}" @endif>
     <div class="card-img">
       <img src="{{ env("API_URL") . '/' . $imgSrc }}" alt={{ $title }} />
     </div>

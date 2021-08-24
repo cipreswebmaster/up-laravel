@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ColegioMail;
 use App\Mail\LoginCode;
 use App\Models\Profesion;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class UsuariosController extends Controller
@@ -30,11 +32,20 @@ class UsuariosController extends Controller
       $redirect .= "?no_user=1";
     else {
       session_start();
-      if (password_verify($password, $user->password)) {
+      $isSchoolFirstTime = strpos($user->password, "[c]") !== false;
+      $user->password = str_replace("[c]", "", $user->password);
+      if (
+        password_verify($password, $user->password) ||
+        ($isSchoolFirstTime && $user->password == $password)  
+      ) {
         unset($user->password);
         $code = $this->random_string();
         $_SESSION["confirm_code"] = $code;
         $_SESSION["email"] = $email;
+        if ($isSchoolFirstTime) {
+          $_SESSION["change_pass"] = true;
+          $_SESSION["token"] = $user["session_token"];
+        }
         Mail::to($email)->send(new LoginCode($code));
 
         return redirect()->route("login_code");
@@ -120,11 +131,80 @@ class UsuariosController extends Controller
     $anio = intval($request->year);
     $user->birthday = "$dia/$mes/$anio";
 
-    $user->session_token = md5(time() + random_int(100, 1000000));
+    $user->session_token = $this->generate_session_token();
 
     $user->save();
 
     return redirect()->route("login");
+  }
+
+  function addColegio(Request $request) {
+    $usuarios = $request->file;
+    $failed = [];
+    foreach ($usuarios as $usuario) {
+      $userAlreadyExists = User::where("email", $usuario["email"])->exists();
+      if ($userAlreadyExists) {
+        array_push($failed, $usuario["email"]);
+        continue;
+      }
+
+      $gender = $usuario["gender"];
+      unset($usuario["gender"]);
+      
+      $user = new User();
+      foreach ($usuario as $key => $value) {
+        $user[$key] = $value;
+      }
+
+      $user["names"] = ucfirst(mb_strtolower($user["names"]));
+      $user["last_names"] = ucwords(mb_strtolower($user["last_names"]));
+      $user["birthday"] = date("Y-m-d", strtotime($user["birthday"]));
+      $user["id_gender"] = !$gender ? null : $this->GENDERS[strtolower(trim($gender))];
+      $user["state"] = 0;
+      $user["test_attempts"] = 0;
+      $user["id_colegio"] = 1;
+      $user["password"] = "[c]" . $user["document"];
+      $user["session_token"] = $this->generate_session_token();
+      $user["carrera_prospecto"] = $user["carrera_prospecto"] ?? "No sé";
+      $user["4beyond_token_id"] = Http::withHeaders([
+        "token" => "4bcgp-bgyt",
+      ])->post("https://apps4beyond.com/REST/api/createUserCipres", [
+        "nombre" => $user["names"],
+        "apellido" => $user["last_names"],
+        "clave" => $user["document"],
+        "documento" => $user["document"],
+        "id_genero" => $user["id_gender"],
+        "email" => $user["email"],
+        "force_renew" => 0
+      ])["result"]["resultObject"][0]["tokenId"];
+ 
+      $user->save();
+
+      Mail::to($user["email"])
+          ->send(new ColegioMail(
+            $user["names"]." ".$user["last_names"],
+            str_replace("[c]","", $user["password"]),
+            $user["email"]
+          ));
+    }
+
+    $failedCount = count($failed);
+    return response()->json([
+      "failed" => $failedCount,
+      "existingEmails" => implode(",", $failed),
+      "success" => count($usuarios) - $failedCount
+    ]);
+  }
+
+  public function change_password(Request $request) {
+    session_start();
+    $pass = $request->password;
+    $user = User::where("session_token", $_SESSION["token"])->first();
+    $user->password = password_hash($pass, PASSWORD_DEFAULT);
+    $user->save();
+    unset($_SESSION["change_pass"]);
+    unset($_SESSION["token"]);
+    return back();
   }
 
   /**
@@ -144,4 +224,18 @@ class UsuariosController extends Controller
     }
     return $randomString;
   }
+
+  /**
+   * Genera un token para un usuario nuevo
+   * 
+   * @return string El token
+   */
+  private function generate_session_token() {
+    return md5(time() + random_int(100, 1000000));
+  }
+
+  private $GENDERS = [
+    "femenino" => 1,
+    "masculino" => 2
+  ];
 }

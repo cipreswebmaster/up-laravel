@@ -101,3 +101,55 @@
     </div>
   </div>
 @endsection
+
+@isset($_SESSION["change_pass"])
+  @section('scripts')
+    <style>
+      .cp-form input {
+        width: 100%;
+        margin-bottom: 5px;
+        outline: none;
+        padding: 10px 5px;
+      }
+
+      .cp-form button {
+        border: none;
+        padding: 10px;
+      }
+    </style>
+    <script>
+      showChangePassForm();
+
+      function showChangePassForm() {
+        Swal.fire({
+          title: "Cambia tu contraseña",
+          text: "Tu privacidad es muy importante para nosotros. Por eso, te animamos a cambiar tu contraseña por una que solo tu conozcas. Recuerda no compartirla con nadie",
+          html: `
+            <form action="{{ route("change_pass") }}" method="POST" class="cp-form" id="cp-form">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+              <input type="password" name="password" id="password" placeholder="Escribe aquí tu contraseña nueva" required><br/>
+              <input type="password" name="confirm_password" id="confirm_password" placeholder="Repite tu contraseña nueva" required><br/>
+              <span style="color: red; display: none" id="error">Las contraseñas no son iguales</span>
+              <button type="submit">Cambiar contraseña</button>
+            </form>
+          `,
+          showConfirmButton: false,
+          didOpen: function () {
+            const form = document.getElementById("cp-form");
+            form.addEventListener("submit", handleFormSubmit);
+          }
+        }).then(showChangePassForm);
+      }
+
+      function handleFormSubmit(e) {
+        const pass = e.target.password.value;
+        const conf_pass = e.target.confirm_password.value;
+        if (pass != conf_pass) {
+          e.preventDefault();
+          const error = document.getElementById("error");
+          error.style.display = "unset";
+        }
+      }
+    </script>
+  @endsection    
+@endisset

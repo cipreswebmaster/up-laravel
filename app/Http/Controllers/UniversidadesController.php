@@ -17,7 +17,7 @@ class UniversidadesController extends Controller
   public function index($idCountry = '', $uniCountry = '') {
     $universidades = $idCountry ?
       Pais::find($idCountry)->universidades :
-      Universidad::orderBy("nombre_universidad")->get();
+      Universidad::orderBy("nombre_universidad")->where("id_pais", 1)->get();
 
     return view("universidades.index", compact("universidades"));
   }
@@ -96,6 +96,7 @@ class UniversidadesController extends Controller
     $unis = DB::table('universidades')
       ->join("universidad_carrera", "universidades.id_universidad", "=", "universidad_carrera.id_universidad")
       ->where("universidad_carrera.id_carrera", "=", $profesion["id_carrera"])
+      ->where("universidades.id_pais", "=", 1)
       ->select("universidades.*")
       ->distinct()->get()->toArray();
 
@@ -105,6 +106,36 @@ class UniversidadesController extends Controller
       "universidades" => $this->convertAllElementsToArray($unis),
       "profesion" => $profesion["nombre_carrera"]
     ]);
+  }
+
+  public function universidadExtranjero($idCountry = '', $uniCountry = '', $uni = '') {
+    $universidad = json_decode(json_encode(
+      $this->getDatabaseInfoWithSlugifyiedName(
+        "universidades",
+        $uni,
+        "nombre_universidad"
+      )
+    ), true);
+
+    $universidad["proceso_admision"] = $this->process_data(str_replace("•", "", $universidad["proceso_admision"]));
+    $universidad["apoyo_financiero"] = $this->process_data(str_replace("•", "", (string) $universidad["apoyo_financiero"]));
+    $universidad["contacto_admision"] = $this->process_data($universidad["contacto_admision"]);
+    $intercambios = $this->process_data(str_replace("•", "", (string) $universidad["intercambios"]), ":");
+
+    $profesiones = $this->convertAllElementsToArray(
+      DB::table('universidad_carrera')
+      ->join("carreras", "universidad_carrera.id_carrera", "=", "carreras.id_carrera")
+      ->join("areas", "carreras.id_area", "=", "areas.id_area")
+      ->where("universidad_carrera.id_universidad", "=", $universidad["id_universidad"])
+      ->select("carreras.*", "areas.nombre_area")
+      ->distinct()->orderBy("carreras.nombre_carrera")->get()->toArray()
+    );
+
+    foreach ($profesiones as &$profession) {
+      $profession["area_img"] = $this->getAreaImageName($profession["nombre_area"]);
+    }
+
+    return view("universidades.extranjero", compact("universidad", "profesiones"));
   }
 
   private function convertAllElementsToArray($object) : array {
