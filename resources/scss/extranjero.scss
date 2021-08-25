@@ -370,5 +370,9 @@
                 padding: 25px 0px !important;
             }
         }
+
+        .buttons {
+            flex-direction: column;
+        }
     }
 }
