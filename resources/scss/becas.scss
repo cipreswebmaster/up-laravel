@@ -111,6 +111,10 @@
         .region {
             font-size: 2rem !important;
         }
+
+        .cards {
+            grid-template-columns: 1fr !important;
+        }
     }
 
     .b-card {

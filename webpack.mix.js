@@ -19,6 +19,7 @@ const sass = [
     "extranjero",
     "showcase-filter",
     "results",
+    "becas",
 ];
 const js = ["profession-events"];
 
