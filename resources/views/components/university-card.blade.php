@@ -10,7 +10,7 @@
 <div class="card">
   <a href="{{ $redirects[Route::currentRouteName()] }}">
     <div class="uni_img">
-      <img src="{{ env("API_URL") . "/images/unis/logo/" . $imgSrc }}" alt="" />
+      <img src="{{ env("API_URL") . "/images/unis/logo/" . $imgSrc }}?{{ uniqid() }}" alt="" />
     </div>
     <div class="layer">
       <div class="header_img">

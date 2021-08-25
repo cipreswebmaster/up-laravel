@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="{{ mix("/css/showcase-filter.css") }}">
 
+@php
+  if (session_status() == PHP_SESSION_NONE)
+    session_start();
+@endphp
+
 @if (Route::currentRouteName() == "uniCountry")
   <h2 style="font-family: Poppins-SemiBold; text-align: center">Estas son algunas de las carreras ofertadas en esta universidad. Para conocerlas todas, visita el sitio web de la universidad.</h2>
 @else
@@ -13,7 +18,7 @@
       autoComplete="off"
     />
     <div class="order">
-      @if (in_array(Route::currentRouteName(), ["uniIndex", "uniIndexCountry"]))
+      @if (in_array(Route::currentRouteName(), ["uniIndex", "uniIndexCountry"]) && isset($_SESSION["logged"]))
         <div class="select-country" id="select-country">
           <div class="selected" id="selected-c">
             @php
@@ -33,17 +38,28 @@
           </div>
           <div class="options">
             @foreach ($paises as $pais)
-              <div class="option">
-                <a href="{{ route("uniIndexCountry", [
-                  "idCountry" => $pais["id_pais"],
-                  "uniCountry" => Str::slug($pais["nombre_pais"])
-                ]) }}">
-                  <div class="img">
-                    <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
-                  </div>
-                  <div class="text"> {{ $pais["nombre_pais"] }} </div>
-                </a>
-              </div>
+              @if ($pais["nombre_pais"] == "Colombia")
+                <div class="option">
+                  <a href="{{ route("uniIndex") }}">
+                    <div class="img">
+                      <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
+                    </div>
+                    <div class="text"> {{ $pais["nombre_pais"] }} </div>
+                  </a>
+                </div>
+              @else
+                <div class="option">
+                  <a href="{{ route("uniIndexCountry", [
+                    "idCountry" => $pais["id_pais"],
+                    "uniCountry" => Str::slug($pais["nombre_pais"])
+                  ]) }}">
+                    <div class="img">
+                      <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
+                    </div>
+                    <div class="text"> {{ $pais["nombre_pais"] }} </div>
+                  </a>
+                </div>
+              @endif
             @endforeach
           </div>
         </div>

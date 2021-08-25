@@ -308,30 +308,44 @@
             margin-left: 5px;
         }
     }
+}
 
-    .section {
-        padding: 25px 30px;
+.section {
+    padding: 25px 30px;
 
-        .section-title {
-            border-bottom: 1px solid gray;
-            font-size: 2rem;
-            display: flex;
+    .section-title {
+        border-bottom: 1px solid gray;
+        font-size: 2rem;
+        display: flex;
 
-            .icon {
-                margin-right: 15px;
-                margin-bottom: 5px;
-            }
-
-            .s-title {
-                font-weight: bold;
-                font-size: 25px;
-                padding-top: 10px;
-            }
+        .icon {
+            margin-right: 15px;
+            margin-bottom: 5px;
         }
 
-        .section-content {
-            padding: 15px;
+        .s-title {
+            font-weight: bold;
+            font-size: 25px;
+            padding-top: 10px;
         }
+    }
+
+    .section-content {
+        padding: 15px;
+    }
+}
+
+.testimonios {
+    padding: 0px;
+
+    .section-title {
+        padding: 0px 30px;
+    }
+
+    .section-content {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
     }
 }
 

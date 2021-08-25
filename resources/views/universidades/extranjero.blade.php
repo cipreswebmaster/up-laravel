@@ -209,5 +209,55 @@
         {{ $universidad["cursos_online"] }}
       </div>
     </div>
+    <div class="buttons">
+      <div class="btn">
+        <a
+          href="/profesiones"
+          class="btn_link" >
+          Regresar al listado de profesiones
+        </a>
+      </div>
+      <div class="btn">
+        <a
+          href="/universidades/c/2/estados-unidos"
+          class="btn_link" >
+          Regresar al listado de universidades
+        </a>
+      </div>
+      @if ($universidad["web"])
+        <div class="btn">
+          <a
+            href="{{ $universidad["web"] }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn_link">
+            Ir al sitio web de la universidad
+          </a>
+        </div>
+      @endif
+    </div>
   </div>
+  @if ($universidad["testimonios"])
+    <div class="section testimonios">
+      <div class="section-title">
+        <div class="icon">
+          <img style="width: 36px" src="{{ asset("images/university.profession/icons/testimonios.png") }}" alt="">
+        </div>
+        <div class="s-title">
+          Testimonios
+        </div>
+      </div>
+      <div class="section-content">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/videoseries?list={{ $universidad["testimonios"] }}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  @endif
 @endsection
