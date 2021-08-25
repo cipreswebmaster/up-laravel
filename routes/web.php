@@ -96,22 +96,22 @@ Route::prefix("api")->group(function () {
 /* Administrador */
 
 Route::prefix("admin")->group(function () {
-  // Route::get("/test_done", function () {
-  //   $usuarios = User::where("id_colegio", 1)->get();
-  //   $test_hechos = 0;
-  //   foreach ($usuarios as $u) {
-  //     $done = Http::withHeaders([
-  //         "token" => "4bcgp-bgyt",
-  //       ])->post("https://apps4beyond.com/REST/api/consultarResultados", [
-  //         "token_id" => $u["4beyond_token_id"]
-  //       ])["result"]["resultObject"];
+  Route::get("/test_done", function () {
+    $usuarios = User::where("id_colegio", 1)->get();
+    $test_hechos = 0;
+    foreach ($usuarios as $u) {
+      $done = Http::withHeaders([
+          "token" => "4bcgp-bgyt",
+        ])->post("https://apps4beyond.com/REST/api/consultarResultados", [
+          "token_id" => $u["4beyond_token_id"]
+        ])["result"]["resultObject"];
       
-  //       if (gettype($done) != "string")
-  //         $test_hechos++;
-  //   }
-  //   echo "Totales: " . count($usuarios) . "<br />";
-  //   echo "Tests finalizados: " . $test_hechos;
-  // });
+        if (gettype($done) != "string")
+          $test_hechos++;
+    }
+    echo "Totales: " . count($usuarios) . "<br />";
+    echo "Tests finalizados: " . $test_hechos;
+  });
   Route::match(["get", "post"],"/precios", "AdminController@precios");
   Route::get("/websites", function () {
     $links = [

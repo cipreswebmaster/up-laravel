@@ -295,7 +295,7 @@
       Swal.fire({
         title: "Quiero ser contactado",
         html:
-          '<form action="/registrar-contacto" method="POST" class="quiero-ser-contactado">' +
+          '<form action="/registrar-contacto" method="POST" class="quiero-ser-contactado" id="quiero-ser-contactado-form">' +
           '@csrf' +
           '<input required type="text" class="contacto-input" placeholder="Escribe tu nombre completo" name="nombre" />' +
           '<input required type="text" class="contacto-input" placeholder="Escribe tu teléfono" name="tel" />' +

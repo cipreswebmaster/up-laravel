@@ -87,7 +87,7 @@
             </span>
           </div>
           <div class="t-iniciar">
-            <a href="{{ url("/membresias") }}" class="test-btn">VER PLANES</a>
+            <a href="{{ url("/membresias") }}" class="test-btn" id="ver-planes">VER PLANES</a>
           </div>
         </div>
       </div>
@@ -107,6 +107,19 @@
             window.open("https://www.elegircarrera.net/test-vocacional/");
           }, 5000);
         }
+      });
+
+      gtag('event', 'Click', {
+        'event_category': "INICIAR TEST",
+        "event_label": "{{ Request::url() }}"
+      });
+    });
+
+    const verPlanes = document.getElementById("ver-planes");
+    verPlanes.addEventListener("click", function () {
+      gtag('event', 'Click', {
+        'event_category': "VER PLANES",
+        "event_label": "{{ Request::url() }}"
       });
     });
   </script>
