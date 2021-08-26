@@ -16,7 +16,7 @@ class UniversidadesController extends Controller
 
   public function index($idCountry = '', $uniCountry = '') {
     $universidades = $idCountry ?
-      Pais::find($idCountry)->universidades :
+      Pais::find($idCountry)->universidades()->orderBy("nombre_universidad")->get() :
       Universidad::orderBy("nombre_universidad")->where("id_pais", 1)->get();
 
     return view("universidades.index", compact("universidades"));
