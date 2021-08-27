@@ -10,7 +10,7 @@
       <div class="post">
         <div class="info-image">
           <div class="image">
-            <img src="{{ env("API_URL") . "/images/posts/" . $post["image"] }}" alt="Logo de UP">
+            <img src="{{ asset("images/posts/post/" . $post["image"]) }}" alt="Logo de UP">
           </div>
           <div class="info">
             <div class="title">

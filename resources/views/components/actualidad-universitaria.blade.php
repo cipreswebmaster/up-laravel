@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="np-img">
-            <img src="{{ env("API_URL") . "/images/posts/" . $posts[0]["image"] }}" alt="">
+            <img src="{{ asset("images/posts/post/" . $posts[0]["image"]) }}" alt="">
           </div>
         </a>
       </div>
@@ -26,7 +26,7 @@
               <div class="n-fecha">{{ explode(" ", $posts[$i]["created_at"])[0] }}</div>
             </div>
             <div class="n-img">
-              <img src="{{ env("API_URL") . "/images/posts/" . $posts[$i]["image"] }}" alt="">
+              <img src="{{ asset("images/posts/post/" . $posts[$i]["image"]) }}" alt="">
             </div>
           </div>
         @endfor

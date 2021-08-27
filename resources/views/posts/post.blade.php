@@ -34,7 +34,7 @@
     <div class="entradilla">{{ $post["entradilla"] }}</div>
     <div class="image">
       <img
-        src="{{ env("API_URL") . "/images/posts/" . $post["image"] }}"
+        src="{{ asset("images/posts/post/" . $post["image"]) }}"
         alt="Post for {{ $post["title"] }}"
       />
     </div>
