@@ -14,15 +14,17 @@ class ProfesionesController extends Controller
 
   #region Path functions
   public function index() {
-    $profesiones = Profesion::orderBy("nombre_carrera")->get();
+    $profesiones = Profesion::where("muestra", 0)->orderBy("nombre_carrera")->get();
     $areas = Area::all();
-    foreach ($profesiones as &$profesion) {
+    foreach ($profesiones as $i => &$profesion) {
       $id_area = $profesion["id_area"];
       $area = &$areas[$id_area - 1];
       $area_img = $this->getAreaImageName($area["nombre_area"]);
       $profesion["area_img"] = $area_img;
       $area["img"] = $area_img;
     }
+
+    unset($areas[count($areas) - 1]);
     
     return view("profesiones.index", compact("profesiones", "areas"));
   }

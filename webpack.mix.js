@@ -20,6 +20,7 @@ const sass = [
     "showcase-filter",
     "results",
     "becas",
+    "profesion",
 ];
 const js = ["profession-events"];
 

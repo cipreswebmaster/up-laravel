@@ -21,9 +21,11 @@
           width: 100%
         "
       >
-        <div class="arrow">
-          <img src="{{ asset($arrow) }}" alt="arrow" />
-        </div>
+        @if ($arrow != "none")
+          <div class="arrow">
+            <img src="{{ asset($arrow) }}" alt="arrow" />
+          </div>
+        @endif
         <div
           class="title"
           style="font-size: {{ $isTitleLarge ? '0.9rem' : '' }}"

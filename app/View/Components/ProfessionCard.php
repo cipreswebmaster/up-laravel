@@ -24,8 +24,10 @@ class ProfessionCard extends Component
     {
       $this->imgSrc = $imgSrc;
       $this->title = $title;
-      $this->arrow = $arrow;
       $this->isOnU = $isOnU;
+      $this->arrow = $arrow != "sin-area"
+                            ? 'images/select-area/arrows/' . $arrow . '.svg'
+                            : "none";
     }
 
     /**

@@ -244,9 +244,9 @@ a {
                             }
 
                             .phases_list {
-                                display: flex;
-                                justify-content: space-between;
-                                flex-wrap: wrap;
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr;
+                                gap: 20px;
 
                                 .phase {
                                     background-color: #f0f2f5;
@@ -254,7 +254,6 @@ a {
                                     padding: 0px 5px;
                                     border-radius: 5px;
                                     min-width: 100px;
-                                    margin-bottom: 15px;
 
                                     &.active {
                                         background-color: #e3f5ff;
@@ -427,8 +426,12 @@ a {
                         font-size: 0.9rem !important;
                     }
 
-                    .phases_list .phase .title {
-                        font-size: 0.7rem !important;
+                    .phases_list {
+                        grid-template-columns: 1fr 1fr !important;
+
+                        .phase .title {
+                            font-size: 0.7rem !important;
+                        }
                     }
                 }
 
@@ -437,6 +440,15 @@ a {
                 }
             }
         }
+    }
+
+    .doble_section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .single_section {
+        padding-right: 15px;
     }
 
     .where_to_study {

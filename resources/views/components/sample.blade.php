@@ -10,7 +10,7 @@
             <x-profession-card 
               :imgSrc="'images/carreras/'.$curr[$imageFieldName]"
               :title="$curr[$cardTitle]"
-              :arrow="'images/select-area/arrows/' . $sample['area_img'] . '.svg'"
+              :arrow="$sample['area_img']"
             />
             @break
         @case("universities")

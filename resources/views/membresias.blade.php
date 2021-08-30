@@ -2,6 +2,14 @@
 
 @section('styles')
   <link rel="stylesheet" href="{{ asset("css/membresias.css") }}">
+  <style>
+    @media only screen and (max-width: 768px) {
+      .mem {
+        left: unset !important;
+        transform: unset !important;
+      }
+    }
+  </style>
 @endsection
 
 @section('title')

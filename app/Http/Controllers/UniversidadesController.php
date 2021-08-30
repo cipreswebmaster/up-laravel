@@ -132,6 +132,12 @@ class UniversidadesController extends Controller
     );
 
     foreach ($profesiones as &$profession) {
+      $area_img = &$profession["nombre_area"];
+      while (mb_strtolower($area_img) == "sin area") {
+        $profesiones_count = count($profesiones);
+        $random_number = rand(0, $profesiones_count - 1);
+        $area_img = $profesiones[$random_number]["nombre_area"];
+      }
       $profession["area_img"] = $this->getAreaImageName($profession["nombre_area"]);
     }
 

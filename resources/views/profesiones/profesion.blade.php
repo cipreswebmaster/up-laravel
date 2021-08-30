@@ -9,7 +9,7 @@
 @endsection
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset("css/profesion.css") }}">
+  <link rel="stylesheet" href="{{ mix("css/profesion.css") }}">
 @endsection
 
 @php
@@ -144,7 +144,7 @@
                 </div>
                 <div class="phases_list">
                   @foreach ($profession["habilidades"] as $i => $hab)
-                    <div class="phase @if(!$i)active @endif" style="width: calc(95% / {{count($profession["habilidades"])}})" >
+                    <div class="phase @if(!$i)active @endif" >
                       <div class="img">
                         <img src="{{ env("API_URL") . "/images/habilidades/" . $hab["image"] }}" />
                       </div>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="phases_list" id="reqs_list">
                   @foreach ($profession["requerimientos_perfil"] as $i => $hab)
-                    <div id="req" class="phase @if(!$i)active @endif" style="width: calc(95% / {{count($profession["requerimientos_perfil"])}})" >
+                    <div id="req" class="phase @if(!$i)active @endif" >
                       <div class="img">
                         <img src="{{ env("API_URL") . "/images/habilidades/" . $hab["image"] }}" />
                       </div>
