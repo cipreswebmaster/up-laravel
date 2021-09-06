@@ -49,27 +49,29 @@
       </div>
     </div>
     <div class="column">
-      <div class="profit-graph">
-        <div class="graph">
-          <div class="wages">
-            <div class="wages-title">
-              Cuanto ganarás en los próximos 5 años:
-            </div>
-            <canvas id="lineChart" width="100" height="100"></canvas>
-          </div>
-          <div class="employability">
-            <div class="donut">
-              <div>
-                <div class="title">Empleabilidad</div>
-                <canvas id="doughnutChart" width="100" height="200"></canvas>
+      @if ($fourBeyondData)
+        <div class="profit-graph">
+          <div class="graph">
+            <div class="wages">
+              <div class="wages-title">
+                Cuanto ganarás en los próximos 5 años:
               </div>
-              <div class="percentage">
-                {{ $fourBeyondData["empleabilidad"] }}%<div>de empleabilidad</div>
+              <canvas id="lineChart" width="100" height="100"></canvas>
+            </div>
+            <div class="employability">
+              <div class="donut">
+                <div>
+                  <div class="title">Empleabilidad</div>
+                  <canvas id="doughnutChart" width="100" height="200"></canvas>
+                </div>
+                <div class="percentage">
+                  {{ $fourBeyondData["empleabilidad"] }}%<div>de empleabilidad</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      @endif
       <div class="sections">
         {{-- ACERCA DE LA PROFESION --}}
         <div class="single_section profession-section" id="acerca-de">
@@ -360,84 +362,86 @@
 @endsection
 
 @php
-  $empleabilidad = $fourBeyondData["empleabilidad"];
+  $empleabilidad = $fourBeyondData["empleabilidad"] ?? [];
 @endphp
 
 @section('scripts')
   <script src="{{ asset("js/chartjs.js") }}"></script>
   <script src="{{ mix("/js/profession-events.js") }}"></script>
-  <script>
-    /** CHARTJS CONFIG */
-    const lineChartCtx = document.getElementById('lineChart').getContext('2d');
-    new Chart(lineChartCtx, {
-      type: 'line',
-      data: {
-        "labels": ["", "1er año: {{ $fourBeyondData['uno'] }}", "5to año: {{ $fourBeyondData['cinco'] }}"],
-        "datasets": [
-          {
-            "fill": false,
-            "borderColor": "#fff",
-            "pointBorderColor": "#fff",
-            "data": [0, {{ $fourBeyondData['uno'] }}, {{ $fourBeyondData['cinco'] }}]
-          }
-        ]
-      },
-      options: {
-        "maintainAspectRatio": false,
-        "responsive": true,
-        "legend": {
-          "display": false
-        },
-        "scales": {
-          "xAxes": [
+  @if ($fourBeyondData)
+    <script>
+      /** CHARTJS CONFIG */
+      const lineChartCtx = document.getElementById('lineChart').getContext('2d');
+      new Chart(lineChartCtx, {
+        type: 'line',
+        data: {
+          "labels": ["", "1er año: {{ $fourBeyondData['uno'] }}", "5to año: {{ $fourBeyondData['cinco'] }}"],
+          "datasets": [
             {
-              "ticks": {
-                "fontColor": "#fff"
-              },
-              "gridLines": {
-                "display": false
-              }
-            }
-          ],
-          "yAxes": [
-            {
-              "ticks": {
-                "fontColor": "#fff",
-                "precision": 1,
-                "beginAtZero": true,
-                "maxTicksLimit": 6,
-                stepSize: {{ ($fourBeyondData['cinco'] - $fourBeyondData['uno']) / 5 }}
-              },
-              "gridLines": {
-                "color": "#fff",
-                "borderDash": [5, 10]
-              }
+              "fill": false,
+              "borderColor": "#fff",
+              "pointBorderColor": "#fff",
+              "data": [0, {{ $fourBeyondData['uno'] }}, {{ $fourBeyondData['cinco'] }}]
             }
           ]
-        }
-      }
-    });
-
-    const doughnutChartCtx = document.getElementById("doughnutChart").getContext("2d"); 
-    new Chart(doughnutChartCtx, {
-      type: "doughnut",
-      data: {
-        "labels": ["% de desempleados", "% de empleados"],
-        "datasets": [
-          {
-            "data": [100 - {{ $empleabilidad }}, {{ $empleabilidad }}],
-            "backgroundColor": ["rgb(151,177,215)", "white"]
-          }
-        ]
-      },
-      options: {
-        "maintainAspectRatio": false,
-        "responsive": true,
-        "legend": {
-          "display": false
         },
-        "cutoutPercentage": 50
-      }
-    });
-  </script>
+        options: {
+          "maintainAspectRatio": false,
+          "responsive": true,
+          "legend": {
+            "display": false
+          },
+          "scales": {
+            "xAxes": [
+              {
+                "ticks": {
+                  "fontColor": "#fff"
+                },
+                "gridLines": {
+                  "display": false
+                }
+              }
+            ],
+            "yAxes": [
+              {
+                "ticks": {
+                  "fontColor": "#fff",
+                  "precision": 1,
+                  "beginAtZero": true,
+                  "maxTicksLimit": 6,
+                  stepSize: {{ ($fourBeyondData['cinco'] - $fourBeyondData['uno']) / 5 }}
+                },
+                "gridLines": {
+                  "color": "#fff",
+                  "borderDash": [5, 10]
+                }
+              }
+            ]
+          }
+        }
+      });
+
+      const doughnutChartCtx = document.getElementById("doughnutChart").getContext("2d"); 
+      new Chart(doughnutChartCtx, {
+        type: "doughnut",
+        data: {
+          "labels": ["% de desempleados", "% de empleados"],
+          "datasets": [
+            {
+              "data": [100 - {{ $empleabilidad }}, {{ $empleabilidad }}],
+              "backgroundColor": ["rgb(151,177,215)", "white"]
+            }
+          ]
+        },
+        options: {
+          "maintainAspectRatio": false,
+          "responsive": true,
+          "legend": {
+            "display": false
+          },
+          "cutoutPercentage": 50
+        }
+      });
+    </script>
+  @endif
 @endsection
