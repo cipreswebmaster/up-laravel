@@ -329,7 +329,6 @@
         const heartUrl =
             location.protocol + "//" + location.host + "/images/test/results/";
 
-        console.log(afinidad);
         if (isSelected) {
             editFavourite("DEL", afinidad, id).then(function (res) {
                 heart.src = heartUrl + "heart-no-select.svg";
@@ -354,6 +353,7 @@
               const heartParent = heart.parentNode.parentNode;
               const newFav = heartParent.cloneNode(true);
               newFav.id = "fav-" + id;
+              newFav.classList.remove("selec");
 
               // Creando botón de ver carrera
               const see_career = document.createElement("div");
