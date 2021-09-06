@@ -13,6 +13,9 @@ class TestController extends Controller
 {
   use HelpersTrait;
 
+  /**
+   * Route: /test
+   */
   public function index() {
     session_start();
     if (isset($_SESSION["logged"])) {
@@ -37,11 +40,17 @@ class TestController extends Controller
     return view("test.index");
   }
 
+  /**
+   * Route: /test/example
+   */
   public function example() {
     $results = $this->getResultsInfo("0ead8013-43e8-11eb-8ecc-02eef28b5605");
     return view("test.results", $results);
   }
 
+  /**
+   * Route: /test/results
+   */
   public function results() {
     $user = User::where("session_token", $_SESSION["session_token"])->first()->toArray();
     $results = $this->getResultsInfo($user["4beyond_token_id"]);
@@ -67,8 +76,8 @@ class TestController extends Controller
       "token_id" => $token
     ])["result"]["resultObject"];
 
-    $areas = Area::all();
-    $profesiones = Profesion::all();
+    $areas = Area::where("id_area", "<", 10)->get();
+    $profesiones = Profesion::where("muestra", 0)->get();
 
     foreach ($profesiones as &$prof) {
       $info = $this->search4BeyondCareerData($prof->id_carrera_4beyond, $prof->id_area, $token);
