@@ -5,7 +5,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{{ $post["title"] }}" />
   <meta property="og:description" content="{{ $post["entradilla"] }}" />
-  <meta property="og:image" content="{{ env("API_URL") . "/images/posts/" . $post["image"] }}" />
+  <meta property="og:image" content="{{ asset("images/posts/post/" . $post["image"]) }}" />
 @endsection
 
 @section('title')
@@ -14,6 +14,11 @@
 
 @section('styles')
   <link rel="stylesheet" href="{{ mix("css/post.css") }}">
+  <style>
+    .post_text * {
+      font-family: Poppins,Roboto,Cambria,Cochin,Georgia,Times,Times New Roman,serif !important;
+    }
+  </style>
 @endsection
 
 @php
