@@ -4,6 +4,7 @@ namespace App\Http\Traits;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 trait HelpersTrait {
   /**
@@ -122,9 +123,8 @@ trait HelpersTrait {
     $nameWithoutSpaces = str_replace("-", "", $name);
     foreach ($response as $res) {
       $resAsArray = json_decode(json_encode($res), true);
-      $eliminateFromString = [" ", "-", ","];
       $responseNameCleaned = str_replace(
-        $eliminateFromString, "", strtolower(clean_string($resAsArray[$fieldName]))
+        "-", "", Str::slug($resAsArray[$fieldName])
       );
       if (trim($nameWithoutSpaces) == $responseNameCleaned)
         return json_decode(json_encode($res), true);
