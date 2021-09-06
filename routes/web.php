@@ -89,12 +89,15 @@ Route::prefix("login")->group(function () {
 
 /* API */
 Route::prefix("api")->group(function () {
+  Route::post("/add_post", "PostsController@add_post");
+  Route::post("/get_posts", "PostsController@get_posts");
+  Route::post("/delete_post", "PostsController@delete_post");
+
   Route::post("/prof_masivo", "AdminController@profMasivo");
   Route::post("/add_school", "UsuariosController@addColegio");
 });
 
 /* Administrador */
-
 Route::prefix("admin")->group(function () {
   Route::get("/test_done", function () {
     $usuarios = User::where("id_colegio", 1)->get();
@@ -111,23 +114,5 @@ Route::prefix("admin")->group(function () {
     }
     echo "Totales: " . count($usuarios) . "<br />";
     echo "Tests finalizados: " . $test_hechos;
-  });
-  Route::match(["get", "post"],"/precios", "AdminController@precios");
-  Route::get("/websites", function () {
-    $links = [
-      // ["CUN",	"https://cun.edu.co/"],
-      // ["Escuela de Artes y Letras",	"https://artesyletras.com.co/"],
-      // ["Politécnico grancolombiano",	"https://www.poli.edu.co/"],
-      // ["unicoc",	"https://www.unicoc.edu.co/"],
-      // ["Uninpahu",	"https://www.uninpahu.edu.co/"],
-      // ["Unitec",	"https://www.unitec.edu.co/"],
-      // ["Universidad Compensar",	"https://ucompensar.edu.co/"],
-    ];
-
-    foreach ($links as $link) {
-      $u = Universidad::find($link[0]);
-      $u->web = $link[1];
-      $u->save();
-    }
   });
 });
