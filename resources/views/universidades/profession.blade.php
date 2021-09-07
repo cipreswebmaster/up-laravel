@@ -215,14 +215,11 @@
                     <li>{{ $item }}</li>
                   @endforeach
                 </ul>
-                <div class="btn">
-                  <a
-                    href="{{ $universidad["link_internacionalizacion"] }}"
-                    target="_blank"
-                    rel="noopener noreferrer" >
+                <div class="btn" id="internacionalizacion-btn">
+                  <span>
                     <span>Internacionalización</span>
                     <img src="{{ asset("images/university.profession/arrow-button-more.svg") }}" alt="Arrow" />
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -248,9 +245,15 @@
       </div>
     </div>
     <div class="buttons">
-      <div class="contacto btn">
-        <span class="btn_link">Quiero ser contactado</span>
-      </div>
+      @if (isset($_SESSION["logged"]))
+          <div class="btn">
+            <a
+              href="/test/results"
+              class="btn_link" >
+              Ir a favoritos
+            </a>
+          </div>
+      @endif
       <div class="btn">
         <a
           href="/profesiones"
@@ -276,13 +279,6 @@
           </a>
         </div>
       @endif
-      @if (isset($_SESSION["logged"]) && $_SESSION["state"] == 0)
-        <div class="btn">
-          <a to="/results/profile" class="btn_link">
-            Regresar a favoritos
-          </a>
-        </div>
-      @endif
     </div>
   </div>
 @endsection
@@ -292,21 +288,45 @@
     const contactoBtn = document.querySelectorAll(".contacto.btn");
     contactoBtn.forEach(function (btn) {
       btn.addEventListener("click", function () {
-      Swal.fire({
-        title: "Quiero ser contactado",
-        html:
-          '<form action="/registrar-contacto" method="POST" class="quiero-ser-contactado" id="quiero-ser-contactado-form">' +
-          '@csrf' +
-          '<input required type="text" class="contacto-input" placeholder="Escribe tu nombre completo" name="nombre" />' +
-          '<input required type="text" class="contacto-input" placeholder="Escribe tu teléfono" name="tel" />' +
-          '<input required type="email" class="contacto-input" placeholder="Escribe tu email" name="email" />' + 
-          '<input type="hidden" name="universidad" value="{{ $universidad['nombre_universidad'] }}" />' + 
-          '<input type="hidden" name="profesion" value="{{ $profesion['nombre_carrera'] }}" />' +
-          '<button type="submit">Enviar</button>' + 
-          '</form>',
-        showConfirmButton: false
+        Swal.fire({
+          title: "Quiero ser contactado",
+          html:
+            '<form action="/registrar-contacto" method="POST" class="quiero-ser-contactado" id="quiero-ser-contactado-form">' +
+            '@csrf' +
+            '<input required type="text" class="contacto-input" placeholder="Escribe tu nombre completo" name="nombre" />' +
+            '<input required type="text" class="contacto-input" placeholder="Escribe tu teléfono" name="tel" />' +
+            '<input required type="email" class="contacto-input" placeholder="Escribe tu email" name="email" />' + 
+            '<input type="hidden" name="universidad" value="{{ $universidad['nombre_universidad'] }}" />' + 
+            '<input type="hidden" name="profesion" value="{{ $profesion['nombre_carrera'] }}" />' +
+            '<button type="submit">Enviar</button>' + 
+            '</form>',
+          showConfirmButton: false
+        });
       });
     });
-    })
+
+    const internacionalizacionBtn = document.getElementById("internacionalizacion-btn");
+    internacionalizacionBtn.addEventListener("click", function () {
+      Swal.fire({
+        title: "Aviso",
+        icon: "info",
+        showConfirmButton: false,
+        html: `
+          <p>
+            Estás a punto de salir de UP para ir a la página de internacionalización
+            de la universidad
+          </p>
+          <a
+            href="{{$universidad["link_internacionalizacion"]}}""
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Continuar</span>
+            <img src="{{ asset("images/university.profession/arrow-button-more.svg") }}" alt="Arrow" />
+          </a>
+        `,
+      });
+    });
   </script>
 @endsection
