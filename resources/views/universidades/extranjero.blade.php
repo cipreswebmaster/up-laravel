@@ -93,7 +93,7 @@
               <div>
                 <img src="{{ asset("images/university.profession/icons/precio_semestre.jpg") }}" alt="">
               </div>
-              <div style="margin-left: 15px;">Costos aproximadas</div>
+              <div style="margin-left: 15px;">Costos aproximados(USD)</div>
             </div>
             <div class="item">
               Matrícula y cuotas: {{ $universidad["matricula_cuotas"] }}
