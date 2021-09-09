@@ -15,6 +15,7 @@
   <x-index-videos-instruction />
   <x-horizontal-ad />
   <x-actualidad-universitaria />
+  <x-demas-noticias />
 </div>
 @endsection
 

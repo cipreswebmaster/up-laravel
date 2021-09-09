@@ -33,7 +33,7 @@ Route::post("/change_pass", "UsuariosController@change_password")->name("change_
 
 /* Actualidad */
 Route::prefix("/actualidad")->group(function () {
-  Route::get("/", "PostsController@index")->name("actualidad");
+  Route::get("/", "PostsController@actualidad")->name("actualidad");
   Route::get("/{postName}", "PostsController@post")->name("post");
 });
 

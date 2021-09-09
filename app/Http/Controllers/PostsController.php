@@ -18,6 +18,12 @@ class PostsController extends Controller
     return view("posts.index", compact("posts"));
   }
 
+  public function actualidad() {
+    $posts = Post::where("seccion", "Actualidad universitaria")->get()->reverse();
+
+    return view("posts.index", compact("posts"));
+  }
+
   public function post($postName) {
     $post = $this->getDatabaseInfoWithSlugifyiedName(
       "posts",

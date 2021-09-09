@@ -44,7 +44,7 @@
       />
     </div>
     <div class="post_text">{!! $post["post"] !!}</div>
-    <div class="tags">Etiquetas: {{ $post["tags"] }}</div>
+    {{-- <div class="tags">Etiquetas: {{ $post["tags"] }}</div> --}}
     <div class="share">
       <ul>
         <li>Comparte: </li>

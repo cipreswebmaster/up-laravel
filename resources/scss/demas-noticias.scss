@@ -1,0 +1,108 @@
+.demas-noticias {
+    margin: 75px;
+    display: flex;
+
+    & > div {
+        width: 50%;
+    }
+
+    .noticias-interes {
+        border-right: 2px solid #6d6a6a;
+        padding-right: 25px;
+
+        .noticias {
+            .mas-reciente {
+                position: relative;
+
+                .title {
+                    position: absolute;
+                    color: #fff;
+                    font-size: 25px;
+                    font-family: poppins-SemiBold;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-end;
+                    top: 0;
+                    padding: 30px;
+
+                    // Degradado
+                    background: rgba(255, 255, 255, 0);
+                    background: -moz-linear-gradient(
+                        top,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(255, 255, 255, 0) 53%,
+                        rgba(0, 0, 0, 0.8) 80%
+                    );
+                    background: -webkit-gradient(
+                        left top,
+                        left bottom,
+                        color-stop(0%, rgba(255, 255, 255, 0)),
+                        color-stop(53%, rgba(255, 255, 255, 0)),
+                        color-stop(80%, rgba(0, 0, 0, 0.8))
+                    );
+                    background: -webkit-linear-gradient(
+                        top,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(255, 255, 255, 0) 53%,
+                        rgba(0, 0, 0, 0.8) 80%
+                    );
+                    background: -o-linear-gradient(
+                        top,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(255, 255, 255, 0) 53%,
+                        rgba(0, 0, 0, 0.8) 80%
+                    );
+                    background: -ms-linear-gradient(
+                        top,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(255, 255, 255, 0) 53%,
+                        rgba(0, 0, 0, 0.8) 80%
+                    );
+                    background: linear-gradient(
+                        to bottom,
+                        rgba(255, 255, 255, 0) 0%,
+                        rgba(255, 255, 255, 0) 53%,
+                        rgba(0, 0, 0, 0.8) 80%
+                    );
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
+                }
+            }
+
+            .demas {
+                margin-top: 50px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+
+                .ns {
+                    .title * {
+                        font-family: Poppins-ExtraBold;
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .ni-h,
+    .na-h {
+        text-transform: uppercase;
+        font-family: Poppins-SemiBold;
+        font-size: 20px;
+    }
+
+    .noticias-areas {
+        padding-left: 25px;
+
+        .coming-soon {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-family: Poppins-ExtraBold;
+        }
+    }
+}

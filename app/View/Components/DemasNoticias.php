@@ -5,9 +5,9 @@ namespace App\View\Components;
 use App\Models\Post;
 use Illuminate\View\Component;
 
-class ActualidadUniversitaria extends Component
+class DemasNoticias extends Component
 {
-    public $posts;
+    public $noticiasInteres;
 
     /**
      * Create a new component instance.
@@ -16,14 +16,15 @@ class ActualidadUniversitaria extends Component
      */
     public function __construct()
     {
-      $posts = array_values(
-        Post::where("seccion", "Actualidad universitaria")->get()
-            ->reverse()->toArray()
+      $noticiasInteres = array_values(
+        Post::where("seccion", "Noticias interes")->get()->reverse()->toArray()
       );
-      foreach ($posts as &$post) {
-        $post["created_at"] = explode("T", $post["created_at"])[0];
-      }
-      $this->posts = $posts;
+
+      $principal = $noticiasInteres[0] ?? [];
+      $this->noticiasInteres = [
+        "principal" => $principal,
+        "secundarias" => array_slice($noticiasInteres, 1)
+      ];
     }
 
     /**
@@ -33,6 +34,6 @@ class ActualidadUniversitaria extends Component
      */
     public function render()
     {
-        return view('components.actualidad-universitaria');
+        return view('components.demas-noticias');
     }
 }

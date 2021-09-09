@@ -21,6 +21,7 @@ const sass = [
     "results",
     "becas",
     "profesion",
+    "demas-noticias",
 ];
 const js = ["profession-events"];
 
