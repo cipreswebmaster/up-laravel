@@ -137,6 +137,27 @@
             </div>
           </div>
 
+          {{-- Acreditaciones --}}
+          @if (count($universidad["acreditaciones"]))
+            <div class="section">
+              <div class="section-title" style="border: none !important;">
+                <div class="s-title">
+                  Acreditaciones
+                </div>
+              </div>
+              <div class="section-content" style="display: flex">
+                @foreach ($universidad["acreditaciones"] as $acreditacion)
+                  <img
+                    src="{{ asset("images/acreditaciones/" . $acreditacion["logo"]) }}"
+                    alt="{{ $acreditacion["nombre_acreditacion"] }}"
+                    title="{{ $acreditacion["nombre_acreditacion"] }}"
+                    style="width: 150px !important; height: 150px !important; margin-right: 25px"
+                  />
+                @endforeach
+              </div>
+            </div>
+          @endif
+
           {{-- Perfil de aspirante --}}
           <div class="section">
             <div class="section-title">

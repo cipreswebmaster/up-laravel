@@ -36,19 +36,20 @@
         />
       </div>
     </div>
-    <div class="accreditations">
-      {{-- <div class="title">Acreditaciones</div> --}}
-      {{-- <div class="logos">
-        {university.acreditaciones.map((acc, idx) => (
-          <img
-            src={`${API_URL}/images/accreditations/${acc.logo}`}
-            alt={acc.nombre_acreditacion}
-            title={acc.nombre_acreditacion}
-            key={idx}
-          />
-        ))}
-      </div> --}}
-    </div>
+    @if (count($university["acreditaciones"]))
+      <div class="accreditations">
+        <div class="title">Acreditaciones</div>
+        <div class="logos">
+          @foreach ($university["acreditaciones"] as $acreditacion)
+            <img
+              src="{{ asset("images/acreditaciones/" . $acreditacion["logo"]) }}"
+              alt="{{ $acreditacion["nombre_acreditacion"] }}"
+              title="{{ $acreditacion["nombre_acreditacion"] }}"
+            />
+          @endforeach
+        </div>
+      </div>
+    @endif
     <x-showcase 
       title="Profesiones"
       :samples="$professions"

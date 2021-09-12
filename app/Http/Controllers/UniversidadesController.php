@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\HelpersTrait;
+use App\Models\Acreditacion;
 use App\Models\Pais;
 use App\Models\Profesion;
 use App\Models\Universidad;
 use App\Models\UniversidadCarrera;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UniversidadesController extends Controller
 {
@@ -22,6 +24,9 @@ class UniversidadesController extends Controller
     return view("universidades.index", compact("universidades"));
   }
 
+  /**
+   * Route: /universidad/{$uniName}
+   */
   public function universidad($uniName) {
     $universidad = json_decode(json_encode(
       $this->getDatabaseInfoWithSlugifyiedName(
@@ -42,12 +47,18 @@ class UniversidadesController extends Controller
       $profession["area_img"] = $this->getAreaImageName($profession["nombre_area"]);
     }
 
+    /* Obteniendo acreditaciones */
+    $this->processAcreditations($universidad);
+
     return view("universidades.universidad", [
       "university" => $universidad,
       "professions" => $professions
     ]);
   }
 
+  /**
+   * Route: /universidades/{$uniName}/{$professionName}
+   */
   public function profInU($uniName, $professionName) {
     $universidad = json_decode(json_encode(
       $this->getDatabaseInfoWithSlugifyiedName(
@@ -73,6 +84,7 @@ class UniversidadesController extends Controller
         "nombre_carrera"
       )
     ), true);
+
     $prof_uni = UniversidadCarrera
       ::where("id_universidad", $universidad["id_universidad"])
       ->where("id_carrera", $profesion["id_carrera"])->first();
@@ -82,6 +94,9 @@ class UniversidadesController extends Controller
       $perfil[0],
       count($perfil) > 1 ? $this->process_data($perfil[1]) : []
     ];
+
+    /* Obteniendo acreditaciones */
+    $this->processAcreditations($universidad);
 
     return view("universidades.profession", compact("universidad", "profesion", "prof_uni"));
   }
@@ -144,6 +159,7 @@ class UniversidadesController extends Controller
     return view("universidades.extranjero", compact("universidad", "profesiones"));
   }
 
+  #region Functions
   private function convertAllElementsToArray($object) : array {
     $array = [];
     foreach ($object as $item) {
@@ -151,4 +167,29 @@ class UniversidadesController extends Controller
     }
     return $array;
   }
+
+  private function processAcreditations(&$universidad) {
+    $delimiter = strpos($universidad["acreditaciones"], ">>") === false ? "-" : ">>";
+    $accreditations_exploded = explode($delimiter, $universidad["acreditaciones"]);
+    $new_accs = [];
+    foreach ($accreditations_exploded as $acc) {
+      $acc_name = trim($acc);
+      $noTieneLogo = strpos($acc_name, "(NO TIENE LOGO)");
+      if ($noTieneLogo !== false)
+        continue;
+
+      try {
+        $accreditation = $this->getDatabaseInfoWithSlugifyiedName(
+          "acreditaciones",
+          Str::slug($acc_name),
+          "nombre_acreditacion"
+        );
+        array_push($new_accs, $accreditation);
+      } catch (\Exception $th) {
+        
+      }
+    }
+    $universidad["acreditaciones"] = array_values(array_unique($new_accs, SORT_REGULAR));
+  }
+  #endregion
 }
