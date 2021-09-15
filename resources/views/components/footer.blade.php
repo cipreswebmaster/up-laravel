@@ -30,14 +30,12 @@
       <img src="{{ asset("images/footer/cipres-logo.png") }}" alt="" />
     </div>
     <p class="content">
-      Esta página de internet y su contenido son propiedad de Ciprés de
-      Colombia SAS. Está prohibido su reproducción total o parcial, su
-      traducción, inclusión, transmisión, almacenamiento o acceso a través
-      de medios analógicos , digitales o de cualquier otro sistema o
-      tecnología creada o por crearse, sin autorización previa y escrita. No
-      se puede utilizar este contenido para fines comerciales. No se puede
-      alterar, transformar o generar otro contenido derivado a partir de
-      esta página.
+      COPYRIGHT ©2021 www.universidadesyprofesiones.com ・<br>
+      contacto@universidadesyprofesiones.com ・<br>
+      Carrera 7 No. 156 - 10 Oficina 1707 ・<br>
+      ÁREA COMERCIAL: (+57) 300 566 2412・<br>
+      ADMINISTRACIÓN Y CARTERA: (+57) 318 381 8314 ・<br>
+      Bogotá D.C, Colombia
     </p>
   </div>
   <div class="info">
