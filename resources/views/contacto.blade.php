@@ -5,7 +5,7 @@
 @endsection
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset("css/contact.css") }}">
+  <link rel="stylesheet" href="{{ mix("/css/contact.css") }}">
 @endsection
 
 @section('body')
@@ -13,79 +13,90 @@
   @if (isset($_GET["success"]))
     <h1 align="center" style="margin-top: 15px; font-family: Poppins-SemiBold">Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto</h1>
   @endif
-  <div class="contact">
-    <div class="title">
-      ¿Tienes alguna duda o pregunta? ¡Envíanos un mensaje!
-    </div>
-    <div class="form_info">
-      <div class="info">
-        <div class="info_title">Información de contacto</div>
-        <div class="info_text">
-          Completa el formulario y nuestro equipo se pondrá en contacto
-          contigo en menos de 24 horas
-        </div>
-        <div class="info_email">
-          contacto@universidadesyprofesiones.com
-        </div>
-        {{-- {!isMobile() && (
-          <div class="info_img">
-            <img src={arrows} alt="Arrows" />
-          </div>
-        )} --}}
+  <div class="c-row">
+    <div class="c-column">
+      <div class="text">
+        Nuestro equipo está a tu disposición para cualquier duda, diligencia el formulario y nos pondremos en contacto contigo lo antes posible.
       </div>
-      <div class="form">
+      <div class="form-container">
         <form action="/contacto/contactar" method="POST">
           @csrf
-          <div class="row">
-            <div class="input_label">
-              <label>Nombre completo</label>
-              <input
-                type="text"
-                placeholder="Escribe tu nombre completo aqui"
-                class="input"
-                name="names"
-              />
-            </div>
-            <div class="input_label">
-              <label>Institución Educativa</label>
-              <input
-                type="text"
-                placeholder="Escribe el colegio"
-                class="input"
-                name="school"
-              />
-            </div>
-          </div>
-          <div class="row">
-            <div class="input_label">
-              <label>Email</label>
-              <input
-                type="email"
-                placeholder="Escribe tu email"
-                class="input"
-                name="email"
-              />
-            </div>
-            <div class="input_label">
-              <label>Celular</label>
-              <input
-                type="number"
-                placeholder="Escribe tu celular"
-                class="input"
-                name="phone"
-              />
-            </div>
-          </div>
-          <div class="row texta">
-            <label>Mensaje</label>
-            <textarea
-              class="input textarea"
-              placeholder="Escribe tu consulta aquí"
-              name="message"
-            ></textarea>
-          </div>
-          <button class="submit">Enviar mensaje</button>
+          <input 
+            type="text"
+            class="input"
+            placeholder="Nombre*"
+            id="names"
+            name="names"
+            required>
+          <input 
+            type="text"
+            class="input"
+            placeholder="Institución/Empresa*"
+            id="school"
+            name="school"
+            required>
+          <input 
+            type="text"
+            class="input"
+            placeholder="Email*"
+            name="email"
+            required>
+          <input 
+            type="text"
+            class="input"
+            placeholder="Celular*"
+            name="phone"
+            required>
+          <textarea
+            class="input textarea"
+            placeholder="¿Cómo podemos ayudarte?*"
+            name="message"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="submit">Enviar</button>
         </form>
+      </div>
+    </div>
+    <div class="c-column">
+      <div class="image">
+        <img src="{{ asset("images/contacto/imagen-contacto_UP.png") }}" alt="Imagen de contacto de UP">
+      </div>
+      <div class="contact-info">
+        <div class="email">
+          <div class="thumbnail">
+            <img src="{{ asset("images/contacto/mail_UP.png") }}" alt="Email">
+          </div>
+          <div class="legend">
+            contacto@universdadesyprofesiones.com
+          </div>
+        </div>
+        <div class="area-comercial">
+          <div class="thumbnail">
+            <img src="{{ asset("images/contacto/cel_UP.png") }}" alt="Email">
+          </div>
+          <div class="legend">
+            <div class="title">
+              Contacto Comercial: Llámanos o escríbenos
+            </div>
+            <div class="number">
+              (+57) 300 566 2412
+            </div>
+          </div>
+        </div>
+        <div class="area-comercial">
+          <div class="thumbnail">
+            <img src="{{ asset("images/contacto/cel_UP.png") }}" alt="Email">
+          </div>
+          <div class="legend">
+            <div class="title">
+              Administración y Cartera:
+            </div>
+            <div class="number">
+              (+57) 318 381  8314
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

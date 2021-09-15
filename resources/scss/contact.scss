@@ -1,154 +1,81 @@
-.contact {
-    background-color: #f9f9fb;
-    padding-bottom: 50px;
+.c-row {
+    display: flex;
+    margin: 30px 175px;
 
-    .title {
-        text-align: center;
-        font-family: Poppins-ExtraBold;
-        padding: 50px;
-        font-size: 1.5rem;
+    .c-column {
+        width: 50%;
     }
 
-    .form_info {
-        display: flex;
-        height: 500px;
-        padding: 0px 125px;
+    .text {
+        font-family: Poppins-ExtraBold;
+        padding: 50px 25px;
+        font-size: 1.7rem;
+    }
 
-        .info {
-            background-color: #3e2093;
-            color: #fff;
-            padding: 50px;
-            border-radius: 10px;
-            position: relative;
-            width: 40%;
+    .form-container {
+        background-color: #e8e8e8;
+        padding: 60px;
 
-            & > * {
-                word-wrap: break-word;
-            }
-
-            .info_title {
-                font-family: Poppins-SemiBold;
-                font-size: 1.7rem;
-            }
-
-            .info_text {
-                margin-top: 15px;
-            }
-
-            .info_email {
-                margin: 50px 0px;
-            }
-
-            .info_img {
-                width: 200px;
-                position: absolute;
-                bottom: -10px;
-                left: -10px;
-            }
-        }
-
-        .form {
+        form {
+            display: flex;
+            flex-direction: column;
             background-color: #fff;
-            width: 60%;
-            padding: 75px 25px;
-            position: relative;
-
-            .row {
-                display: flex;
-                justify-content: space-evenly;
-                padding-bottom: 25px;
-
-                & > * {
-                    width: calc(50% - 50px);
-                }
-
-                &.texta {
-                    display: block;
-                    margin: 0px 30px;
-                }
-
-                .input_label {
-                    display: flex;
-                    flex-direction: column;
-                }
-            }
+            padding: 25px;
+            border-radius: 5px;
 
             .input {
                 border: none;
                 outline: none;
-                border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-                padding-bottom: 10px;
+                background-color: #f1efef;
+                padding: 15px;
+                margin-bottom: 5px;
+
+                &::placeholder {
+                    color: #000;
+                }
             }
 
             .textarea {
                 resize: none;
-                width: 100%;
-                height: 100px;
             }
 
             .submit {
+                width: 20%;
+                text-transform: uppercase;
                 border: none;
-                outline: none;
-                background-color: #ff5a4a;
-                color: #fff;
-                padding: 10px 50px;
-                border-radius: 50px;
-                margin-left: 65%;
-                font-family: Poppins-ExtraBold;
+                padding: 5px;
+                text-align: center;
+                background-color: rgb(255, 90, 71);
+                font-weight: bold;
             }
         }
     }
-}
 
-@media only screen and (max-width: 768px) {
-    .contact .title {
-        font-size: 1rem;
-        padding-left: 15px;
-        padding-right: 15px;
+    .image {
+        padding: 0px 50px;
     }
 
-    .form_info {
-        flex-direction: column;
-        padding: 0 15px !important;
+    .contact-info {
+        margin: 50px;
 
         & > div {
-            width: 100% !important;
-        }
+            display: flex;
+            margin-bottom: 15px;
 
-        .info {
-            margin-bottom: 25px;
-
-            .info_title {
-                font-size: 1rem !important;
+            .thumbnail img {
+                width: 90%;
             }
 
-            .info_text,
-            .info_email {
-                font-size: 0.8rem;
-            }
-        }
-
-        .form {
-            .row {
+            .legend {
+                display: flex;
                 flex-direction: column;
+                justify-content: center;
+                margin-left: 15px;
 
-                &.texta {
-                    margin: 0 !important;
+                .title {
+                    text-transform: uppercase;
+                    font-weight: bold;
                 }
-
-                & > * {
-                    width: 100% !important;
-                }
-
-                .input {
-                    margin-bottom: 15px;
-                }
-            }
-
-            .submit {
-                margin: 0 !important;
-                width: 100%;
-                border-radius: 10px !important;
             }
         }
     }

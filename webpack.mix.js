@@ -11,6 +11,8 @@ const mix = require("laravel-mix");
  |
  */
 
+mix.disableSuccessNotifications();
+
 const sass = [
     "universidad.profesion",
     "header",
@@ -22,6 +24,7 @@ const sass = [
     "becas",
     "profesion",
     "demas-noticias",
+    "contact",
 ];
 const js = ["profession-events"];
 
