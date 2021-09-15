@@ -41,7 +41,7 @@ class PostsController extends Controller
     $post = $request->all();
     $image = $request->file("image");
     $post["image"] = rand(100000, 999999) . "." . $image->getClientOriginalExtension();
-    $image_subfolder = env("APP_DEBUG") ? "\images\posts\post" : "up/images/posts/post";
+    $image_subfolder = env("APP_DEBUG") ? "\images\posts\post" : "/images/posts/post";
     $image_new_path = public_path() . $image_subfolder;
     $post_created = Post::create($post);
     
