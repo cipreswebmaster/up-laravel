@@ -33,7 +33,7 @@
       COPYRIGHT ©2021 www.universidadesyprofesiones.com ・<br>
       contacto@universidadesyprofesiones.com ・<br>
       Carrera 7 No. 156 - 10 Oficina 1707 ・<br>
-      ÁREA COMERCIAL: (+57) 300 566 2412・<br>
+      CONTACTO COMERCIAL: (+57) 300 566 2412・<br>
       CARTERA: (+57) 318 381 8314 ・<br>
       Bogotá D.C, Colombia
     </p>

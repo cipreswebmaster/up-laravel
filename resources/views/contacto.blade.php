@@ -16,7 +16,7 @@
   <div class="c-row">
     <div class="c-column">
       <div class="text">
-        Nuestro equipo está a tu disposición para cualquier duda, diligencia el formulario y nos pondremos en contacto contigo lo antes posible.
+        Nuestro equipo está a tu disposición para cualquier duda, llámanos, escríbenos o diligencia el formulario y nos pondremos en contacto contigo lo antes posible.
       </div>
       <div class="form-container">
         <form action="/contacto/contactar" method="POST">
@@ -59,9 +59,6 @@
       </div>
     </div>
     <div class="c-column">
-      <div class="image">
-        <img src="{{ asset("images/contacto/imagen-contacto_UP.png") }}" alt="Imagen de contacto de UP">
-      </div>
       <div class="contact-info">
         <div class="email">
           <div class="thumbnail">
@@ -97,6 +94,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="image">
+        <img src="{{ asset("images/contacto/imagen-contacto_UP.png") }}" alt="Imagen de contacto de UP">
       </div>
     </div>
   </div>
