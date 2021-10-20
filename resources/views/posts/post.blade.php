@@ -14,11 +14,6 @@
 
 @section('styles')
   <link rel="stylesheet" href="{{ mix("css/post.css") }}">
-  <style>
-    .post_text * {
-      font-family: Poppins,Roboto,Cambria,Cochin,Georgia,Times,Times New Roman,serif !important;
-    }
-  </style>
 @endsection
 
 @php
