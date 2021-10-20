@@ -38,7 +38,7 @@
 
         .select-country {
             position: relative;
-            width: 100%;
+            width: 110%;
             left: 0;
             cursor: pointer;
 
@@ -64,6 +64,7 @@
 
             .option {
                 display: flex;
+                padding-bottom: 10px;
 
                 & > div {
                     width: 50%;
@@ -90,6 +91,10 @@
                     text-align: center;
                 }
             }
+        }
+
+        .arrow-icon {
+            width: 15%;
         }
     }
 }

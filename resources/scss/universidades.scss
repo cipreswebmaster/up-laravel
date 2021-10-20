@@ -14,6 +14,52 @@
 
 .uni-content {
     padding: 0 8%;
+
+    .perfiles_basicos {
+        margin-top: 25px;
+
+        .title {
+            color: rgb(96, 96, 96);
+            font-family: Poppins-SemiBold;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .perfiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 25px;
+
+            .card {
+                & > a {
+                    pointer-events: none;
+                }
+                .layer .info {
+                    background-color: rgb(216, 216, 216);
+
+                    .title {
+                        color: rgb(37, 33, 70);
+                    }
+
+                    .ciudad {
+                        color: rgb(37, 33, 70);
+                        font-size: 0.8rem;
+                        font-family: "Poppins-SemiBold";
+                        border-bottom: 2px solid #fff;
+                        padding-bottom: 5px;
+                        margin: 0px 45px;
+                    }
+
+                    .rankings {
+                        color: rgb(37, 33, 70);
+                        font-size: 0.8rem;
+                        text-align: center;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 768px) {

@@ -22,7 +22,7 @@
     @if ($isProfession)
       <img src="{{ env("API_URL") . "/images/carreras/$img" }}" alt="" @if ($fromTop) class="from_top" @endif />      
     @elseif ($isUniBanner)
-      <img src="{{env("API_URL") . "/images/unis/banners/$img" }}" alt="" @if ($fromTop) class="from_top" @endif />
+      <img src="{{ asset("/images/universidades/campus/" . $img) }}" alt="" @if ($fromTop) class="from_top" @endif />
     @else
       <img src="{{ asset("images/banners/main-img/$img") }}" alt="" @if ($fromTop) class="from_top" @endif />
     @endif

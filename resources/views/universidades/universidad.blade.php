@@ -23,7 +23,7 @@
     <div class="uni_info">
       <div class="info">
         <div class="pic">
-          <img src="{{ env("API_URL") . "/images/unis/logo/" . $university["img_name"] }}" alt="" />
+          <img src="{{ asset("/images/universidades/logo/" . $university["img_name"]) }}" alt="" />
         </div>
         <div class="name">{{ $university["nombre_universidad"] }}</div>
         <div class="description">{{ $university["descripcion_uni"] }}</div>

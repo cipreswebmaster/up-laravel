@@ -1,14 +1,1 @@
-const cards = document.querySelectorAll(".card");
-
-// Habilitando buscador
-const inputSearch = document.querySelector("input#search");
-inputSearch.addEventListener("input", function (e) {
-    cards.forEach(function (card) {
-        const cardText = card.querySelector(".info .title").innerText;
-        if (
-            cardText.toLowerCase().indexOf(e.target.value.toLowerCase()) == -1
-        ) {
-            card.classList.add("non");
-        } else if (card.classList.contains("non")) card.classList.remove("non");
-    });
-});
+document.querySelector("input#search").addEventListener("input",(function(e){var t=document.getElementById("orderCiudad");document.querySelectorAll(".card").forEach((function(n){-1==n.querySelector(".info .title").innerText.toLowerCase().indexOf(e.target.value.toLowerCase())?n.classList.add("non"):n.classList.contains("non")&&(t&&0!=t.value&&t.value!=n.dataset.ciudad||n.classList.remove("non"))}))}));

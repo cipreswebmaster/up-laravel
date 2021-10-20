@@ -11,5 +11,6 @@ class Universidad extends Model
 
     protected $table = "universidades";
     protected $primaryKey = "id_universidad";
+    protected $guarded = [];
     public $timestamps = false;
 }

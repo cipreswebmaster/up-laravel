@@ -130,4 +130,10 @@ trait HelpersTrait {
         return json_decode(json_encode($res), true);
     }
   }
+
+  public function getThePath(string $path) {
+    $search = !env("APP_DEBUG") && strpos("/", $path) === false ? "\\" : "/";
+    $replace = !env("APP_DEBUG") && strpos("/", $path) === false ? "/" : "\\";
+    return str_replace($search, $replace, $path);
+  }
 }

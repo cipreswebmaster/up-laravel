@@ -17,6 +17,7 @@
             <x-university-card
               :title="$sample[$cardTitle]"
               :imgSrc="$sample[$imageFieldName]"
+              :idCiudad="$sample['id_ciudad']"
             />
             @break
         @default

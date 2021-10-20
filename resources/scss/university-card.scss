@@ -43,14 +43,20 @@
         .info {
             background-color: #252146;
             color: #fff;
-            height: 125px;
+            height: 185px;
 
             .title {
-                padding-top: 60px;
+                padding-top: 80px;
                 font-size: 1.1rem;
                 text-align: center;
                 line-height: 1;
                 font-family: "Poppins-SemiBold";
+            }
+
+            .ciudad {
+                font-size: 1.1rem;
+                text-align: center;
+                line-height: 1;
             }
         }
     }

@@ -8,16 +8,30 @@ class UniversityCard extends Component
 {
     public $title;
     public $imgSrc;
+    public $ciudad;
+    public $rankingMundo;
+    public $rankingPais;
+    public $idCiudad;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $imgSrc)
+    public function __construct(
+      $title, 
+      $imgSrc, 
+      $idCiudad = '',
+      $ciudad = '', 
+      $rankingMundo = '', 
+      $rankingPais = '')
     {
       $this->title = $title;
       $this->imgSrc = $imgSrc;
+      $this->ciudad = $ciudad;
+      $this->rankingMundo = $rankingMundo;
+      $this->rankingPais = $rankingPais;
+      $this->idCiudad = $idCiudad;
     }
 
     /**

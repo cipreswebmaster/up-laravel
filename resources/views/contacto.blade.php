@@ -87,7 +87,7 @@
           </div>
           <div class="legend">
             <div class="title">
-              Administración y Cartera:
+              Cartera:
             </div>
             <div class="number">
               (+57) 318 381  8314

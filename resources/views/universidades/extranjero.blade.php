@@ -25,19 +25,22 @@
     }
     return $_price;
   }
+
+  $bannerText = "Universidades en " . $universidad["abreviatura_pais"];
+  $banner = $universidad["abreviatura_pais"] . ".jpg";
 @endphp
 
 @section('body')
   <x-banner
-    topText="Universidades en EEUU"
-    img="eeuu.jpg"
+    :topText="$bannerText"
+    :img="$banner"
     arrow="uni"
   />
   <div class="uni-content">
     <div class="uni_info">
       <div class="info">
         <div class="pic">
-          <img src="{{ env("API_URL") . "/images/unis/logo/" . $universidad["img_name"] }}" alt="" />
+          <img src="{{ asset("/images/universidades/logo/" . $universidad["img_name"]) }}" alt="" />
         </div>
         <div class="name">{{ $universidad["nombre_universidad"] }}</div>
         <div class="description">{{ $universidad["descripcion_uni"] }}</div>
@@ -57,7 +60,7 @@
             @php
               $bannerImg = str_replace(".", "-banner.", $universidad["img_name"]);
             @endphp
-            <img src="{{ env("API_URL") . "/images/unis/banners/$bannerImg" }}" alt="" />
+            <img src="{{ asset("/images/universidades/campus/" . $bannerImg) }}" alt="" />
           </div>
           <div class="ver-carreras">
             <a href="{{ $universidad["web"] }}"
@@ -96,7 +99,7 @@
               <div style="margin-left: 15px;">Costos aproximados(USD)</div>
             </div>
             <div class="item">
-              Matrícula y cuotas: {{ $universidad["matricula_cuotas"] }}
+              Matrícula y cuotas por carrera completa: {{ $universidad["matricula_cuotas"] }}
             </div>
             <div class="item" style="font-family: Poppins; font-size: 15px; text-align: left">
               {{ $universidad["vida_campus"] }}

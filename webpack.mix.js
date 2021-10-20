@@ -25,8 +25,10 @@ const sass = [
     "profesion",
     "demas-noticias",
     "contact",
+    "universidades",
+    "university-card",
 ];
-const js = ["profession-events"];
+const js = ["profession-events", "universidades"];
 
 sass.forEach(function (css) {
     mix.sass("resources/scss/" + css + ".scss", "public/css");

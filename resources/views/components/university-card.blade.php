@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset("css/university-card.css") }}">
+<link rel="stylesheet" href="{{ mix("css/university-card.css") }}">
 @php
   $profession = isset($_SESSION["profesion"]) ? $_SESSION["profesion"] : "none";
   $redirects = [
@@ -7,18 +7,29 @@
     "uniIndexCountry" => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]/" . Str::slug($title),
   ]
 @endphp
-<div class="card">
+<div class="card" data-ciudad="{{ $idCiudad }}">
   <a href="{{ $redirects[Route::currentRouteName()] }}">
     <div class="uni_img">
-      <img src="{{ env("API_URL") . "/images/unis/logo/" . $imgSrc }}?{{ uniqid() }}" alt="" />
+      <img src="{{ asset("/images/universidades/logo/" . $imgSrc) }}?{{ uniqid() }}" alt="" />
     </div>
     <div class="layer">
       <div class="header_img">
         @php $bannerName = str_replace(".","-banner.", $imgSrc); @endphp
-        <img src="{{ env("API_URL") . "/images/unis/banners/" . $bannerName }}" alt="" />
+        <img src="{{ asset("/images/universidades/campus/" . $bannerName) }}" alt="" />
       </div>
       <div class="info">
         <div class="title">{{ $title }}</div>
+        @if ($ciudad)
+          <div class="ciudad">
+            {{ $ciudad }}
+          </div>
+        @endif
+        @if ($rankingMundo && $rankingPais)
+            <div class="rankings">
+              <div class="mundial">Ranking mundial: {{ $rankingMundo }}</div>
+              <div class="pais">Ranking nacional: {{ $rankingPais }}</div>
+            </div>
+        @endif
       </div>
     </div>
   </a>

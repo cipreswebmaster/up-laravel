@@ -3,6 +3,8 @@
 @php
   if (session_status() == PHP_SESSION_NONE)
     session_start();
+
+  $routeName = Route::currentRouteName();
 @endphp
 
 @if (Route::currentRouteName() == "uniCountry")
@@ -18,11 +20,11 @@
       autoComplete="off"
     />
     <div class="order">
-      @if (in_array(Route::currentRouteName(), ["uniIndex", "uniIndexCountry"]) && isset($_SESSION["logged"]))
+      @if (in_array($routeName, ["uniIndex", "uniIndexCountry"]) && isset($_SESSION["logged"]))
         <div class="select-country" id="select-country">
           <div class="selected" id="selected-c">
             @php
-              if (Route::currentRouteName() == "uniIndex") {
+              if ($routeName == "uniIndex") {
                 $i = 0;
               } else {
                 $i = explode("/", str_replace("//", "", Request::url()))[3] - 1;
@@ -63,6 +65,9 @@
             @endforeach
           </div>
         </div>
+        <div class="arrow-icon">
+          <img src="{{ asset("images/flecha.png") }}" alt="">
+        </div>
       @endif
       <div>
         <select name="order" id="order">
@@ -70,6 +75,15 @@
           <option value="-1">Ordenar por Z-A</option>
         </select>
       </div>
+      @if ($routeName == "uniIndex")
+        <div>
+          <select name="orderCiudad" id="orderCiudad">
+            <option value="0">Todos</option>
+            <option value="1">Bogotá</option>
+            <option value="2">Medellín</option>
+          </select>
+        </div>
+      @endif
     </div>
   </div>
 
@@ -102,5 +116,21 @@
     function hideOptions() {
       options.classList.remove("show");
     }
+
+    // Ciudad
+    const ciudadSelect = document.getElementById("orderCiudad");
+    ciudadSelect.addEventListener("change", function (e) {
+      document.querySelectorAll(".card").forEach(function (c, i) {
+        const id = c.dataset.ciudad;
+        if (e.target.value == "0")
+          c.classList.remove("non");
+        else {
+          if (id != e.target.value)
+            c.classList.add("non");
+          else
+            c.classList.remove("non");
+        }
+      });
+    });
   </script>
 @endif

@@ -9,6 +9,11 @@
 @endsection
 
 @php
+  if (session_status() == PHP_SESSION_NONE)
+    session_start();
+@endphp
+
+@php
   function getPrice($price) {
     $_price = "$";
     $priceWithoutDots = str_replace(".", "", $price);
@@ -40,10 +45,10 @@
             @php
               $bannerImg = str_replace(".", "-banner.", $universidad["img_name"]);
             @endphp
-            <img src="{{ env("API_URL") . "/images/unis/banners/$bannerImg" }}" alt="" />
+            <img src="{{ asset("/images/universidades/campus/" . $bannerImg) }}" alt="" />
           </div>
           <div class="uni-cover-img">
-            <img src="{{ env("API_URL") . "/images/unis/logo/" . $universidad['img_name'] }}" alt="" />
+            <img src="{{ asset("/images/universidades/logo/" . $universidad['img_name']) }}" alt="" />
           </div>
           <div class="uni-info">
             <div class="uni-name">{{ $universidad["nombre_universidad"] }}</div>

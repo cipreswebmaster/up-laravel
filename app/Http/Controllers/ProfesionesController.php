@@ -59,8 +59,14 @@ class ProfesionesController extends Controller
   }
   #endregion
 
+  #region API
+  public function profesiones() {
+    return response()->json(Profesion::all());
+  }
+  #endregion
+
   /**
-   * Look for an icon in the bbdd and return an array with the information ordened, including an icon name
+   * Look for an icon in the bbdd and return an array with the information sorted, including an icon name
    * 
    * @param array $data_exploded
    * @param string $separator The string to divide de data

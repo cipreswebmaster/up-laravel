@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ContactoController;
+use App\Models\Acreditacion;
+use App\Models\Pais;
 use App\Models\Universidad;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
@@ -92,6 +94,19 @@ Route::prefix("api")->group(function () {
   Route::post("/add_post", "PostsController@add_post");
   Route::post("/get_posts", "PostsController@get_posts");
   Route::post("/delete_post", "PostsController@delete_post");
+
+  Route::post("/profesiones", "ProfesionesController@profesiones");
+
+  Route::post("/universidades", "UniversidadesController@universidades");
+  Route::post("/create_universidad", "UniversidadesController@create_universidad");
+  Route::post("/add_basic_u", "UniversidadesController@add_basic_u");
+
+  Route::post('/acreditaciones', function () {
+    return response()->json(Acreditacion::all());
+  });
+  Route::post("/paises", function () {
+    return response()->json(Pais::all());
+  });
 
   Route::post("/prof_masivo", "AdminController@profMasivo");
   Route::post("/add_school", "UsuariosController@addColegio");
