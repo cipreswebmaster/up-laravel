@@ -23,10 +23,7 @@
                 <div class="n-title">{{ $posts[$i]["title"] }}</div>
               </a>
               <div class="n-entradilla">
-                {{ strlen($posts[$i]["entradilla"]) > 175 ? 
-                  substr($posts[$i]["entradilla"], 0, 175) . "..." :
-                  $posts[$i]["entradilla"]
-                }}
+                {{ Str::words($posts[$i]["entradilla"], 25, '...') }}
               </div>
               <div class="n-fecha">{{ explode(" ", $posts[$i]["created_at"])[0] }}</div>
             </div>
