@@ -22,7 +22,12 @@
               <a href="{{ route("post", ["postName" => Str::slug($posts[$i]["title"])]) }}">
                 <div class="n-title">{{ $posts[$i]["title"] }}</div>
               </a>
-              <div class="n-entradilla">{{ $posts[$i]["entradilla"] }}</div>
+              <div class="n-entradilla">
+                {{ strlen($posts[$i]["entradilla"]) > 175 ? 
+                  substr($posts[$i]["entradilla"], 0, 175) . "..." :
+                  $posts[$i]["entradilla"]
+                }}
+              </div>
               <div class="n-fecha">{{ explode(" ", $posts[$i]["created_at"])[0] }}</div>
             </div>
             <div class="n-img">
