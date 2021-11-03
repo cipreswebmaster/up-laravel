@@ -7,27 +7,27 @@
         display: flex;
         align-items: center;
         font-family: "Poppins-ExtraBold";
-        width: 25%;
+        width: 15%;
     }
 
     input {
         border: 1px solid #000;
         padding: 10px 25px;
         border-radius: 25px;
-        width: 50%;
-        height: 50%;
+        width: 35%;
+        height: 30%;
         outline: none;
         align-self: center;
+        font-size: 13px;
     }
 
     .order {
         display: flex;
-        width: 25%;
-        justify-content: space-between;
+        width: 50%;
         padding-left: 15px;
 
         & > div {
-            width: 50%;
+            width: 25%;
         }
 
         select {
@@ -38,7 +38,7 @@
 
         .select-country {
             position: relative;
-            width: 110%;
+            width: 25%;
             left: 0;
             cursor: pointer;
 
@@ -94,7 +94,12 @@
         }
 
         .arrow-icon {
-            width: 15%;
+            width: 3%;
+            position: relative;
+        }
+
+        #order {
+            font-size: 13px;
         }
     }
 }

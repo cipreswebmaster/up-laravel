@@ -69,12 +69,6 @@
           <img src="{{ asset("images/flecha.png") }}" alt="">
         </div>
       @endif
-      <div>
-        <select name="order" id="order">
-          <option value="1">Ordenar por A-Z</option>
-          <option value="-1">Ordenar por Z-A</option>
-        </select>
-      </div>
       @if ($routeName == "uniIndex")
         <div>
           <select name="orderCiudad" id="orderCiudad">
@@ -84,6 +78,12 @@
           </select>
         </div>
       @endif
+      <div>
+        <select name="order" id="order">
+          <option value="1">Ordenar por A-Z</option>
+          <option value="-1">Ordenar por Z-A</option>
+        </select>
+      </div>
     </div>
   </div>
 

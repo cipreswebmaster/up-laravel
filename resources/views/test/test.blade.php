@@ -15,14 +15,14 @@
 
 @section('body')
   <iframe
-    src="https://apps4beyond.com/TeOrienta3.0/#/login-partner?logintoken={{ $token }}"
+    src="https://apps4beyond.com/TeOrienta3.0/#/login-partner?logintoken={{ $token }}?ver=2"
     title="Test de 4Beyond"
     class="frame"
     ></iframe>
 @endsection
 
 @section('scripts')
-  <script>
+  {{-- <script>
     setTimeout(function () {
       Swal.fire({
         icon: "info",
@@ -30,5 +30,5 @@
         confirmButtonText: "¡Entendido!"
       });
     }, 5000)
-  </script>
+  </script> --}}
 @endsection

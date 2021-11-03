@@ -229,35 +229,45 @@ class UniversidadesController extends Controller
     $info = $request->all();
     $universidades = json_decode($info["universidades"]);
 
-    $campus = scandir($this->getThePath("images/universidades/pre_upload/campus"));
-    unset($campus[0]);
-    unset($campus[1]);
-
-    $logos = scandir($this->getThePath("images/universidades/pre_upload/logos"));
-    unset($logos[0]);
-    unset($logos[1]);
-
     foreach ($universidades as $universidad) {
       $nombre_u = $universidad->nombre_universidad;
       $uni_exists = Universidad::where("nombre_universidad", $nombre_u)->exists();
       if ($uni_exists)
         continue;
 
-      $campus_uploaded = false;
+      $campus = scandir(public_path($this->getThePath("images/universidades/pre_upload/campus")));
+      unset($campus[0]);
+      unset($campus[1]);
+  
+      $logos = scandir(public_path($this->getThePath("images/universidades/pre_upload/logos")));
+      unset($logos[0]);
+      unset($logos[1]);
+
       foreach ($campus as $img) {
+        $could_upload_two_images = false;
         if (Str::slug($nombre_u) . "jpg" != Str::slug($img))
           continue;
 
         $img_name_slug = Str::slug(explode(".", $img)[0]) . "-banner.jpg";
-        $a = rename(
-          $this->getThePath("images/universidades/pre_upload/campus/") . $img,
-          $this->getThePath("images/universidades/campus/" . $img_name_slug)
-        );
+        
+        $campus_from_path = public_path($this->getThePath("images/universidades/pre_upload/campus/") . $img);
+        $campus_to_path = public_path($this->getThePath("images/universidades/campus/" . $img_name_slug));
+        $campus = rename($campus_from_path, $campus_to_path);
 
-        $campus_uploaded = true;
+        if ($campus) {
+          $logo_from_path = public_path($this->getThePath("images/universidades/pre_upload/logos/") . $img);
+          $logo_to_path = public_path($this->getThePath("images/universidades/logo/" . str_replace("-banner", "", $img_name_slug)));
+          $logo = @rename($logo_from_path, $logo_to_path);
+
+          if (!$logo)
+            rename($campus_to_path, $campus_from_path);
+
+          $could_upload_two_images = $logo;
+        }
+        break;
       }
 
-      if (!$campus_uploaded)
+      if (!$could_upload_two_images)
         continue;
 
       $uni = new universidad();
@@ -266,6 +276,7 @@ class UniversidadesController extends Controller
       $uni->ranking_pais = $universidad->ranking_pais;
       $uni->ranking_mundo = $universidad->ranking_mundo;
       $uni->ciudad = $universidad->ciudad;
+      $uni->estado = @$universidad->estado ?: null;
       $uni->id_pais = $info["id_pais"];
       $uni->perfil_basico = 1;
       $uni->img_name = Str::slug($nombre_u) . ".jpg";
