@@ -8,6 +8,7 @@ use App\Models\Pais;
 use App\Models\Profesion;
 use App\Models\Universidad;
 use App\Models\UniversidadCarrera;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -286,6 +287,75 @@ class UniversidadesController extends Controller
     return response()->json([
       "success" => true
     ]);
+  }
+
+  /**
+   * Route: /api/add_profs_to_national
+   */
+  public function add_profs_to_national(Request $request) {
+    $info = $request->all();
+    $universidades = json_decode($info["universidades"]);
+
+    foreach ($universidades as $universidad) {
+      $ya_existe = UniversidadCarrera::where("id_carrera", $universidad->id_carrera)->where("id_universidad", $info['u'])->exists();
+      if ($ya_existe)
+        continue;
+        
+      $prof = new UniversidadCarrera();
+      $prof->id_universidad = $info['u'];
+      $prof->id_carrera = $universidad->id_carrera;
+      $prof->video = $universidad->video;
+      $prof->proposito_carrera = $universidad->proposito_carrera;
+      $prof->perfil_aspirante = $universidad->perfil_aspirante;
+      $prof->perfil_prof = $universidad->perfil_prof;
+      $prof->precio_semestre = $universidad->precio_semestre;
+      $prof->save();
+    }
+
+    return response()->json(["success" => true]);
+  }
+
+  /**
+   * Route: /api/convert_basics_profile
+   */
+  public function convert_basics_profile(Request $request) {
+    $info = $request->all();
+    $universidades = json_decode($info["universidades"]);
+    
+    foreach ($universidades as $universidad) {
+      $universidad_modelo = Universidad::find($universidad->id_universidad);
+      $carreras = $this->process_data($universidad->carreras);
+      unset($universidad->carreras);
+
+      $info_actualizar = json_decode(json_encode($universidad), true);
+      $info_actualizar["perfil_basico"] = 0;
+
+      $universidad_modelo->update($info_actualizar);
+
+      foreach ($carreras as $carrera) {
+        try {
+          $carrera_modelo = $this->getDatabaseInfoWithSlugifyiedName(
+            "carreras", 
+            Str::slug($carrera), 
+            "nombre_carrera", 
+            Profesion::$shortWordsException
+          );
+          if (!$carrera_modelo) continue;
+          $model_exists = UniversidadCarrera::where("id_universidad", $universidad->id_universidad)
+                                            ->where("id_carrera", $carrera_modelo["id_carrera"])
+                                            ->exists();
+          if ($model_exists) continue;
+          UniversidadCarrera::create([
+            "id_universidad" => $universidad->id_universidad,
+            "id_carrera" => $carrera_modelo["id_carrera"]
+          ]);
+        } catch (\Throwable $e) {
+          
+        }
+      }
+    }
+
+    return response()->json(["success" => true]);
   }
   #endregion
 

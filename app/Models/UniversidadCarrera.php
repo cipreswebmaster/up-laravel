@@ -11,6 +11,10 @@ class UniversidadCarrera extends Model
 
     protected $table = "universidad_carrera";
     protected $primaryKey = "id_universidad_carrera";
+    protected $fillable = [
+      "id_universidad",
+      "id_carrera"
+    ];
 
     public $timestamps = false;
 }

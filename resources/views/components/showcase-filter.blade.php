@@ -75,6 +75,7 @@
             <option value="0">Todos</option>
             <option value="1">Bogotá</option>
             <option value="2">Medellín</option>
+            <option value="4">Barranquilla</option>
           </select>
         </div>
       @endif
@@ -101,12 +102,16 @@
     });
 
     const selectedCountry = document.getElementById("selected-c");
-    selectedCountry.addEventListener("mouseover", showOptions);
-    selectedCountry.addEventListener("mouseout", hideOptions);
+    if (selectedCountry) {
+      selectedCountry.addEventListener("mouseover", showOptions);
+      selectedCountry.addEventListener("mouseout", hideOptions);
+    }
 
     const options = document.getElementsByClassName("options")[0];
-    options.addEventListener("mouseover", showOptions);
-    options.addEventListener("mouseout", hideOptions);
+    if (options) {
+      options.addEventListener("mouseover", showOptions);
+      options.addEventListener("mouseout", hideOptions);
+    }
 
 
     function showOptions() {

@@ -253,23 +253,25 @@
         </div>
       </div>
     </div>
-    <div class="pensum">
-      <div class="h">
-        <h4 style="display: flex">
-          <div style="margin-right: 15px">
-            <img src="{{ asset("images/university.profession/icons/pensum.jpg") }}" alt="" />
-          </div>
-          <div>Pensum</div>
-        </h4>
+    @if ($prof_uni["pensum"] != 0)
+      <div class="pensum">
+        <div class="h">
+          <h4 style="display: flex">
+            <div style="margin-right: 15px">
+              <img src="{{ asset("images/university.profession/icons/pensum.jpg") }}" alt="" />
+            </div>
+            <div>Pensum</div>
+          </h4>
+        </div>
+        <div class="pen">
+          <img 
+            src="{{ env("API_URL") . "/pensums/" . $universidad["id_universidad"] . "." . $profesion["id_carrera"] . ".jpg" }}" 
+            alt="Pensum"
+            style="width: 100%"
+          />
+        </div>
       </div>
-      <div class="pen">
-        <img 
-          src="{{ env("API_URL") . "/pensums/" . $universidad["id_universidad"] . "." . $profesion["id_carrera"] . ".jpg" }}" 
-          alt="Pensum"
-          style="width: 100%"
-        />
-      </div>
-    </div>
+    @endif
     <div class="buttons">
       @if (isset($_SESSION["logged"]))
           <div class="btn">

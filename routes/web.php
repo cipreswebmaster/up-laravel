@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactoController;
 use App\Models\Acreditacion;
+use App\Models\Ciudad;
 use App\Models\Pais;
 use App\Models\Universidad;
 use App\Models\User;
@@ -100,6 +101,8 @@ Route::prefix("api")->group(function () {
   Route::post("/universidades", "UniversidadesController@universidades");
   Route::post("/create_universidad", "UniversidadesController@create_universidad");
   Route::post("/add_basic_u", "UniversidadesController@add_basic_u");
+  Route::post("/add_profs_to_national", "UniversidadesController@add_profs_to_national");
+  Route::post("/convert_basics_profile", "UniversidadesController@convert_basics_profile");
 
   Route::post('/acreditaciones', function () {
     return response()->json(Acreditacion::all());
@@ -110,6 +113,10 @@ Route::prefix("api")->group(function () {
 
   Route::post("/prof_masivo", "AdminController@profMasivo");
   Route::post("/add_school", "UsuariosController@addColegio");
+
+  Route::post("/get_ciudades_nacionales", function () {
+    return response()->json(Ciudad::where("id_pais", 1)->get());
+  });
 });
 
 /* Administrador */

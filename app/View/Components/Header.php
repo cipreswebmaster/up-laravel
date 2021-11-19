@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\User;
 use Illuminate\View\Component;
 
 class Header extends Component
@@ -23,6 +24,14 @@ class Header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        $has_test = true;
+        if (session_status() == PHP_SESSION_NONE)
+          session_start();
+        $token = @$_SESSION["session_token"];
+        if ($token) {
+          $user = User::where("session_token", $token)->first()->toArray();
+          $has_test = !!$user["has_test"];
+        }
+        return view('components.header', ["show_test" => $has_test]);
     }
 }

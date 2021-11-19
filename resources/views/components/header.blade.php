@@ -1,10 +1,9 @@
 @php
     $tabs = [
       [ "name" => "Inicio", "to" => "/", "color" => "#f65a4d" ],
-      [ "name" => "Test", "to" => "/test", "color" => "#90278c" ],
+      [ "name" => "Test", "to" => "/test", "color" => "#90278c", "validator" => $show_test],
       [ "name" => "Profesiones", "to" => "/profesiones", "color" => "#99dce5" ],
-      [ "name" => "Universidades", "to" => "/universidades", "color" => "#ffe25a" ],
-      // [ "name" => "Actualidad", "to" => "/actualidad", "color" => "#90278c" ],
+      [ "name" => "Universidades", "to" => "/universidades", "color" => "#ffe25a" ]
     ];
 
     if (isset($_SESSION["state"]) && $_SESSION["state"] == 0) {
@@ -34,14 +33,16 @@
       <x-register-btn />
     </div> --}}
     @foreach ($tabs as $tab)
-      <div
-        class="ref tab link"
-        style="border-bottom: 3px solid {{ $tab["color"] }}"
-      >
-        <a href="{{ $tab["to"] }}">
-          {{ $tab["name"] }}
-        </a>
-      </div>
+      @if (!isset($tab["validator"]) || $tab["validator"])
+        <div
+          class="ref tab link"
+          style="border-bottom: 3px solid {{ $tab["color"] }}"
+        >
+          <a href="{{ $tab["to"] }}">
+            {{ $tab["name"] }}
+          </a>
+        </div>
+      @endif
     @endforeach
       <div class="only-mobile">
         @if (isset($_SESSION["logged"]))  
