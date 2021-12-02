@@ -362,6 +362,26 @@ class UniversidadesController extends Controller
 
     return response()->json(["success" => true]);
   }
+
+  /**
+   * Route: /api/subir_pensums
+   */
+  public function subir_pensums(Request $request) {
+    $data = $request->all();
+    $universidad = $data["universidad"];
+    $pensums = $data["pensums"];
+
+    foreach ($pensums as $pensum) {
+      $filename = pathinfo($pensum->getClientOriginalName(), PATHINFO_FILENAME);
+      $id_carrera = explode("-", $filename)[1];
+      $pensum_name = $universidad . "." . $id_carrera . ".jpg";
+      $pensum_path = public_path($this->getThePath("images/universidades/pensums"));
+      if (!file_exists($pensum_path . '/' . $pensum_name));
+        $pensum->move($pensum_path, $pensum_name);
+    }
+    
+    return response()->json([ "success" => true ]);
+  }
   #endregion
 
   #region Functions

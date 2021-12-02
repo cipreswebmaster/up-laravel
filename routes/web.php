@@ -103,6 +103,7 @@ Route::prefix("api")->group(function () {
   Route::post("/add_basic_u", "UniversidadesController@add_basic_u");
   Route::post("/add_profs_to_national", "UniversidadesController@add_profs_to_national");
   Route::post("/convert_basics_profile", "UniversidadesController@convert_basics_profile");
+  Route::post("/subir_pensums", "UniversidadesController@subir_pensums");
 
   Route::post('/acreditaciones', function () {
     return response()->json(Acreditacion::all());
