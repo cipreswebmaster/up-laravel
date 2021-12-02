@@ -76,6 +76,7 @@
             <option value="1">Bogotá</option>
             <option value="2">Medellín</option>
             <option value="4">Barranquilla</option>
+            <option value="5">Cali</option>
           </select>
         </div>
       @endif
