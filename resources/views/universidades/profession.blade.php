@@ -164,24 +164,26 @@
           @endif
 
           {{-- Perfil de aspirante --}}
-          <div class="section">
-            <div class="section-title">
-              <div class="icon">
-                <img src="{{ asset("images/university.profession/icons/perfil_aspirante.jpg") }}" alt="">
+          @if ($prof_uni["perfil_aspirante"])
+            <div class="section">
+              <div class="section-title">
+                <div class="icon">
+                  <img src="{{ asset("images/university.profession/icons/perfil_aspirante.jpg") }}" alt="">
+                </div>
+                <div class="s-title">
+                  Perfil del aspirante
+                </div>
               </div>
-              <div class="s-title">
-                Perfil del aspirante
+              <div class="section-content">
+                {{ $prof_uni["perfil_aspirante"][0] }}
+                <ul>
+                  @foreach ($prof_uni["perfil_aspirante"][1] as $pa)
+                    <li>{{ $pa }}</li>
+                  @endforeach
+                </ul>
               </div>
             </div>
-            <div class="section-content">
-              {{ $prof_uni["perfil_aspirante"][0] }}
-              <ul>
-                @foreach ($prof_uni["perfil_aspirante"][1] as $pa)
-                  <li>{{ $pa }}</li>
-                @endforeach
-              </ul>
-            </div>
-          </div>
+          @endif
 
           {{-- Proceso de admision --}}
           <div class="section">
@@ -265,7 +267,7 @@
         </div>
         <div class="pen">
           <img 
-            src="{{ env("API_URL") . "/pensums/" . $universidad["id_universidad"] . "." . $profesion["id_carrera"] . ".jpg" }}" 
+            src="{{ asset("images/universidades/pensums/" . $universidad["id_universidad"] . "." . $profesion["id_carrera"] . ".jpg") }}" 
             alt="Pensum"
             style="width: 100%"
           />

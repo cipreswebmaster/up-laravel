@@ -100,11 +100,13 @@ class UniversidadesController extends Controller
       ::where("id_universidad", $universidad["id_universidad"])
       ->where("id_carrera", $profesion["id_carrera"])->first();
 
-    $perfil = $this->process_data($prof_uni->perfil_aspirante, ":");
-    $prof_uni->perfil_aspirante = [
-      $perfil[0],
-      count($perfil) > 1 ? $this->process_data($perfil[1]) : []
-    ];
+    $perfil = $this->process_data($prof_uni->perfil_aspirante ?: "", ":");
+    if ($perfil) {
+      $prof_uni->perfil_aspirante = [
+        $perfil[0],
+        count($perfil) > 1 ? $this->process_data($perfil[1]) : []
+      ];
+    }
 
     /* Obteniendo acreditaciones */
     $this->processAcreditations($universidad);
