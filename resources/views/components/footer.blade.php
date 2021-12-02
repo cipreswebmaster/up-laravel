@@ -1,8 +1,14 @@
 @php
     $portales = [
-      ["Los Mejores Colegios", "https://losmejorescolegios.com/"],
-      ["Los Mejores Jardines", "https://losmejoresjardines.com/"],
+      ["Los Mejores Colegios de Colombia", "https://losmejorescolegios.com/"],
+      ["Los Mejores Colegios de México", "https://losmejorescolegios.mx/"],
+      ["Los Mejores Colegios de Perú", "https://losmejorescolegios.pe/"],
+      ["Los Mejores Colegios de Chile", "https://losmejorescolegios.cl/"],
+      ["Los Mejores Colegios de Ecuador", "https://losmejorescolegios.ec/"],
+      ["Los Mejores Jardines de Colombia", "https://losmejoresjardines.com/"],
       ["Great Place to Study", "https://greatplacetostudy.co/"],
+      ["Universidades y Profesiones UP", "https://universidadesyprofesiones.com/"],
+      ["Revista EDU", "https://revistaedu.co/"]
     ];
 
   $logos = [

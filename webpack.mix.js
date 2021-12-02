@@ -27,6 +27,7 @@ const sass = [
     "contact",
     "universidades",
     "university-card",
+    "footer",
 ];
 const js = ["profession-events", "universidades"];
 
