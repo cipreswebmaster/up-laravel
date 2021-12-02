@@ -375,7 +375,7 @@ class UniversidadesController extends Controller
 
     foreach ($pensums as $pensum) {
       $filename = pathinfo($pensum->getClientOriginalName(), PATHINFO_FILENAME);
-      $id_carrera = explode("-", $filename)[1];
+      $id_carrera = trim(explode("-", $filename)[1]);
       $pensum_name = $universidad . "." . $id_carrera . ".jpg";
       $pensum_path = public_path($this->getThePath("images/universidades/pensums"));
       if (!file_exists($pensum_path . '/' . $pensum_name));
