@@ -1,6 +1,13 @@
 @extends("base")
 
-@section("title") Test @endsection
+@section("title", "Test")
+
+@section('keywords', "Test para elegir carrera, Test de Orientacion Vocacional, Eleccion de carrera, Vocacional es un proceso, Intereses vocacionales, Carrera profesional, Como Buscar carrera")
+
+@section('og_description', "Por medio de un test, te mostraremos cuáles son tus habilidades y neuro fortalezas (aquello en lo que eres realmente bueno) y te las asociamos con las carreras profesionales más afines a ti.")
+
+@section("og_image_url", asset("images/banners/main-img/test-back.jpg"))
+@section("og_image_alt", "test orientacion vocacional")
 
 @section('styles')
   <link rel="stylesheet" href="{{ asset("css/test.css") }}">
