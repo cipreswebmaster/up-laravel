@@ -12,7 +12,7 @@
   <meta name="keywords" content="@yield('keywords')">
   <meta property="og:url" content="{{ Request::url() }}" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="@yield('title')" />
+  <meta property="og:title" content="@yield('title') | Universidades y Profesiones UP ✅" />
   <meta property="og:description" content="@yield('og_description')" />
   <meta property="og:image" content="@yield('og_image_url')" />
   <meta property="og:image:alt" content="@yield('og_image_alt')">
