@@ -10,10 +10,11 @@
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="@yield('keywords')">
+  <meta name="description" content="@yield('description')">
   <meta property="og:url" content="{{ Request::url() }}" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="@yield('title') | Universidades y Profesiones UP ✅" />
-  <meta property="og:description" content="@yield('og_description')" />
+  <meta property="og:description" content="@yield('description')" />
   <meta property="og:image" content="@yield('og_image_url')" />
   <meta property="og:image:alt" content="@yield('og_image_alt')">
   @yield('metatags')

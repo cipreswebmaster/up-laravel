@@ -4,7 +4,7 @@
 
 @section('keywords', "Buscar carrera profesional, Orientacion Vocacional, Eleccion de carrera, Toma de desiciones, Vocacional es un proceso, intereses vocacionales, Carrera profesional")
 
-@section('og_description', "UP Es una Plataforma Universitaria, diseñada para guiarte en la elección de tu carrera y te las asociamos con las carreras profesionales afines.")
+@section('description', "UP Es una Plataforma Universitaria, diseñada para guiarte en la elección de tu carrera y te las asociamos con las carreras profesionales afines.")
 
 @section("og_image_url", asset("images/index/og_image.jpeg"))
 @section("og_image_alt", "Universidades y profesiones")
