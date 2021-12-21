@@ -1,12 +1,13 @@
 @extends('base')
 
-@section('metatags')
-  <meta name="keywords" content="universidades, {{ $profession["nombre_carrera"] }}" />
-@endsection
+@section('title', $profession["nombre_carrera"])
 
-@section('title')
-  {{ $profession["nombre_carrera"] }}
-@endsection
+@section('keywords',  $profession["nombre_carrera"] . ", Carreras profesionales, Elegir vocacion, Carrera profesional, Interes vocacional, Que carrera elegir")
+
+@section('description', $profession["descripcion_carrera"])
+
+@section("og_image_url", env("API_URL") . "/images/carreras/" . $profession['imagen_carrera'])
+@section("og_image_alt", "carrera profesional")
 
 @section('styles')
   <link rel="stylesheet" href="{{ mix("css/profesion.css") }}">

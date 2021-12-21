@@ -1,8 +1,13 @@
 @extends('base')
 
-@section('title')
-  Profesiones
-@endsection
+@section('title', "Profesiones")
+
+@section('keywords', "Carreras profesionales, Elegir vocacion, Carrera profesional, Interes vocacional, Que carrera elegir")
+
+@section('description', "Selecciona carreras por área. Ciencias Básicas y Naturales, Ingeniería y Afines, Administración y Afines, Economía y Afines, Agronomía y Afines, Ciencias Sociales y Humanas, etc...")
+
+@section("og_image_url", asset("images/banners/main-img/profesiones.jpg"))
+@section("og_image_alt", "carrera profesional")
 
 @section('styles')
   <link rel="stylesheet" href="{{ asset("css/profesiones.index.css") }}">
