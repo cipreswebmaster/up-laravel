@@ -1,8 +1,13 @@
 @extends('base')
 
-@section('title')
-  Universidades
-@endsection
+@section('title', "Universidades")
+
+@section('keywords',  "Universidades, Universidades y profesiones UP")
+
+@section('description', "Elige que carrera estudiar y en cual universidad con Up podras encontrar la universidad y la carrera ideal para ti.")
+
+@section("og_image_url", asset("images/banners/main-img/universidades.jpg"))
+@section("og_image_alt", "Universidades y Profesiones UP")
 
 @section('styles')
     <link rel="stylesheet" href="{{ mix("/css/universidades.css") }}">

@@ -1,17 +1,27 @@
 @extends('base')
 
-@section('title')
-  {{ $university["nombre_universidad"] }}
-@endsection
+@section('title', $university["nombre_universidad"])
+
+@php
+  $profesiones_string = "";
+  foreach ($professions as $profesion)
+    $profesiones_string .= ", " . $profesion["nombre_carrera"];
+@endphp
+@section('keywords', $university["nombre_universidad"] . $profesiones_string)
+
+@section('description', substr($university["descripcion_uni"], 0, 175) . "...")
+
+@php
+  $uniImg = str_replace(".","-banner.",$university["img_name"]);
+@endphp
+@section("og_image_url", asset("/images/universidades/campus/" . $uniImg))
+@section("og_image_alt", $university["nombre_universidad"])
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset("css/universidad.css") }}">
     <link rel="stylesheet" href="{{ asset("css/profession-card.css") }}">
 @endsection
 
-@php
-  $uniImg = str_replace(".","-banner.",$university["img_name"]);
-@endphp
 @section('body')
   <x-banner
     :topText="$university['nombre_universidad']"
