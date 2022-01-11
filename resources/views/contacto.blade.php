@@ -1,8 +1,13 @@
 @extends('base')
 
-@section('title')
-  Contáctanos
-@endsection
+@section('title', "Contáctanos")
+
+@section('keywords',  "Contacto, Universidades y profesiones UP")
+
+@section('description', "Nuestro equipo está a tu disposición para cualquier duda, llámanos, escríbenos o diligencia el formulario y nos pondremos en contacto contigo lo antes posible.")
+
+@section("og_image_url", asset("images/banners/main-img/contacto.jpg"))
+@section("og_image_alt", "contacto universidades y profesiones UP")
 
 @section('styles')
   <link rel="stylesheet" href="{{ mix("/css/contact.css") }}">
