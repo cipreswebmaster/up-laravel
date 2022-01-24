@@ -16,7 +16,7 @@ trait HelpersTrait {
    * @param string $query_condition_field The field title to evaluate the query
    * @param array $exception word (optional) The words less than 2 letters will be included on the query condition
    * 
-   * @return Illuminate\Database\Eloquent\Model The response object
+   * @return array The response object
    */
   public function getDatabaseInfoWithSlugifyiedName(
     string $table,
@@ -119,6 +119,28 @@ trait HelpersTrait {
     return array_values(array_filter($data_exploded));
   }
 
+  /**
+   * Detect if an URL is a Youtube video
+   * 
+   * @param string $url
+   * 
+   * @return bool
+   */
+  public function URLIsVideo(string $url) : bool {
+    return str_contains($url, "www.youtube.com") || str_contains($url, "youtu.be");
+  }
+
+  public function getVideoCode(string $url) {
+    $url_exploded = explode("/", $url);
+    $end = end($url_exploded);
+    
+    if (str_contains($url, "youtu.be"))
+      return $end;
+
+    $variables = $this->extractVideoVariables(explode("?", $end)[1]);
+    return $variables["v"];
+  }
+
   public static function getTheOne($response, $name, $fieldName) {
     $nameWithoutSpaces = str_replace("-", "", $name);
     foreach ($response as $res) {
@@ -135,5 +157,16 @@ trait HelpersTrait {
     $search = !env("APP_DEBUG") && strpos("/", $path) === false ? "\\" : "/";
     $replace = !env("APP_DEBUG") && strpos("/", $path) === false ? "/" : "\\";
     return str_replace($search, $replace, $path);
+  }
+
+  private function extractVideoVariables(string $variables) {
+    $return = [];
+    $variables_exploded = explode("&", $variables);
+    foreach ($variables_exploded as $variable) {
+      $variable_exploded = explode("=", $variable);
+      $return[$variable_exploded[0]] = $variable_exploded[1];
+    }
+
+    return $return;
   }
 }

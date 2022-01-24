@@ -28,12 +28,16 @@
 
   $bannerText = "Universidades en " . $universidad["abreviatura_pais"];
   $banner = $universidad["abreviatura_pais"] . ".jpg";
+
+  $paisesNoFromTopBanner = ["eeuu", "españa"];
+  $bannerFromTop = !in_array($universidad["abreviatura_pais"], $paisesNoFromTopBanner);
 @endphp
 
 @section('body')
   <x-banner
     :topText="$bannerText"
     :img="$banner"
+    :fromTop="$bannerFromTop"
     arrow="uni"
   />
   <div class="uni-content">

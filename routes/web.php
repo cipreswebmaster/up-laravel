@@ -138,4 +138,35 @@ Route::prefix("admin")->group(function () {
     echo "Totales: " . count($usuarios) . "<br />";
     echo "Tests finalizados: " . $test_hechos;
   });
+
+  Route::get("/reporte_universidades", function () {
+    $universidades = Universidad::all();
+    $perfiles = [];
+    $total_premium = 0;
+    $total_basicos = 0;
+    foreach ($universidades as $universidad) {
+      $esBasico = $universidad["perfil_basico"] == 0 ? "premium" : "basico";
+      $pais = Pais::where("id_pais", $universidad["id_pais"])->first()["nombre_pais"];
+      if (key_exists($pais, $perfiles))
+        $perfiles[$pais][$esBasico]++;
+      else {
+        $perfiles[$pais] = [
+          "basico" => $esBasico == "basico" ? 1 : 0,
+          "premium" => $esBasico == "basico" ? 0 : 1
+        ];
+      }
+
+      $total_premium += $esBasico == "premium" ? 1 : 0;
+      $total_basicos += $esBasico == "premium" ? 0 : 1;
+    }
+
+    foreach ($perfiles as $pais => $perfil) {
+      echo $pais . ": <br />";
+      echo "   - Premiums: " . $perfil["premium"] . "<br />";
+      echo "   - Básicos: " . $perfil["basico"] . "<br /><br />";
+    }
+    
+    echo "Total de perfiles premiums: " . $total_premium . "<br />";
+    echo "Total de perfiles básicos: " . $total_basicos;
+  });
 });

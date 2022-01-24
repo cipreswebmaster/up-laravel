@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class UniversidadesController extends Controller
 {
@@ -330,13 +331,36 @@ class UniversidadesController extends Controller
     $universidades = json_decode($info["universidades"]);
     
     foreach ($universidades as $universidad) {
-      $universidad_modelo = Universidad::find($universidad->id_universidad);
+      $id_universidad = @$universidad->id_universidad;
+      if (!property_exists($universidad, "id_universidad")) {
+        try {
+          $_ = $this->getDatabaseInfoWithSlugifyiedName(
+            "universidades",
+            Str::slug($universidad->nombre_universidad),
+            "nombre_universidad",
+          );
+          if (!$_) continue;
+          $id_universidad = $_["id_universidad"];
+        } catch (HttpException $th) {
+          //throw $th;
+        }
+      }
+      
+      try {
+        $universidad_modelo = Universidad::findOrFail($id_universidad);
+      } catch (\Throwable $th) {
+        continue;
+      }
       $carreras = $this->process_data($universidad->carreras);
       unset($universidad->carreras);
 
       $info_actualizar = json_decode(json_encode($universidad), true);
       $info_actualizar["perfil_basico"] = 0;
 
+      foreach ($info_actualizar as $key => $value)
+        if (gettype($info_actualizar[$key]) == "string" && $this->URLIsVideo($info_actualizar[$key]))
+          $info_actualizar[$key] = $this->getVideoCode($value);
+      
       $universidad_modelo->update($info_actualizar);
 
       foreach ($carreras as $carrera) {
@@ -348,12 +372,12 @@ class UniversidadesController extends Controller
             Profesion::$shortWordsException
           );
           if (!$carrera_modelo) continue;
-          $model_exists = UniversidadCarrera::where("id_universidad", $universidad->id_universidad)
+          $model_exists = UniversidadCarrera::where("id_universidad", $id_universidad)
                                             ->where("id_carrera", $carrera_modelo["id_carrera"])
                                             ->exists();
           if ($model_exists) continue;
           UniversidadCarrera::create([
-            "id_universidad" => $universidad->id_universidad,
+            "id_universidad" => $id_universidad,
             "id_carrera" => $carrera_modelo["id_carrera"]
           ]);
         } catch (\Throwable $e) {
