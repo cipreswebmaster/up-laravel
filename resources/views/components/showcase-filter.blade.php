@@ -23,11 +23,9 @@
       <div class="select-country" id="select-country">
         <div class="selected" id="selected-c">
           @php
-            if ($routeName == "uniIndex") {
-              $i = 0;
-            } else {
-              $i = @explode("/", str_replace("//", "", Request::url()))[3] - 1;
-            }
+            $i = $routeName == "uniIndex"
+                  ? 0 
+                  : @explode("/", str_replace("//", "", Request::url()))[3] - 1;
             $pais = $paises[$i];
           @endphp
           <div class="option">
