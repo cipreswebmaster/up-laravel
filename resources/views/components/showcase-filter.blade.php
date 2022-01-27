@@ -20,55 +20,54 @@
       autoComplete="off"
     />
     <div class="order">
-      @if (in_array($routeName, ["uniIndex", "uniIndexCountry"]) && isset($_SESSION["logged"]))
-        <div class="select-country" id="select-country">
-          <div class="selected" id="selected-c">
-            @php
-              if ($routeName == "uniIndex") {
-                $i = 0;
-              } else {
-                $i = explode("/", str_replace("//", "", Request::url()))[3] - 1;
-              }
-              $pais = $paises[$i];
-            @endphp
-            <div class="option">
-              <div class="img">
-                <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
-              </div>
-              <div class="text"> {{ $pais["nombre_pais"] }} </div>
+      <div class="select-country" id="select-country">
+        <div class="selected" id="selected-c">
+          @php
+            if ($routeName == "uniIndex") {
+              $i = 0;
+            } else {
+              // $i = @explode("/", str_replace("//", "", Request::url()))[3] - 1 ?: 0;
+              $i = 0;
+            }
+            $pais = $paises[$i];
+          @endphp
+          <div class="option">
+            <div class="img">
+              <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
             </div>
-          </div>
-          <div class="options">
-            @foreach ($paises as $pais)
-              @if ($pais["nombre_pais"] == "Colombia")
-                <div class="option">
-                  <a href="{{ route("uniIndex") }}">
-                    <div class="img">
-                      <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
-                    </div>
-                    <div class="text"> {{ $pais["nombre_pais"] }} </div>
-                  </a>
-                </div>
-              @else
-                <div class="option">
-                  <a href="{{ route("uniIndexCountry", [
-                    "idCountry" => $pais["id_pais"],
-                    "uniCountry" => Str::slug($pais["nombre_pais"])
-                  ]) }}">
-                    <div class="img">
-                      <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
-                    </div>
-                    <div class="text"> {{ $pais["nombre_pais"] }} </div>
-                  </a>
-                </div>
-              @endif
-            @endforeach
+            <div class="text"> {{ $pais["nombre_pais"] }} </div>
           </div>
         </div>
-        <div class="arrow-icon">
-          <img src="{{ asset("images/flecha.png") }}" alt="">
+        <div class="options">
+          @foreach ($paises as $pais)
+            @if ($pais["nombre_pais"] == "Colombia")
+              <div class="option">
+                <a href="{{ route("uniIndex") }}">
+                  <div class="img">
+                    <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
+                  </div>
+                  <div class="text"> {{ $pais["nombre_pais"] }} </div>
+                </a>
+              </div>
+            @else
+              <div class="option">
+                <a href="{{ route("uniIndexCountry", [
+                  "idCountry" => $pais["id_pais"],
+                  "uniCountry" => Str::slug($pais["nombre_pais"])
+                ]) }}">
+                  <div class="img">
+                    <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
+                  </div>
+                  <div class="text"> {{ $pais["nombre_pais"] }} </div>
+                </a>
+              </div>
+            @endif
+          @endforeach
         </div>
-      @endif
+      </div>
+      <div class="arrow-icon">
+        <img src="{{ asset("images/flecha.png") }}" alt="">
+      </div>
       @if ($routeName == "uniIndex")
         <div>
           <select name="orderCiudad" id="orderCiudad">
