@@ -37,28 +37,22 @@
         </div>
         <div class="options">
           @foreach ($paises as $pais)
-            @if ($pais["nombre_pais"] == "Colombia")
-              <div class="option">
-                <a href="{{ route("uniIndex") }}">
-                  <div class="img">
-                    <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
-                  </div>
-                  <div class="text"> {{ $pais["nombre_pais"] }} </div>
-                </a>
-              </div>
-            @else
-              <div class="option">
-                <a href="{{ route("uniIndexCountry", [
-                  "idCountry" => $pais["id_pais"],
-                  "uniCountry" => Str::slug($pais["nombre_pais"])
-                ]) }}">
-                  <div class="img">
-                    <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
-                  </div>
-                  <div class="text"> {{ $pais["nombre_pais"] }} </div>
-                </a>
-              </div>
-            @endif
+            @php
+                $pais_route = $pais["nombre_pais"] == "Colombia"
+                              ? route("uniIndex")
+                              : route("uniIndexCountry", [
+                                  "idCountry" => $pais["id_pais"],
+                                  "uniCountry" => Str::slug($pais["nombre_pais"])
+                                ]);
+            @endphp
+            <div class="option">
+              <a href="{{ $pais_route }}">
+                <div class="img">
+                  <img src="{{ asset("images/paises/" . $pais["imagen"]) }}" alt="">
+                </div>
+                <div class="text"> {{ $pais["nombre_pais"] }} </div>
+              </a>
+            </div>
           @endforeach
         </div>
       </div>
