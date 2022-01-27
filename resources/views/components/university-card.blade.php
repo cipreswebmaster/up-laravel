@@ -15,7 +15,7 @@
     <div class="layer">
       <div class="header_img">
         @php $bannerName = str_replace(".","-banner.", $imgSrc); @endphp
-        <img src="{{ asset("/images/universidades/campus/" . $bannerName) }}" alt="" />
+        <img src="{{ asset("/images/universidades/campus/300xauto/" . $bannerName) }}" alt="" />
       </div>
       <div class="info">
         <div class="title">{{ $title }}</div>
