@@ -20,7 +20,7 @@
       autoComplete="off"
     />
     <div class="order">
-      @if ($routeName != "profIndex")
+      @if ($routeName != "profIndex" && $routeName != "university")
         <div class="select-country" id="select-country">
           <div class="selected" id="selected-c">
             @php
