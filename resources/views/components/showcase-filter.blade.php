@@ -91,7 +91,6 @@
 
       const parent = cards[0].parentNode;
       cards.forEach(function (c) {
-        parent.removeChild(c);
         parent.appendChild(c);
       });
     });
