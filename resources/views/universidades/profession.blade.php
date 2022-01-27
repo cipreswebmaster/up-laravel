@@ -52,7 +52,7 @@
           </div>
           <div class="uni-info">
             <div class="uni-name">{{ $universidad["nombre_universidad"] }}</div>
-            <div class="uni-city">Bogotá</div>
+            <div class="uni-city">{{ $ciudad }}</div>
             <div class="uni-desc">{{ $universidad["descripcion_uni"] }}</div>
           </div>
           <div class="ver-carreras">

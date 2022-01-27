@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Traits\HelpersTrait;
 use App\Models\Acreditacion;
+use App\Models\Ciudad;
 use App\Models\Pais;
 use App\Models\Profesion;
 use App\Models\Universidad;
@@ -112,9 +113,15 @@ class UniversidadesController extends Controller
     /* Obteniendo acreditaciones */
     $this->processAcreditations($universidad);
 
-    return view("universidades.profession", compact("universidad", "profesion", "prof_uni"));
+    /* Obteniendo ciudad */
+    $ciudad = Ciudad::where("id_ciudad", $universidad["id_ciudad"])->first()["nombre_ciudad"];
+
+    return view("universidades.profession", compact("universidad", "profesion", "prof_uni", "ciudad"));
   }
 
+  /**
+   * Route: /universidades 
+   */
   public function unisOfProf($professionName) {
     $profesion = $this->getDatabaseInfoWithSlugifyiedName(
       "carreras",
