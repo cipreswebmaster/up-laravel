@@ -1,16 +1,10 @@
 @extends('posts.base')
 
-@section('metatags')
-  <meta property="og:url" content="{{ Request::url() }}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{ $post["title"] }}" />
-  <meta property="og:description" content="{{ $post["entradilla"] }}" />
-  <meta property="og:image" content="{{ asset("images/posts/post/" . $post["image"]) }}" />
-@endsection
-
-@section('title')
-  {{ $post["title"] }}
-@endsection
+@section('keywords', $post["tags"])
+@section('title', $post["title"])
+@section('description', $post["entradilla"])
+@section('og_image_url', asset("images/posts/post/" . $post["image"]))
+@section('og_image_alt', $post["title"])
 
 @section('styles')
   <link rel="stylesheet" href="{{ mix("css/post.css") }}">
