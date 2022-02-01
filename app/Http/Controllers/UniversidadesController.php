@@ -310,15 +310,11 @@ class UniversidadesController extends Controller
       $ya_existe = UniversidadCarrera::where("id_carrera", $universidad->id_carrera)->where("id_universidad", $info['u'])->exists();
       if ($ya_existe)
         continue;
-
-      // Obtiendo código de video de YouTube
-      $url_components = parse_url($universidad->video);
-      parse_str($url_components["query"], $params);
         
       $prof = new UniversidadCarrera();
       $prof->id_universidad = $info['u'];
       $prof->id_carrera = $universidad->id_carrera;
-      $prof->video = $params['v'];
+      $prof->video = $this->getVideoCode($universidad->video);
       $prof->proposito_carrera = $universidad->proposito_carrera;
       $prof->perfil_aspirante = $universidad->perfil_aspirante;
       $prof->perfil_prof = $universidad->perfil_prof;
