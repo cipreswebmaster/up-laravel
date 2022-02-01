@@ -71,6 +71,7 @@
             <option value="5">Cali</option>
             <option value="6">Manizales</option>
             <option value="7">Pereira</option>
+            <option value="8">Bucaramanga</option>
           </select>
         </div>
       @endif
