@@ -411,6 +411,57 @@ class UniversidadesController extends Controller
     
     return response()->json([ "success" => true ]);
   }
+
+  /**
+   * Route: /api/actualizar_universidad
+   */
+  public function actualizar_universidad(Request $request) {
+    $data = $request->all();
+    $universidad = json_decode($data["universidad"], true);
+    $carreras = json_decode($data["carreras"], true);
+    $response = [];
+
+    // Actualizando información de la universidad
+    $id_universidad = 0;
+    try {
+      $universidadModel = $this->getDatabaseInfoWithSlugifyiedName(
+        "universidades",
+        Str::slug($universidad["nombre_universidad"]),
+        "nombre_universidad"
+      );
+      $id_universidad = $universidadModel["id_universidad"];
+      $updated = Universidad::where("id_universidad", $id_universidad)->update($universidad);
+    } catch (\Throwable $th) {
+      $response["universidad_error"] = $th->getMessage();
+      $updated = 0;
+    }
+    $response["universidad_actualizada"] = !!$updated;
+
+    // Actualizando las carreras de la universidad previamente actualizada
+    $carrerasNoActualizadas = [];
+    $carrerasConError = [];
+    foreach ($carreras as $carrera) {
+      try {
+        $uc = UniversidadCarrera::where("id_carrera", $carrera["id_carrera"])->where("id_universidad", $id_universidad);
+        $carreraUpdated = $uc->update($carrera);
+        if (!$carreraUpdated)
+         array_push($carrerasNoActualizadas, $uc->first()["nombre_carrera"]);
+      } catch (\Throwable $th) {
+        array_push($carrerasConError, [
+          "id_carrera" => $carrera["id_carrera"],
+          "message" => $th->getMessage()
+        ]);
+      }
+    }
+    $totalCarrerasNoActualizadas = count($carrerasNoActualizadas) + count($carrerasConError);
+    $response["carreras"] = [
+      "actualizadas" => count($carreras) - $totalCarrerasNoActualizadas,
+      "no_actualizadas" => $totalCarrerasNoActualizadas,
+      "errores" => $carrerasConError
+    ];
+
+    return response()->json($response);
+  }
   #endregion
 
   #region Functions
