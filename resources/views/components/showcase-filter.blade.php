@@ -24,7 +24,8 @@
         <div class="select-country" id="select-country">
           <div class="selected" id="selected-c">
             @php
-              $i = $routeName == "uniIndex"
+              $indexPages = ["uniIndex", "unisOfProf"];
+              $i = in_array($routeName, $indexPages)
                     ? 0 
                     : @explode("/", str_replace("//", "", Request::url()))[3] - 1;
               $pais = $paises[$i];
