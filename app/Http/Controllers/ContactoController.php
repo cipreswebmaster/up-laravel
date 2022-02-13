@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Contacto;
 use App\Mail\SerContactado;
+use App\Models\LeadsUniversidades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -37,6 +38,14 @@ class ContactoController extends Controller
     Mail::to("contacto@universidadesyprofesiones.com")
           ->cc("nbermudez@cipres.com.co")
           ->send(new SerContactado($universidad, $nombre, $telefono, $correo, $profesion));
+
+    LeadsUniversidades::create([
+      "name" => $nombre,
+      "phone_number" => $telefono,
+      "email" => $correo,
+      "university" => $universidad,
+      "profession" => $profesion
+    ]);
 
     return back();
   }
