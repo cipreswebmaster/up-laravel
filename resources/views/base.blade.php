@@ -85,7 +85,23 @@
           }).then(function () {
             sessionStorage.setItem("share_popup_showed", true);
           });
-        }, 180000)
+        }, 180000);
+      }
+
+      if (!sessionStorage.getItem("universidades_popup_showed")) {
+        setTimeout(function () {
+          Swal.fire({
+            html: 
+              '<div style="position: relative;">' +
+                '<a href="https://universidadesyprofesiones.com/universidades" target="_blank" rel="noopener noreferrer" style="border: none;">' +
+                  '<img src="{{ asset('images/index/universidades-popup.png') }}" class="share_img" />' +
+                '</a>' +
+              '</div>',
+            showConfirmButton: false
+          }).then(function () {
+            sessionStorage.setItem("universidades_popup_showed", true);
+          });
+        }, 5000);
       }
     </script>
   @endif
