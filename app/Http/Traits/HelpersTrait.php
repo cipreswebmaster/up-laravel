@@ -2,6 +2,7 @@
 
 namespace App\Http\Traits;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -130,6 +131,13 @@ trait HelpersTrait {
     return str_contains($url, "www.youtube.com") || str_contains($url, "youtu.be");
   }
 
+  /**
+   * Extract YT video code
+   * 
+   * @param string $url
+   * 
+   * @return string
+   */
   public function getVideoCode(string $url) {
     $url_exploded = explode("/", $url);
     $end = end($url_exploded);
@@ -141,7 +149,16 @@ trait HelpersTrait {
     return $variables["v"];
   }
 
-  public static function getTheOne($response, $name, $fieldName) {
+  /**
+   * Detect the result that most closely matches the given reference
+   * 
+   * @param \Illuminate\Support\Collection $response The database response
+   * @param string $name The reference to found the one
+   * @param string $fieldName The name of the field to search for the reference
+   * 
+   * @return array An array with the data
+   */
+  public static function getTheOne(\Illuminate\Support\Collection $response, string $name, string $fieldName): array {
     $nameWithoutSpaces = str_replace("-", "", $name);
     foreach ($response as $res) {
       $resAsArray = json_decode(json_encode($res), true);
@@ -153,13 +170,27 @@ trait HelpersTrait {
     }
   }
 
-  public function getThePath(string $path) {
+  /**
+   * Get the correct path depending on the os the server is running
+   * 
+   * @param string $path The path given by the program
+   * 
+   * @return string The correct path to use
+   */
+  public function getThePath(string $path): string {
     $search = !env("APP_DEBUG") && strpos("/", $path) === false ? "\\" : "/";
     $replace = !env("APP_DEBUG") && strpos("/", $path) === false ? "/" : "\\";
     return str_replace($search, $replace, $path);
   }
 
-  private function extractVideoVariables(string $variables) {
+  /**
+   * Take a YouTube URL en convert the URL params into an associative array
+   * 
+   * @param string $variables The variables from the URL
+   * 
+   * @return array The associative array
+   */
+  private function extractVideoVariables(string $variables): array {
     $return = [];
     $variables_exploded = explode("&", $variables);
     foreach ($variables_exploded as $variable) {
