@@ -2,7 +2,9 @@
 
 namespace App\Http\Traits;
 
+use App\Models\ActualizacionBBDD;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -168,6 +170,8 @@ trait HelpersTrait {
       if (trim($nameWithoutSpaces) == $responseNameCleaned)
         return json_decode(json_encode($res), true);
     }
+
+    return [];
   }
 
   /**
@@ -181,6 +185,27 @@ trait HelpersTrait {
     $search = !env("APP_DEBUG") && strpos("/", $path) === false ? "\\" : "/";
     $replace = !env("APP_DEBUG") && strpos("/", $path) === false ? "/" : "\\";
     return str_replace($search, $replace, $path);
+  }
+
+  /**
+   * 
+   * @return void
+   */
+  public function makeActualizacion(Model $model, string $reference) { 
+    $original_values = $model->getOriginal();
+    $changed_fields = $model->getChanges();
+    
+    $keys_changed = array_keys($changed_fields);
+    $original_values_changed = [];
+    foreach ($keys_changed as $key)
+      $original_values_changed[$key] = $original_values[$key];
+    
+    $log = new ActualizacionBBDD();
+    $log->table = $model->getTable();
+    $log->previous_state = serialize($original_values_changed);
+    $log->new_state = serialize($changed_fields);
+    $log->reference = $original_values[$reference];
+    $log->save(); 
   }
 
   /**
