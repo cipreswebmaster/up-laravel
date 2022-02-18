@@ -430,7 +430,7 @@ class UniversidadesController extends Controller
         "nombre_universidad"
       );
       $id_universidad = $universidadModel["id_universidad"];
-      $updated = Universidad::where("id_universidad", $id_universidad)->update($universidad);
+      $updated = Universidad::find($id_universidad)->update($universidad);
     } catch (\Throwable $th) {
       $response["universidad_error"] = $th->getMessage();
       $updated = 0;
@@ -442,7 +442,7 @@ class UniversidadesController extends Controller
     $carrerasConError = [];
     foreach ($carreras as $carrera) {
       try {
-        $uc = UniversidadCarrera::where("id_carrera", $carrera["id_carrera"])->where("id_universidad", $id_universidad);
+        $uc = UniversidadCarrera::where("id_carrera", $carrera["id_carrera"])->where("id_universidad", $id_universidad)->first();
         $carreraUpdated = $uc->update($carrera);
         if (!$carreraUpdated)
          array_push($carrerasNoActualizadas, $uc->first()["nombre_carrera"]);
