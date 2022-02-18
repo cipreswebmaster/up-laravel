@@ -31,6 +31,7 @@
   @endif
 
   <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/swal.min.css") }}">
   <link rel="stylesheet" href="{{ mix("/css/general.css") }}">
   <link rel="stylesheet" href="{{ mix("/css/header.css") }}">
   <link rel="stylesheet" href="{{ mix("css/footer.css") }}">
