@@ -17,8 +17,10 @@ class ActualidadUniversitaria extends Component
     public function __construct()
     {
       $posts = array_values(
-        Post::where("seccion", "Actualidad universitaria")->get()
-            ->reverse()->toArray()
+        Post::where("seccion", "Actualidad universitaria")
+            ->orderBy("created_at", "desc")
+            ->get()
+            ->toArray()
       );
       foreach ($posts as &$post) {
         $post["created_at"] = explode("T", $post["created_at"])[0];
