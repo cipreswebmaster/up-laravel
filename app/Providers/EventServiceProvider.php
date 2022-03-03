@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Universidad;
 use App\Models\UniversidadCarrera;
+use App\Observers\UniversidadCarreraObserver;
 use App\Observers\UniversidadObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -31,6 +32,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         Universidad::observe(UniversidadObserver::class);
-        UniversidadCarrera::observe(UniversidadCarrera::class);
+        UniversidadCarrera::observe(UniversidadCarreraObserver::class);
     }
 }
