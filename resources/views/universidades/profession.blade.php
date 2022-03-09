@@ -13,22 +13,6 @@
     session_start();
 @endphp
 
-@php
-  function getPrice($price) {
-    $_price = "$";
-    $priceWithoutDots = str_replace(".", "", $price);
-    if (!is_numeric($priceWithoutDots))
-      return $price;
-    for ($i = 0; $i < strlen($priceWithoutDots); $i++) {
-      $_price .= $priceWithoutDots[$i];
-      $dotContinue = (strlen($priceWithoutDots) - ($i + 1)) % 3 == 0;
-      if ($dotContinue && $i + 1 < strlen($priceWithoutDots))
-        $_price .= ".";
-    }
-    return $_price;
-  }
-@endphp
-
 @section('body')
   <x-banner
     :topText="$profesion['nombre_carrera']"
@@ -90,7 +74,7 @@
               </ul>
             </div>
           </div>
-          <div class="contacto btn">
+          <div class="contacto btn" data-micromodal-trigger="modal-1">
             <span class="btn_link">
               Quiero ser contactado
             </span>
@@ -318,6 +302,7 @@
     const contactoBtn = document.querySelectorAll(".contacto.btn");
     contactoBtn.forEach(function (btn) {
       btn.addEventListener("click", function () {
+        console.log('asdasd');
         Swal.fire({
           title: "Quiero ser contactado",
           html:
@@ -332,6 +317,7 @@
             '</form>',
           showConfirmButton: false
         });
+        ajustarEnVentanasGrandes();
       });
     });
 
@@ -358,5 +344,13 @@
         `,
       });
     });
+
+    function ajustarEnVentanasGrandes() {
+      const top = document.documentElement.scrollTop;
+      const swalContainer = document.querySelector(".swal2-container.swal2-center.swal2-backdrop-show");
+      swalContainer.style.height = "100vh";
+      swalContainer.style.position = "absolute";
+      swalContainer.style.top = top + "px";
+    }
   </script>
 @endsection
