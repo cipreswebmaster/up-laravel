@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ActualizacionBBDD extends Model
 {
     use HasFactory;
+    protected $table = "actualizaciones";
+    protected $primaryKey = "id_actualizacion";
     protected $guarded = [];
 }

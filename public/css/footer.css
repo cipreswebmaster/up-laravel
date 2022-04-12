@@ -1,1 +1,63 @@
-footer{border-top:.5px solid rgba(0,0,0,.1);display:flex!important;width:100%}footer>div{padding:50px 75px}footer a{color:gray}footer .copyright{align-items:flex-start;border-right:.25px solid rgba(0,0,0,.1);display:flex;flex-direction:column;justify-content:center;width:40%}footer .copyright .img{margin-bottom:30px;width:35%}footer .copyright .img img{filter:grayscale(1)}footer .copyright .content{color:gray;font-size:.9rem}footer .info{border-left:.25px solid rgba(0,0,0,.1);display:flex;width:60%}footer .info h2{font-size:1.2rem;margin-bottom:15px}footer .info>div{width:50%}footer .info .websites li{list-style:none;margin-bottom:5px}footer .info .politics{margin-bottom:30px}footer .info .social-media .footer-icons{align-items:center;display:flex}footer .info .social-media .footer-icons a{margin-right:15px;width:15%}@media only screen and (max-width:768px){footer{display:none!important}}
+footer {
+  width: 100%;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+  display: flex !important;
+}
+footer > div {
+  padding: 50px 75px;
+}
+footer a {
+  color: gray;
+}
+footer .copyright {
+  width: 40%;
+  border-right: 0.25px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+footer .copyright .img {
+  width: 35%;
+  margin-bottom: 30px;
+}
+footer .copyright .img img {
+  filter: grayscale(1);
+}
+footer .copyright .content {
+  color: gray;
+  font-size: 0.9rem;
+}
+footer .info {
+  width: 60%;
+  border-left: 0.25px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+footer .info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+footer .info > div {
+  width: 50%;
+}
+footer .info .websites li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+footer .info .politics {
+  margin-bottom: 30px;
+}
+footer .info .social-media .footer-icons {
+  display: flex;
+  align-items: center;
+}
+footer .info .social-media .footer-icons a {
+  width: 15%;
+  margin-right: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    display: none !important;
+  }
+}

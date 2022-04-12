@@ -32,14 +32,7 @@
             </div>
           </div>
         @endfor
-        @if (
-          !isset($_SESSION["logged"]) ||
-          (isset($_SESSION["logged"]) && $_SESSION["state"] == 1)
-        )
-          <a href="/membresias" class="ver-mas">Ver más</a>
-        @else
-          <a href="/actualidad" class="ver-mas">Ver más</a>
-        @endif
+        <a href="/actualidad" class="ver-mas">Ver más</a>
       </div>
     </div>
 </div>

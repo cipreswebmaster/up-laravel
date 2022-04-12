@@ -23,6 +23,7 @@
   <x-horizontal-ad />
   <x-actualidad-universitaria />
   <x-demas-noticias />
+  <x-horizontal-ad />
 </div>
 @endsection
 

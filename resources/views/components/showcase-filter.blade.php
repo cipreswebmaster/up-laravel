@@ -63,7 +63,7 @@
         </div>
       @endif
       @if ($routeName == "uniIndex")
-        <div>
+        <div class="ciudades-filter-container">
           <select name="orderCiudad" id="orderCiudad">
             <option value="0">Todos</option>
             <option value="1">Bogotá</option>
@@ -73,10 +73,12 @@
             <option value="6">Manizales</option>
             <option value="7">Pereira</option>
             <option value="8">Bucaramanga</option>
+            <option value="9">Cartagena</option>
+            <option value="10">Santa Marta</option>
           </select>
         </div>
       @endif
-      <div>
+      <div class="order-alphabetic-container">
         <select name="order" id="order">
           <option value="1">Ordenar por A-Z</option>
           <option value="-1">Ordenar por Z-A</option>

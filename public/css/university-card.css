@@ -1,1 +1,67 @@
-.card{border-radius:10px;cursor:pointer;margin-bottom:15px;overflow:hidden;position:relative;transition:all .1s ease-in}.card:hover{transform:scale(1.05)}.card.non{display:none}.card .uni_img{border-radius:50%;left:50%;overflow:hidden;position:absolute;top:45%;transform:translate(-50%,-50%);width:50%}.card .layer .header_img{height:170px;overflow:hidden}.card .layer .header_img img{height:100%;-o-object-fit:cover;object-fit:cover;width:100%}.card .layer .info{background-color:#252146;color:#fff;height:185px}.card .layer .info .title{font-family:Poppins-SemiBold;padding-top:80px}.card .layer .info .ciudad,.card .layer .info .title{font-size:1.1rem;line-height:1;text-align:center}@media only screen and (max-width:768px){.card .uni_img{top:30%}.card .layer .header_img{height:70px}.card .layer .header_img img{height:auto!important}.card .layer .info .title{font-size:.9rem;padding:50px 10px 0}}
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+.card:hover {
+  transform: scale(1.05, 1.05);
+}
+.card.non {
+  display: none;
+}
+.card .uni_img {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.card .layer .header_img {
+  height: 170px;
+  overflow: hidden;
+}
+.card .layer .header_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card .layer .info {
+  background-color: #252146;
+  color: #fff;
+  height: 185px;
+}
+.card .layer .info .title {
+  padding-top: 80px;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1;
+  font-family: "Poppins-SemiBold";
+}
+.card .layer .info .ciudad {
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .card .uni_img {
+    top: 30%;
+  }
+  .card .layer .header_img {
+    height: 70px;
+  }
+  .card .layer .header_img img {
+    height: auto !important;
+  }
+  .card .layer .info .title {
+    font-size: 0.9rem;
+    padding: 50px 10px;
+    padding-bottom: 0px;
+  }
+}

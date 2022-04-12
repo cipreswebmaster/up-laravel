@@ -1,1 +1,91 @@
-*,:after,:before{box-sizing:border-box;font-family:Poppins,Roboto,Cambria,Cochin,Georgia,Times,Times New Roman,serif;margin:0;padding:0}html{scroll-behavior:smooth}body{min-height:100vh;min-width:1415px}main{margin-right:0;margin-top:125px;overflow-x:hidden}img{width:100%}a{color:#000;text-decoration:none!important}.only-mobile{display:none!important}@font-face{font-family:Roboto;src:url(/assets/fonts/RobotoRegular.ttf)}@font-face{font-family:Poppins;src:url(/assets/fonts/PoppinsLight.ttf)}@font-face{font-family:Poppins-ExtraBold;src:url(/assets/fonts/PoppinsExtraBold.ttf)}@font-face{font-family:Poppins-SemiBold;src:url(/assets/fonts/PoppinsSemiBold.ttf)}@font-face{font-family:Poppins-Medium;src:url(/assets/fonts/PoppinsMedium.ttf)}@media only screen and (min-width:1580px){body{left:50%;margin:0;position:relative;transform:translate(-50%)}header{position:relative!important}main{margin-top:0}}@media only screen and (max-width:768px){body{min-width:unset;overflow-x:hidden}.only-pc{display:none!important}.only-mobile{display:flex!important;justify-content:center;margin:10px;width:100vw}}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, Roboto, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 1415px;
+  min-height: 100vh;
+}
+
+main {
+  margin-top: 125px;
+  margin-right: 0px;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none !important;
+  color: #000;
+}
+
+.only-mobile {
+  display: none !important;
+}
+
+/* Fonts */
+@font-face {
+  font-family: Roboto;
+  src: url("/assets/fonts/RobotoRegular.ttf");
+}
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/fonts/PoppinsLight.ttf");
+}
+@font-face {
+  font-family: Poppins-ExtraBold;
+  src: url("/assets/fonts/PoppinsExtraBold.ttf");
+}
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url("/assets/fonts/PoppinsSemiBold.ttf");
+}
+@font-face {
+  font-family: Poppins-Medium;
+  src: url("/assets/fonts/PoppinsMedium.ttf");
+}
+@media only screen and (min-width: 1580px) {
+  body {
+    margin: 0;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  header {
+    position: relative !important;
+  }
+
+  main {
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    min-width: unset;
+  }
+
+  .only-pc {
+    display: none !important;
+  }
+
+  .only-mobile {
+    display: flex !important;
+    justify-content: center;
+    width: 100vw;
+    margin: 10px;
+  }
+}

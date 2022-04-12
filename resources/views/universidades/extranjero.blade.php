@@ -12,20 +12,6 @@
 @php
   $uniImg = str_replace(".","-banner.",$universidad["img_name"]);
 
-  function getPrice($price) {
-    $_price = "$";
-    $priceWithoutDots = str_replace(".", "", $price);
-    if (!is_numeric($priceWithoutDots))
-      return $price;
-    for ($i = 0; $i < strlen($priceWithoutDots); $i++) {
-      $_price .= $priceWithoutDots[$i];
-      $dotContinue = (strlen($priceWithoutDots) - ($i + 1)) % 3 == 0;
-      if ($dotContinue && $i + 1 < strlen($priceWithoutDots))
-        $_price .= ".";
-    }
-    return $_price;
-  }
-
   $bannerText = "Universidades en " . $universidad["abreviatura_pais"];
   $banner = $universidad["abreviatura_pais"] . ".jpg";
 

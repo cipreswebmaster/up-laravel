@@ -1,1 +1,61 @@
-.show_all{background-color:#252146;border-radius:5px;color:#fff;cursor:pointer;display:inline-block;font-family:Poppins-SemiBold;font-size:1.5rem;margin-left:8%;margin-top:2.5%;padding:20px 35px}.uni-content{padding:0 8%}.uni-content .perfiles_basicos{margin-top:25px}.uni-content .perfiles_basicos .title{color:#606060;font-family:Poppins-SemiBold;font-size:1.5rem;margin-bottom:5px}.uni-content .perfiles_basicos .perfiles{display:grid;gap:25px;grid-template-columns:1fr 1fr 1fr 1fr}.uni-content .perfiles_basicos .perfiles .card>a{pointer-events:none}.uni-content .perfiles_basicos .perfiles .card .layer .info{background-color:#d8d8d8}.uni-content .perfiles_basicos .perfiles .card .layer .info .title{color:#252146}.uni-content .perfiles_basicos .perfiles .card .layer .info .ciudad{border-bottom:2px solid #fff;color:#252146;font-family:Poppins-SemiBold;font-size:.8rem;margin:0 45px;padding-bottom:5px}.uni-content .perfiles_basicos .perfiles .card .layer .info .rankings{color:#252146;font-size:.8rem;margin-top:5px;text-align:center}@media only screen and (max-width:768px){.show_all{font-size:.65rem!important;padding:10px 25px!important;width:80%}}
+.show_all {
+  margin-top: 2.5%;
+  display: inline-block;
+  margin-left: 8%;
+  background-color: #252146;
+  color: #fff;
+  font-family: Poppins-SemiBold;
+  padding: 20px 35px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.uni-content {
+  padding: 0 8%;
+}
+.uni-content .perfiles_basicos {
+  margin-top: 25px;
+}
+.uni-content .perfiles_basicos .title {
+  color: #606060;
+  font-family: Poppins-SemiBold;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+.uni-content .perfiles_basicos .perfiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+}
+.uni-content .perfiles_basicos .perfiles .card > a {
+  pointer-events: none;
+}
+.uni-content .perfiles_basicos .perfiles .card .layer .info {
+  background-color: #d8d8d8;
+}
+.uni-content .perfiles_basicos .perfiles .card .layer .info .title {
+  color: #252146;
+}
+.uni-content .perfiles_basicos .perfiles .card .layer .info .ciudad {
+  color: #252146;
+  font-size: 0.8rem;
+  font-family: "Poppins-SemiBold";
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+  margin: 0px 45px;
+}
+.uni-content .perfiles_basicos .perfiles .card .layer .info .rankings {
+  color: #252146;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .show_all {
+    width: 80%;
+    font-size: 0.65rem !important;
+    padding: 10px 25px !important;
+  }
+}

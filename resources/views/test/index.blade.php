@@ -120,6 +120,8 @@
         'event_category': "INICIAR TEST",
         "event_label": "{{ Request::url() }}"
       });
+
+      ajustarEnVentanasGrandes();
     });
 
     const verPlanes = document.getElementById("ver-planes");
@@ -129,5 +131,13 @@
         "event_label": "{{ Request::url() }}"
       });
     });
+
+    function ajustarEnVentanasGrandes() {
+      const top = document.documentElement.scrollTop;
+      const swalContainer = document.querySelector(".swal2-container.swal2-center.swal2-backdrop-show");
+      swalContainer.style.height = "100vh";
+      swalContainer.style.position = "absolute";
+      swalContainer.style.top = top + "px";
+    }
   </script>
 @endsection

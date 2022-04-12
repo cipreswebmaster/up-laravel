@@ -1,1 +1,370 @@
-main{overflow:unset}a{color:inherit!important}.columns{display:flex;justify-content:space-between;padding:0 50px}.columns>div.column:first-child{width:calc(35% - 20px)}.columns>div.column:last-child{width:calc(65% - 20px)}.columns .column .side_menu{margin-top:54.5px;position:sticky;top:150px}.columns .column .side_menu .career_menu_section{cursor:pointer;display:flex}.columns .column .side_menu .career_menu_section.active .name{color:#fa5a4c}.columns .column .side_menu .career_menu_section.active .drawing .circle{background-color:#fa5a4c}.columns .column .side_menu .career_menu_section .drawing{align-items:center;display:flex;flex-direction:column;width:25px}.columns .column .side_menu .career_menu_section .drawing .circle{background-color:#bdbfc2;border-radius:50%;height:25px;width:25px}.columns .column .side_menu .career_menu_section .drawing .line{background-color:#bdbfc2;height:calc(100% - 25px);min-height:15px;width:2px}.columns .column .side_menu .career_menu_section .name{word-wrap:break-word;color:#bdbfc2;font-size:1.2rem;overflow-wrap:break-word;padding-left:15px}.columns .column .video .frame{width:100%}.columns .column .profit-graph{background-color:#252146;border-radius:7.5px;height:315px;width:100%}.columns .column .profit-graph .graph{color:#fff;display:flex;padding:15px;width:100%}.columns .column .profit-graph .graph .wages{height:250px;width:60%}.columns .column .profit-graph .graph .wages .wages-title{color:#fff;font-family:Poppins-SemiBold;margin-bottom:15px;text-align:center}.columns .column .profit-graph .graph .wages #lineChart{height:100%!important;width:100%!important}.columns .column .profit-graph .graph .employability{padding-left:15px;width:40%}.columns .column .profit-graph .graph .employability .donut{display:flex;height:75%}.columns .column .profit-graph .graph .employability .donut .title{font-family:Poppins-SemiBold;margin-bottom:5px;margin-top:5px;text-align:center}.columns .column .profit-graph .graph .employability .donut>div{width:50%}.columns .column .profit-graph .graph .employability .donut .percentage{display:flex;flex-direction:column;font-size:50px;justify-content:center;padding-left:15px;text-align:center}.columns .column .profit-graph .graph .employability .donut .percentage div{font-size:.75rem}.columns .column .sections{margin-top:75px}.columns .column .sections .single_section{display:flex}.columns .column .sections .single_section .style_line{display:flex;flex-direction:column;margin-right:10px}.columns .column .sections .single_section .style_line.no_line .line{width:0}.columns .column .sections .single_section .style_line .point{background-color:transparent;border:2px solid #000;border-radius:50%;height:20px;position:relative;width:20px}.columns .column .sections .single_section .style_line .point .small_point{background-color:#000;border-radius:50%;height:10px;left:50%;margin:-5px 0 0 -5px;position:absolute;top:50%;width:10px}.columns .column .sections .single_section .style_line .line{align-self:center;background-color:#f0f2f5;height:calc(100% - 20px);width:.5px}.columns .column .sections .single_section .info{width:calc(100% - 20px)}.columns .column .sections .single_section .info .sec_title{align-items:center;display:flex;position:relative;top:-10px}.columns .column .sections .single_section .info .sec_title h2{margin-bottom:0!important}.columns .column .sections .single_section .info .sec_content{margin-bottom:75px}.columns .column .sections .single_section .info .sec_content .catalogue .actual_phase{background-color:#f0f2f5;border-radius:7.5px;color:#606060;display:flex;margin-bottom:20px}.columns .column .sections .single_section .info .sec_content .catalogue .p_img{display:flex;flex-direction:column;justify-content:center;width:20%}.columns .column .sections .single_section .info .sec_content .catalogue .p_info{font-size:1.1rem;padding:20px;width:80%}.columns .column .sections .single_section .info .sec_content .catalogue .p_title{font-size:1.5rem;font-weight:700;margin-bottom:40px}.columns .column .sections .single_section .info .sec_content .catalogue .phases_list{display:grid;gap:20px;grid-template-columns:1fr 1fr 1fr}.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase{background-color:#f0f2f5;border-radius:5px;cursor:pointer;min-width:100px;padding:0 5px}.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase.active{background-color:#e3f5ff;color:#fff}.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase .title{color:#000;font-family:Poppins;font-size:.8rem;font-weight:700;line-height:1;margin:0;padding:0 5px 10px}.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase img{left:50%;margin-bottom:15px;position:relative;transform:translateX(-50%);width:50%}.columns .column .sections .single_section .info .sec_content .list{display:flex;flex-wrap:wrap}.columns .column .sections .single_section .info .sec_content .list .item{border-radius:25px;margin-bottom:10px;margin-right:10px;padding:10px 25px}.columns .column .sections .single_section .info .sec_content .list .item.red{background-color:#feeeed;color:#fa5a4c}.columns .column .sections .single_section .info .sec_content .list .item.blue{background-color:#e5ecf9;color:#2e63af}.columns .column .sections .doble_section{display:flex}.columns .column .sections .doble_section .no_styled_list{list-style:none}.columns .column .sections .doble_section .no_styled_list li:not(:last-child){margin-bottom:25px}.where_to_study{cursor:pointer;display:flex;justify-content:center;margin-bottom:50px}.where_to_study .where{border:1px solid #fa5a4c;border-radius:50px;padding:5px;position:relative;transform:translateX(calc(-50% + 50px))}.where_to_study .where .inner_content{align-items:center;background-color:#fa5a4c;border-radius:50px;color:#fff;display:flex;height:50px;padding:0 50px}.where_to_study .next_step{align-items:center;display:flex}@media only screen and (max-width:768px){.title_on_loading{margin-top:200px}.columns{flex-direction:column;margin:0!important;padding:0!important}.columns>div{width:100%!important}.columns .video{max-width:768px}.columns .video iframe{width:100%}.columns .profit-graph{height:615px!important}.columns .profit-graph .graph{flex-direction:column}.columns .profit-graph .graph>div{width:100%!important}.columns .profit-graph .graph .wages{height:200px;position:relative}.columns .profit-graph .graph .employability{height:250px;margin-top:75px}.columns .single_section{padding-left:15px;width:100%!important}.columns .single_section .sec_title{top:0!important}.columns .single_section .sec_title h2{font-size:1.2rem;font-weight:700}.columns .single_section .sec_content{font-size:.9rem}.columns .single_section .sec_content .catalogue{padding-right:15px}.columns .single_section .sec_content .catalogue .p_title{font-size:1.2rem!important}.columns .single_section .sec_content .catalogue .p_descrip{font-size:.9rem!important}.columns .single_section .sec_content .catalogue .phases_list{grid-template-columns:1fr 1fr!important}.columns .single_section .sec_content .catalogue .phases_list .phase .title{font-size:.7rem!important}.columns .single_section .sec_content .doble_section,.doble_section{flex-direction:column}.doble_section{display:flex}.single_section{padding-right:15px}.where_to_study{flex-direction:column;margin:0}.where_to_study .where{position:relative;transform:unset}.where_to_study .where .inner_content{display:flex;justify-content:center}}
+main {
+  overflow: unset;
+}
+
+a {
+  color: inherit !important;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 50px;
+}
+.columns > div.column:first-child {
+  width: calc(35% - 20px);
+}
+.columns > div.column:last-child {
+  width: calc(65% - 20px);
+}
+.columns .column .side_menu {
+  margin-top: 54.5px;
+  position: sticky;
+  top: 150px;
+}
+.columns .column .side_menu .career_menu_section {
+  display: flex;
+  cursor: pointer;
+}
+.columns .column .side_menu .career_menu_section.active .name {
+  color: #fa5a4c;
+}
+.columns .column .side_menu .career_menu_section.active .drawing .circle {
+  background-color: #fa5a4c;
+}
+.columns .column .side_menu .career_menu_section .drawing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25px;
+}
+.columns .column .side_menu .career_menu_section .drawing .circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #bdbfc2;
+}
+.columns .column .side_menu .career_menu_section .drawing .line {
+  min-height: 15px;
+  height: calc(100% - 25px);
+  width: 2px;
+  background-color: #bdbfc2;
+}
+.columns .column .side_menu .career_menu_section .name {
+  color: #bdbfc2;
+  padding-left: 15px;
+  font-size: 1.2rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.columns .column .video .frame {
+  width: 100%;
+}
+.columns .column .profit-graph {
+  width: 100%;
+  height: 315px;
+  background-color: #252146;
+  border-radius: 7.5px;
+}
+.columns .column .profit-graph .graph {
+  width: 100%;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+}
+.columns .column .profit-graph .graph .wages {
+  width: 60%;
+  height: 250px;
+}
+.columns .column .profit-graph .graph .wages .wages-title {
+  font-family: Poppins-SemiBold;
+  margin-bottom: 15px;
+  color: #fff;
+  text-align: center;
+}
+.columns .column .profit-graph .graph .wages #lineChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+.columns .column .profit-graph .graph .employability {
+  width: 40%;
+  padding-left: 15px;
+}
+.columns .column .profit-graph .graph .employability .donut {
+  height: 75%;
+  display: flex;
+}
+.columns .column .profit-graph .graph .employability .donut .title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: Poppins-SemiBold;
+  text-align: center;
+}
+.columns .column .profit-graph .graph .employability .donut > div {
+  width: 50%;
+}
+.columns .column .profit-graph .graph .employability .donut .percentage {
+  font-size: 50px;
+  text-align: center;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.columns .column .profit-graph .graph .employability .donut .percentage div {
+  font-size: 0.75rem;
+}
+.columns .column .sections {
+  margin-top: 75px;
+}
+.columns .column .sections .single_section {
+  display: flex;
+}
+.columns .column .sections .single_section .style_line {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+.columns .column .sections .single_section .style_line.no_line .line {
+  width: 0px;
+}
+.columns .column .sections .single_section .style_line .point {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.columns .column .sections .single_section .style_line .point .small_point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0px 0px -5px;
+}
+.columns .column .sections .single_section .style_line .line {
+  height: calc(100% - 20px);
+  width: 0.5px;
+  background-color: #f0f2f5;
+  align-self: center;
+}
+.columns .column .sections .single_section .info {
+  width: calc(100% - 20px);
+}
+.columns .column .sections .single_section .info .sec_title {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -10px;
+}
+.columns .column .sections .single_section .info .sec_title h2 {
+  margin-bottom: 0px !important;
+}
+.columns .column .sections .single_section .info .sec_content {
+  margin-bottom: 75px;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .actual_phase {
+  display: flex;
+  background-color: #f0f2f5;
+  border-radius: 7.5px;
+  color: #606060;
+  margin-bottom: 20px;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .p_img {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .p_info {
+  width: 80%;
+  padding: 20px;
+  font-size: 1.1rem;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .p_title {
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .phases_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase {
+  background-color: #f0f2f5;
+  cursor: pointer;
+  padding: 0px 5px;
+  border-radius: 5px;
+  min-width: 100px;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase.active {
+  background-color: #e3f5ff;
+  color: #fff;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase .title {
+  margin: 0px;
+  padding: 0px 5px 10px 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1;
+  font-family: Poppins;
+  color: #000;
+}
+.columns .column .sections .single_section .info .sec_content .catalogue .phases_list .phase img {
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px;
+}
+.columns .column .sections .single_section .info .sec_content .list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.columns .column .sections .single_section .info .sec_content .list .item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px 25px;
+  border-radius: 25px;
+}
+.columns .column .sections .single_section .info .sec_content .list .item.red {
+  background-color: #feeeed;
+  color: #fa5a4c;
+}
+.columns .column .sections .single_section .info .sec_content .list .item.blue {
+  background-color: #e5ecf9;
+  color: #2e63af;
+}
+.columns .column .sections .doble_section {
+  display: flex;
+}
+.columns .column .sections .doble_section .no_styled_list {
+  list-style: none;
+}
+.columns .column .sections .doble_section .no_styled_list li:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.where_to_study {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+.where_to_study .where {
+  position: relative;
+  transform: translateX(calc(-50% + 50px));
+  padding: 5px;
+  border: 1px solid #fa5a4c;
+  border-radius: 50px;
+}
+.where_to_study .where .inner_content {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #fa5a4c;
+  color: #fff;
+  padding: 0px 50px;
+  border-radius: 50px;
+}
+.where_to_study .next_step {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .title_on_loading {
+    margin-top: 200px;
+  }
+
+  .columns {
+    flex-direction: column;
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+  .columns > div {
+    width: 100% !important;
+  }
+  .columns .video {
+    max-width: 768px;
+  }
+  .columns .video iframe {
+    width: 100%;
+  }
+  .columns .profit-graph {
+    height: 615px !important;
+  }
+  .columns .profit-graph .graph {
+    flex-direction: column;
+  }
+  .columns .profit-graph .graph > div {
+    width: 100% !important;
+  }
+  .columns .profit-graph .graph .wages {
+    height: 200px;
+    position: relative;
+  }
+  .columns .profit-graph .graph .employability {
+    margin-top: 75px;
+    height: 250px;
+  }
+  .columns .single_section {
+    width: 100% !important;
+    padding-left: 15px;
+  }
+  .columns .single_section .sec_title {
+    top: 0 !important;
+  }
+  .columns .single_section .sec_title h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .columns .single_section .sec_content {
+    font-size: 0.9rem;
+  }
+  .columns .single_section .sec_content .catalogue {
+    padding-right: 15px;
+  }
+  .columns .single_section .sec_content .catalogue .p_title {
+    font-size: 1.2rem !important;
+  }
+  .columns .single_section .sec_content .catalogue .p_descrip {
+    font-size: 0.9rem !important;
+  }
+  .columns .single_section .sec_content .catalogue .phases_list {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .columns .single_section .sec_content .catalogue .phases_list .phase .title {
+    font-size: 0.7rem !important;
+  }
+  .columns .single_section .sec_content .doble_section {
+    flex-direction: column;
+  }
+
+  .doble_section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .single_section {
+    padding-right: 15px;
+  }
+
+  .where_to_study {
+    flex-direction: column;
+    margin: 0px;
+  }
+  .where_to_study .where {
+    position: relative;
+    transform: unset;
+  }
+  .where_to_study .where .inner_content {
+    display: flex;
+    justify-content: center;
+  }
+}

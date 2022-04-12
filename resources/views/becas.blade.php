@@ -26,7 +26,10 @@
               <img src="{{ env("API_URL") . "/images/becas/" . Str::slug($beca["nombre_beca"]) . ".jpg" }}" alt="" />
             </div>
             <div class="name_link">
-              <div class="name">{{ $beca["nombre_beca"] }}</div>
+              <div class="name">
+                {{ $beca["nombre_beca"] }} <br>
+                Vigencia: {{ $beca["vigencia"] }}
+              </div>
               <a href="{{ $beca["link"] }}" target="_blank" rel="noopener noreferrer">
                 <div class="link">Ver información</div>
               </a>

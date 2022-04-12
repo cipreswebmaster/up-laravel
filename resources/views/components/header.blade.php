@@ -47,13 +47,13 @@
               Cerrar Sesión
             </a>
           </div>
-          <div class="planes-btn">
+          {{-- <div class="planes-btn">
             <a href="/membresias">Conoce UP Premium</a>
-          </div>
+          </div> --}}
         @else
-          <div class="planes-btn">
+          {{-- <div class="planes-btn">
             <a href="/membresias">Conoce UP Premium</a>
-          </div>
+          </div> --}}
           <div class="ref login link">
             <a href="{{ url("login") }}" class="logginout">
               Iniciar Sesión

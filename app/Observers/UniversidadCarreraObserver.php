@@ -29,11 +29,17 @@ class UniversidadCarreraObserver
      * @return void
      */
     public function updated(UniversidadCarrera $universidadCarrera)
-    {
-      $carrera = Profesion::find($universidadCarrera["id_carrera"]);
-      $universidad = Universidad::find($universidadCarrera["id_universidad"]);
-      $reference = $carrera["nombre_carrera"] + " en " + $universidad["nombre_universidad"];
-      $this->makeActualizacion($universidadCarrera, $reference);
+    { 
+      $changes = $universidadCarrera->getChanges();
+      $changes_arr = [
+        "precio_semestre" => preg_replace("/[^0-9]/", "", $changes["precio_semestre"])
+      ];
+      $original = $universidadCarrera->getOriginal();
+      $original_arr = [
+        "precio_semestre" => preg_replace("/[^0-9]/", "", $original["precio_semestre"])
+      ];
+
+      $this->makeActualizacion("universidad_carrera", $universidadCarrera->id_universidad_carrera, $changes_arr, $original_arr);
     }
 
     /**

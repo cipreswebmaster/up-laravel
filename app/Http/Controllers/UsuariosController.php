@@ -207,6 +207,27 @@ class UsuariosController extends Controller
     return back();
   }
 
+  #region API
+  public function usuarios() {
+    return User::select([
+        "id_user",
+        "names",
+        "last_names",
+        "id_gender", 
+        "phone_number",
+        "email", 
+        "birthday",
+        "document", 
+        "has_test",
+        "4beyond_token_id",
+        "created_at"
+      ])
+      ->orderBy("created_at", "desc")
+      ->get()
+      ->toJson(JSON_UNESCAPED_UNICODE);
+  }
+  #endregion
+
   /**
    * Genera una cadena de caracteres aleatorio que será usado como código de login
    * 

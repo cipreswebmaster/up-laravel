@@ -1,1 +1,74 @@
-.c-row{display:flex;margin:30px 175px}.c-row .c-column{width:50%}.c-row .text{font-family:Poppins-ExtraBold;font-size:1.7rem;padding:50px 25px}.c-row .form-container{background-color:#e8e8e8;padding:60px}.c-row .form-container form{background-color:#fff;border-radius:5px;display:flex;flex-direction:column;padding:25px}.c-row .form-container form .input{background-color:#f1efef;border:none;margin-bottom:5px;outline:none;padding:15px}.c-row .form-container form .input::-moz-placeholder{color:#000}.c-row .form-container form .input:-ms-input-placeholder{color:#000}.c-row .form-container form .input::placeholder{color:#000}.c-row .form-container form .textarea{resize:none}.c-row .form-container form .submit{background-color:#ff5a47;border:none;font-weight:700;padding:5px;text-align:center;text-transform:uppercase;width:20%}.c-row .image{padding:0 50px}.c-row .contact-info{margin:50px}.c-row .contact-info>div{display:flex;margin-bottom:15px}.c-row .contact-info>div .thumbnail img{width:90%}.c-row .contact-info>div .legend{display:flex;flex-direction:column;justify-content:center;margin-left:15px}.c-row .contact-info>div .legend .title{font-weight:700;text-transform:uppercase}
+.c-row {
+  display: flex;
+  margin: 30px 175px;
+}
+.c-row .c-column {
+  width: 50%;
+}
+.c-row .text {
+  font-family: Poppins-ExtraBold;
+  padding: 50px 25px;
+  font-size: 1.7rem;
+}
+.c-row .form-container {
+  background-color: #e8e8e8;
+  padding: 60px;
+}
+.c-row .form-container form {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 5px;
+}
+.c-row .form-container form .input {
+  border: none;
+  outline: none;
+  background-color: #f1efef;
+  padding: 15px;
+  margin-bottom: 5px;
+}
+.c-row .form-container form .input::-moz-placeholder {
+  color: #000;
+}
+.c-row .form-container form .input:-ms-input-placeholder {
+  color: #000;
+}
+.c-row .form-container form .input::placeholder {
+  color: #000;
+}
+.c-row .form-container form .textarea {
+  resize: none;
+}
+.c-row .form-container form .submit {
+  width: 20%;
+  text-transform: uppercase;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  background-color: #ff5a47;
+  font-weight: bold;
+}
+.c-row .image {
+  padding: 0px 50px;
+}
+.c-row .contact-info {
+  margin: 50px;
+}
+.c-row .contact-info > div {
+  display: flex;
+  margin-bottom: 15px;
+}
+.c-row .contact-info > div .thumbnail img {
+  width: 90%;
+}
+.c-row .contact-info > div .legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+.c-row .contact-info > div .legend .title {
+  text-transform: uppercase;
+  font-weight: bold;
+}

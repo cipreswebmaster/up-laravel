@@ -114,7 +114,23 @@
         }
 
         .order {
-            width: 75%;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            select {
+                margin: unset;
+            }
+
+            .ciudades-filter-container,
+            .order-alphabetic-container {
+                width: 50%;
+            }
+
+            .select-country,
+            .arrow-icon {
+                width: 25%;
+            }
         }
     }
 }

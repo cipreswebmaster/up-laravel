@@ -29,7 +29,18 @@ class UniversidadObserver
      */
     public function updated(Universidad $universidad)
     {
-      $this->makeActualizacion($universidad, "nombre_universidad");
+      $changes = $universidad->getChanges();
+      $changes_arr = [
+        "link_internacionalizacion" => $changes["link_internacionalizacion"],
+        "web" => $changes["web"]
+      ];
+      $original = $universidad->getOriginal();
+      $original_arr = [
+        "link_internacionalizacion" => $original["link_internacionalizacion"],
+        "web" => $original["web"]
+      ];
+
+      $this->makeActualizacion("universidades", $universidad->id_universidad, $changes_arr, $original_arr);
     }
 
     /**

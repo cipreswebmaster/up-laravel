@@ -1,12 +1,18 @@
 <?php
 
 use App\Http\Controllers\ContactoController;
+use App\Mail\LeadFinanciero;
 use App\Models\Acreditacion;
+use App\Models\ActualizacionBBDD;
 use App\Models\Ciudad;
 use App\Models\Pais;
+use App\Models\Profesion;
 use App\Models\Universidad;
+use App\Models\UniversidadCarrera;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -90,8 +96,35 @@ Route::prefix("login")->group(function () {
     ->name("comprobar_codigo");
 });
 
+Route::post("/lead-financiero", function (Request $request) {
+  $nombre = $request->nombre;
+  $correo = $request->correo;
+  $monto = $request->monto;
+  $uso = $request->uso;
+  // Mail::to("j.pacheco@cipres.com.co")
+  Mail::to("webmaster@cipresdecolombia.com")
+        ->send(new LeadFinanciero($nombre, $correo, $monto, $uso));
+
+  $previous_url = url()->previous();
+  return redirect($previous_url . "?show_success=true");
+})
+  ->name("lead-financiero");
+
 /* API */
 Route::prefix("api")->group(function () {
+  #region API 2.0
+  /**
+   * Usuarios
+   */
+  Route::prefix("usuarios")->group(function () {
+    Route::get("/", "UsuariosController@usuarios");
+  });
+  #endregion
+
+
+  /**
+   * Api 1.0
+   */
   Route::post("/add_post", "PostsController@add_post");
   Route::post("/get_posts", "PostsController@get_posts");
   Route::post("/delete_post", "PostsController@delete_post");
@@ -169,5 +202,26 @@ Route::prefix("admin")->group(function () {
     
     echo "Total de perfiles premiums: " . $total_premium . "<br />";
     echo "Total de perfiles básicos: " . $total_basicos;
+  });
+
+  Route::get("/actualizaciones/carreras", function () {
+    $actualizaciones = ActualizacionBBDD::where("table_name", "universidad_carrera")->get();
+    $data = [];
+    foreach ($actualizaciones as $actu) {
+      $modelo = UniversidadCarrera::find($actu->id_reference);
+      $universidad = Universidad::find($modelo->id_universidad);
+      $carrera = Profesion::find($modelo->id_carrera);
+      $current = [
+        "universidad" => $universidad->nombre_universidad,
+        "carrera" => $carrera->nombre_carrera,
+        "states" => [
+          "previous" => json_decode($actu->previous_state),
+          "new" => json_decode($actu->new_state)
+        ],
+        "fecha" => $actu->created_at
+      ];
+      array_push($data, $current);
+    }
+    return view("actualizaciones_carreras", compact("data"));
   });
 });

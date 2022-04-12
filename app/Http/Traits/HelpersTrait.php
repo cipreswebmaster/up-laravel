@@ -191,21 +191,21 @@ trait HelpersTrait {
    * 
    * @return void
    */
-  public function makeActualizacion(Model $model, string $reference) { 
-    $original_values = $model->getOriginal();
-    $changed_fields = $model->getChanges();
-    
-    $keys_changed = array_keys($changed_fields);
-    $original_values_changed = [];
-    foreach ($keys_changed as $key)
-      $original_values_changed[$key] = $original_values[$key];
-    
+  public function makeActualizacion(string $table, int $id_reference, array $changes, array $original) {
+    $have_same_keys = count(array_diff_key($changes, $original)) == 0;
+    if (!$have_same_keys)
+      throw new \Exception("Arrays does not have same keys");
+
+    $changes_serialized = json_encode($changes);
+    $original_serialized = json_encode($original);
+
     $log = new ActualizacionBBDD();
-    $log->table = $model->getTable();
-    $log->previous_state = serialize($original_values_changed);
-    $log->new_state = serialize($changed_fields);
-    $log->reference = $original_values[$reference];
-    $log->save(); 
+    $log->timestamps = false;
+    $log->table_name = $table;
+    $log->id_reference = $id_reference;
+    $log->previous_state = $original_serialized;
+    $log->new_state = $changes_serialized;
+    $log->save();
   }
 
   /**
